@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Speed — Turbocharge your business</title>
+  <meta name="description" content="Speed is the all-in-one finance platform for ambitious businesses — invoicing, banking, inventory, production and reporting in one fast, beautiful workspace." />
+  <link rel="icon" type="image/svg+xml" href="assets/Logo-Pri.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Scroll progress bar -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="#top" aria-label="Speed home">
+        <img src="assets/Logo-Pri.svg" alt="Speed" />
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#product">Product</a>
+        <a href="#modules">Modules</a>
+        <a href="#numbers">Why Speed</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--ghost" href="#">Sign in</a>
+        <a class="btn btn--primary" href="#cta">Get started<span class="btn__arrow">→</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__glow" data-parallax="0.18"></div>
+        <div class="hero__grid"></div>
+      </div>
+
+      <div class="container hero__content">
+        <p class="hero__eyebrow" data-hero="1">
+          <span class="pulse-dot"></span> The operating system for modern finance
+        </p>
+        <h1 class="hero__title">
+          <span class="line-mask"><span data-hero="2">Run your business</span></span>
+          <span class="line-mask"><span data-hero="3">at full <em class="accent">Speed.</em></span></span>
+        </h1>
+        <p class="hero__sub" data-hero="4">
+          Invoicing, banking, inventory, production and reporting — unified in one
+          fast, beautiful workspace built for businesses that refuse to slow down.
+        </p>
+        <div class="hero__cta" data-hero="5">
+          <a class="btn btn--primary btn--lg" href="#cta">Start free trial<span class="btn__arrow">→</span></a>
+          <a class="btn btn--outline btn--lg" href="#product">See how it works</a>
+        </div>
+      </div>
+
+      <!-- Floating dashboard mock -->
+      <div class="container hero__stage" data-hero="6">
+        <div class="dash" data-tilt>
+          <div class="dash__topbar">
+            <span class="dash__dot"></span><span class="dash__dot"></span><span class="dash__dot"></span>
+            <span class="dash__addr">app.speed.finance/dashboard</span>
+          </div>
+          <div class="dash__body">
+            <aside class="dash__side">
+              <div class="dash__side-item is-active">Dashboard</div>
+              <div class="dash__side-item">Invoices</div>
+              <div class="dash__side-item">Banking</div>
+              <div class="dash__side-item">Inventory</div>
+              <div class="dash__side-item">Production</div>
+              <div class="dash__side-item">Reports</div>
+            </aside>
+            <div class="dash__main">
+              <div class="dash__head">
+                <div>
+                  <div class="dash__hi">Good morning, Kanyin</div>
+                  <div class="dash__date">Wednesday, July 2</div>
+                </div>
+                <span class="dash__chip">This month ▾</span>
+              </div>
+              <div class="dash__cards">
+                <div class="dash__card">
+                  <span class="dash__label">Revenue</span>
+                  <span class="dash__value" data-count="128450" data-prefix="$">$0</span>
+                  <span class="dash__delta up">↑ 18.2%</span>
+                </div>
+                <div class="dash__card">
+                  <span class="dash__label">Outstanding</span>
+                  <span class="dash__value" data-count="23900" data-prefix="$">$0</span>
+                  <span class="dash__delta">14 invoices</span>
+                </div>
+                <div class="dash__card">
+                  <span class="dash__label">Cash on hand</span>
+                  <span class="dash__value" data-count="402113" data-prefix="$">$0</span>
+                  <span class="dash__delta up">↑ 6.4%</span>
+                </div>
+              </div>
+              <div class="dash__chart" aria-hidden="true">
+                <div class="bar" style="--h:36%"></div><div class="bar" style="--h:52%"></div>
+                <div class="bar" style="--h:44%"></div><div class="bar" style="--h:68%"></div>
+                <div class="bar" style="--h:58%"></div><div class="bar" style="--h:80%"></div>
+                <div class="bar" style="--h:64%"></div><div class="bar" style="--h:90%"></div>
+                <div class="bar" style="--h:74%"></div><div class="bar" style="--h:98%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- floating accent cards -->
+        <div class="float-card float-card--pay" data-parallax="-0.35">
+          <span class="float-card__icon">✓</span>
+          <div><strong>Payment received</strong><small>Acme Ltd · $4,200.00</small></div>
+        </div>
+        <div class="float-card float-card--stock" data-parallax="-0.2">
+          <div><strong>Stock synced</strong><small>3 warehouses · just now</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <section class="marquee-wrap reveal">
+      <p class="marquee-label">Trusted by finance teams at fast-moving companies</p>
+      <div class="marquee">
+        <div class="marquee__track">
+          <span>NORTHWIND</span><span>ACME&nbsp;CO</span><span>HELIX</span><span>LUMEN</span>
+          <span>FORGE</span><span>ATLAS</span><span>KITE</span><span>EMBER</span>
+          <span>NORTHWIND</span><span>ACME&nbsp;CO</span><span>HELIX</span><span>LUMEN</span>
+          <span>FORGE</span><span>ATLAS</span><span>KITE</span><span>EMBER</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRODUCT HIGHLIGHTS ============ -->
+    <section class="section" id="product">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="kicker">Everything, in one place</p>
+          <h2>From first invoice<br />to month-end close.</h2>
+        </div>
+
+        <!-- Highlight 1 -->
+        <div class="highlight">
+          <div class="highlight__copy reveal">
+            <span class="highlight__num">01</span>
+            <h3>Get paid without the chase</h3>
+            <p>Send polished invoices in seconds, take payments online, and let
+            automatic reminders and recurring billing do the follow-up for you.
+            Quotes convert to invoices in one click.</p>
+            <ul class="ticks">
+              <li>Invoices, quotes &amp; credit notes</li>
+              <li>Recurring billing on autopilot</li>
+              <li>Multi-currency payments</li>
+            </ul>
+          </div>
+          <div class="highlight__visual reveal reveal--right">
+            <div class="mock mock--invoice">
+              <div class="mock__row mock__row--head"><span>Invoice</span><span>Status</span><span>Amount</span></div>
+              <div class="mock__row"><span>INV-1042 · Acme Ltd</span><span class="pill pill--paid">Paid</span><span>$4,200</span></div>
+              <div class="mock__row"><span>INV-1041 · Helix Group</span><span class="pill pill--sent">Sent</span><span>$1,850</span></div>
+              <div class="mock__row"><span>INV-1040 · Lumen Studio</span><span class="pill pill--paid">Paid</span><span>$9,600</span></div>
+              <div class="mock__row"><span>INV-1039 · Kite &amp; Co</span><span class="pill pill--due">Overdue</span><span>$720</span></div>
+              <div class="mock__row"><span>INV-1038 · Atlas Corp</span><span class="pill pill--paid">Paid</span><span>$12,400</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Highlight 2 -->
+        <div class="highlight highlight--flip">
+          <div class="highlight__copy reveal">
+            <span class="highlight__num">02</span>
+            <h3>Your money, in real time</h3>
+            <p>Connect bank accounts and wallets, reconcile transactions in a
+            keystroke, and watch cash flow update live. Month-end close goes
+            from weeks to hours.</p>
+            <ul class="ticks">
+              <li>Bank feeds &amp; smart reconciliation</li>
+              <li>Multi-wallet treasury</li>
+              <li>Guided month-end close</li>
+            </ul>
+          </div>
+          <div class="highlight__visual reveal reveal--left">
+            <div class="mock mock--bank">
+              <div class="mock__balance">
+                <small>Total balance</small>
+                <strong data-count="402113" data-prefix="$">$0</strong>
+              </div>
+              <div class="spark" aria-hidden="true">
+                <svg viewBox="0 0 300 80" preserveAspectRatio="none">
+                  <path class="spark__line" d="M0,64 C30,58 45,66 70,52 C95,38 110,50 135,42 C160,34 175,44 200,30 C225,16 245,26 270,14 L300,8" />
+                  <path class="spark__fill" d="M0,64 C30,58 45,66 70,52 C95,38 110,50 135,42 C160,34 175,44 200,30 C225,16 245,26 270,14 L300,8 L300,80 L0,80 Z" />
+                </svg>
+              </div>
+              <div class="mock__row"><span>⬤ Operating · GTB</span><span></span><span>$214,020</span></div>
+              <div class="mock__row"><span>⬤ Payroll · Access</span><span></span><span>$96,300</span></div>
+              <div class="mock__row"><span>⬤ USD Wallet</span><span></span><span>$91,793</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Highlight 3 -->
+        <div class="highlight">
+          <div class="highlight__copy reveal">
+            <span class="highlight__num">03</span>
+            <h3>Know your stock, run your floor</h3>
+            <p>Track inventory across warehouses, manage production runs and cost
+            of sales, and never oversell again. Speed keeps operations and
+            accounting in perfect sync.</p>
+            <ul class="ticks">
+              <li>Multi-warehouse stock levels</li>
+              <li>Production &amp; bill of materials</li>
+              <li>Purchase orders &amp; vendors</li>
+            </ul>
+          </div>
+          <div class="highlight__visual reveal reveal--right">
+            <div class="mock mock--stock">
+              <div class="mock__row mock__row--head"><span>Product</span><span>Warehouse</span><span>On hand</span></div>
+              <div class="mock__row"><span>Café Blend 1kg</span><span>Lagos HQ</span><span class="stock-ok">1,240</span></div>
+              <div class="mock__row"><span>Filter Papers</span><span>Abuja</span><span class="stock-ok">860</span></div>
+              <div class="mock__row"><span>Cold Brew Bottles</span><span>Lagos HQ</span><span class="stock-low">32 low</span></div>
+              <div class="mock__row"><span>Gift Boxes</span><span>PH Depot</span><span class="stock-ok">410</span></div>
+              <div class="mock__meter"><span style="--w:78%"></span></div>
+              <small class="mock__note">Production run #86 — 78% complete</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MODULES GRID ============ -->
+    <section class="section section--tint" id="modules">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="kicker">One platform, every workflow</p>
+          <h2>Built like a suite.<br />Feels like one product.</h2>
+        </div>
+        <div class="grid stagger">
+          <div class="cell"><span class="cell__icon">◫</span><h4>Invoicing</h4><p>Invoices, quotes, credit notes and recurring billing that get you paid faster.</p></div>
+          <div class="cell"><span class="cell__icon">⬒</span><h4>Banking</h4><p>Live bank feeds, wallets and one-click reconciliation across every account.</p></div>
+          <div class="cell"><span class="cell__icon">▤</span><h4>Inventory</h4><p>Stock levels, transfers and adjustments across unlimited warehouses.</p></div>
+          <div class="cell"><span class="cell__icon">⚙</span><h4>Production</h4><p>Plan runs, track cost of sales and keep the floor and the books aligned.</p></div>
+          <div class="cell"><span class="cell__icon">✉</span><h4>Purchasing</h4><p>Purchase orders, bills, vendors and expenses — approvals included.</p></div>
+          <div class="cell"><span class="cell__icon">◔</span><h4>Reports</h4><p>P&amp;L, balance sheet and a Report Studio for the questions in between.</p></div>
+          <div class="cell"><span class="cell__icon">◎</span><h4>Budgets</h4><p>Set targets, track variance and catch overspend before it happens.</p></div>
+          <div class="cell"><span class="cell__icon">✦</span><h4>Campaigns</h4><p>Reach customers where they are and tie revenue back to every send.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NUMBERS ============ -->
+    <section class="section section--dark" id="numbers">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="kicker kicker--light">Why teams switch</p>
+          <h2>Speed pays for itself.</h2>
+        </div>
+        <div class="stats stagger">
+          <div class="stat">
+            <strong><span data-count="12">0</span>×</strong>
+            <p>faster month-end close, from weeks to hours</p>
+          </div>
+          <div class="stat">
+            <strong><span data-count="98">0</span>%</strong>
+            <p>of invoices reconciled automatically</p>
+          </div>
+          <div class="stat">
+            <strong>$<span data-count="4" >0</span>B+</strong>
+            <p>processed through the platform every year</p>
+          </div>
+          <div class="stat">
+            <strong><span data-count="140">0</span>+</strong>
+            <p>countries with multi-currency support</p>
+          </div>
+        </div>
+
+        <figure class="quote reveal">
+          <blockquote>“We replaced four tools with Speed. Our close went from three
+          weeks to two days, and for the first time the ops team and the finance
+          team are looking at the same numbers.”</blockquote>
+          <figcaption><strong>Adaeze O.</strong> — CFO, Northwind Trading</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="kicker">Pricing</p>
+          <h2>Start free.<br />Scale when you do.</h2>
+        </div>
+        <div class="plans stagger">
+          <div class="plan">
+            <h4>Starter</h4>
+            <div class="plan__price">₦0<span>/mo</span></div>
+            <p>For new businesses finding their feet.</p>
+            <ul class="ticks">
+              <li>Unlimited invoices &amp; quotes</li>
+              <li>1 bank connection</li>
+              <li>Basic reports</li>
+            </ul>
+            <a class="btn btn--outline btn--block" href="#cta">Get started</a>
+          </div>
+          <div class="plan plan--featured">
+            <span class="plan__badge">Most popular</span>
+            <h4>Growth</h4>
+            <div class="plan__price">₦45,000<span>/mo</span></div>
+            <p>For teams ready to move fast.</p>
+            <ul class="ticks">
+              <li>Everything in Starter</li>
+              <li>Inventory &amp; production</li>
+              <li>Unlimited banks &amp; wallets</li>
+              <li>Budgets &amp; Report Studio</li>
+            </ul>
+            <a class="btn btn--primary btn--block" href="#cta">Start free trial<span class="btn__arrow">→</span></a>
+          </div>
+          <div class="plan">
+            <h4>Scale</h4>
+            <div class="plan__price">Custom</div>
+            <p>For multi-entity, multi-country operations.</p>
+            <ul class="ticks">
+              <li>Everything in Growth</li>
+              <li>Multi-entity consolidation</li>
+              <li>Dedicated success manager</li>
+            </ul>
+            <a class="btn btn--outline btn--block" href="#cta">Talk to sales</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta section--dark" id="cta">
+      <div class="cta__glow" aria-hidden="true"></div>
+      <div class="container reveal">
+        <h2>Ready to move<br /><em class="accent">at full Speed?</em></h2>
+        <p>Set up takes minutes. Your first invoice can go out today.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary btn--lg" href="#">Create free account<span class="btn__arrow">→</span></a>
+          <a class="btn btn--outline-light btn--lg" href="#">Book a demo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="assets/Logo-Pri.svg" alt="Speed" />
+        <p>Turbocharging businesses globally.</p>
+      </div>
+      <div class="footer__cols">
+        <div><h5>Product</h5><a href="#product">Highlights</a><a href="#modules">Modules</a><a href="#pricing">Pricing</a></div>
+        <div><h5>Company</h5><a href="#">About</a><a href="#">Careers</a><a href="#">Blog</a></div>
+        <div><h5>Support</h5><a href="#">Help center</a><a href="#">Contact</a><a href="#">Status</a></div>
+      </div>
+    </div>
+    <div class="container footer__base">
+      <span>© 2026 Speed Technologies</span>
+      <span>Privacy · Terms</span>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
