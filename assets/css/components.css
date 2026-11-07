@@ -1,0 +1,1421 @@
+/* speed. shared components: base, type, the one button, links, discs, chips,
+   picture frames, top bar and its menus, and the phone menu.
+   Built once, reused on every page (Components chapter, v4.1). */
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--color-graphite);
+  font-family: var(--font-sans);
+  font-size: var(--type-body);
+  line-height: 1.55;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+figure,
+dl,
+dd {
+  margin: 0;
+}
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+a {
+  color: inherit;
+}
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+::selection {
+  background: var(--color-volt);
+  color: var(--color-graphite);
+}
+:focus-visible {
+  outline: 2px solid var(--focus-outline, var(--color-graphite));
+  outline-offset: 2px;
+  box-shadow: var(--focus-halo, none);
+}
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+.container {
+  width: var(--container);
+  margin-inline: auto;
+}
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+}
+@media (max-width: 1023px) {
+  .grid-12 {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+}
+@media (max-width: 767px) {
+  .grid-12 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Type ---------- */
+.t-display,
+.t-h1,
+.t-h2,
+.t-h3,
+.t-h4 {
+  font-weight: 700;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.t-display {
+  font-size: var(--type-display);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.t-h1 {
+  font-size: var(--type-h1);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.t-h2 {
+  font-size: var(--type-h2);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.t-h3 {
+  font-size: var(--type-h3);
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  font-weight: 600;
+}
+.t-h4 {
+  font-size: var(--type-h4);
+  line-height: 1.3;
+  font-weight: 600;
+}
+.t-body-l {
+  font-size: var(--type-body-l);
+  line-height: 1.5;
+  color: var(--ink-sub);
+  text-wrap: pretty;
+}
+.t-body {
+  font-size: var(--type-body);
+  line-height: 1.55;
+  color: var(--ink-sub);
+  text-wrap: pretty;
+}
+.t-small {
+  font-size: var(--type-small);
+  line-height: 1.5;
+  color: var(--ink-sub);
+}
+.t-label {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: var(--type-label);
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-label);
+}
+/* Our name keeps its lower case inside capital labels ("BEFORE speed."). */
+.t-label .wm-text,
+.wm-text {
+  text-transform: none;
+  letter-spacing: 0;
+}
+.num {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+/* Two-tone headlines: line 1 Bold in the ink, line 2 Regular in the second tone. */
+.hl-1,
+.hl-2 {
+  display: block;
+}
+.hl-2 {
+  font-weight: 400;
+  color: var(--ink-2);
+}
+.hl-inline {
+  display: inline;
+}
+.italic {
+  font-style: italic;
+}
+
+/* ---------- The wordmark ---------- */
+.wordmark {
+  display: block;
+  height: auto;
+  overflow: visible;
+}
+.wordmark .wm-letters {
+  fill: var(--wm-ink, currentColor);
+  transition: fill var(--dur-ui) var(--ease-speed-out);
+}
+.wordmark .wm-dot {
+  fill: var(--color-volt);
+}
+/* On light surfaces the dot sits on its graphite setting, so it can be seen. */
+.wordmark .wm-setting {
+  fill: var(--color-graphite);
+  opacity: var(--wm-setting, 0);
+  transition: opacity var(--dur-ui) var(--ease-speed-out);
+}
+
+/* ---------- The dot ---------- */
+.dot {
+  --d: 8px;
+  display: inline-block;
+  flex: none;
+  width: var(--d);
+  height: var(--d);
+  border-radius: 50%;
+  background: var(--color-volt);
+}
+[data-tone="dark"] .dot--glow {
+  box-shadow: 0 0 16px rgba(212, 246, 79, 0.6);
+}
+/* Graphite setting on light and volt: a disc 8 px wider than the dot. */
+[data-tone="light"] .dot,
+[data-tone="volt"] .dot {
+  box-shadow: 0 0 0 4px var(--color-graphite);
+}
+
+/* ---------- Icons ---------- */
+.icon {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.icon--16 {
+  width: 16px;
+  height: 16px;
+}
+.icon--24 {
+  width: 24px;
+  height: 24px;
+}
+.glyph {
+  fill: currentColor;
+  stroke: none;
+}
+.disc {
+  --disc: 36px;
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: var(--disc);
+  height: var(--disc);
+  border-radius: 50%;
+  background: var(--disc-bg);
+  box-shadow: var(--disc-edge);
+  color: var(--disc-ink);
+}
+.disc--44 {
+  --disc: 44px;
+}
+
+/* ---------- The one button ---------- */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: var(--btn-h);
+  min-width: 160px;
+  max-width: 100%;
+  padding: 0 var(--btn-pad-x);
+  border-radius: var(--radius-pill);
+  background: var(--btn-bg);
+  color: var(--btn-ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    transform var(--dur-hover) var(--ease-speed-out),
+    filter var(--dur-hover) var(--ease-speed-out),
+    background-color var(--dur-ui) var(--ease-speed-out),
+    color var(--dur-ui) var(--ease-speed-out);
+}
+.btn .icon {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--dur-hover) var(--ease-speed-out);
+}
+.btn:active {
+  transform: scale(var(--press));
+}
+.btn--compact {
+  height: var(--btn-h-compact);
+  min-width: 0;
+  padding: 0 18px;
+  font-size: 0.9375rem;
+}
+/* The compact button keeps a 44 px hit area. */
+.btn--compact::before {
+  content: "";
+  position: absolute;
+  inset: -2px 0;
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    transform: translateY(calc(-1 * var(--lift-button)));
+    filter: brightness(1.06);
+  }
+  .btn:hover .icon {
+    transform: translateX(var(--nudge));
+  }
+  .btn:active {
+    transform: scale(var(--press));
+  }
+}
+/* Neutral white button, for photographs and dark surfaces (the hero). */
+.btn--white {
+  --btn-bg: #fff;
+  --btn-ink: var(--color-graphite);
+}
+.btn-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.btn-caption {
+  margin-top: var(--caption-gap);
+  max-width: 424px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: var(--type-label);
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-sub);
+}
+@media (max-width: 767px) {
+  .btn-block {
+    align-items: stretch;
+  }
+  .btn-block .btn {
+    width: 100%;
+  }
+  .btn-caption {
+    margin-top: 8px;
+    text-align: center;
+  }
+}
+
+/* ---------- Text link (words →) ---------- */
+.text-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+}
+.text-link .icon {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--dur-hover) var(--ease-speed-out);
+}
+.text-link > span {
+  background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 0% 1px;
+  transition: background-size var(--dur-ui) var(--ease-speed-out);
+  padding-bottom: 2px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .text-link:hover .icon {
+    transform: translateX(var(--nudge));
+  }
+  .text-link:hover > span {
+    background-size: 100% 1px;
+  }
+}
+
+/* ---------- Glass ---------- */
+.glass {
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+.glass--dark {
+  background: var(--glass-dark-fill);
+  box-shadow: var(--glass-dark-edge), var(--shadow-glass-dark);
+  color: #fff;
+}
+.glass--light {
+  background: var(--glass-light-fill);
+  box-shadow: var(--glass-light-edge), var(--shadow-glass-light);
+  color: var(--color-graphite);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass--dark {
+    background: rgba(29, 29, 31, 0.92);
+  }
+  .glass--light {
+    background: rgba(255, 255, 255, 0.94);
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .glass--dark {
+    background: rgba(29, 29, 31, 0.92);
+  }
+  .glass--light {
+    background: rgba(255, 255, 255, 0.94);
+  }
+}
+
+/* Glass chip on a picture: one line, a believable figure. */
+.chip {
+  position: absolute;
+  z-index: var(--z-raised);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.chip .num,
+.chip .mono {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+.chip .tick {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-graphite);
+  color: var(--color-volt);
+}
+.chip .tick .icon {
+  width: 12px;
+  height: 12px;
+  stroke-width: 2.5;
+}
+
+/* ---------- Picture frame and placeholder art ---------- */
+.frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-picture);
+  isolation: isolate;
+}
+[data-tone="dark"] .frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+  z-index: 20;
+}
+/* The photo slots are art-directed placeholders until the generated pictures
+   arrive. Each carries a small tag naming its shot, so nobody mistakes the
+   placeholder for the final picture. Set data-hide-ph-tags on <html> to hide. */
+.ph-tag {
+  position: absolute;
+  z-index: 15;
+  left: 16px;
+  bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: calc(100% - 32px);
+  padding: 7px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(10, 10, 11, 0.42);
+  color: rgba(255, 255, 255, 0.86);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  pointer-events: none;
+}
+.ph-tag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-volt);
+}
+[data-hide-ph-tags] .ph-tag {
+  display: none;
+}
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='128' height='128'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 1 0'/></filter><rect width='128' height='128' filter='url(%23n)'/></svg>");
+}
+
+/* ---------- Skip link ---------- */
+.skip-link {
+  position: fixed;
+  z-index: var(--z-skip);
+  top: 16px;
+  left: 16px;
+  padding: 12px 20px;
+  border-radius: var(--radius-pill);
+  background: var(--color-graphite);
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-150%);
+  transition: transform var(--dur-ui) var(--ease-speed-out);
+  --focus-outline: var(--color-volt);
+}
+.skip-link:focus-visible {
+  transform: none;
+}
+
+/* ---------- Top bar ----------
+   Structure from harvey.ai: one full-width bar fixed to the top of the page,
+   the wordmark at the left gutter with the links straight after it (three
+   menus and one plain link), and Log in plus the one small button at the
+   right. It never condenses or moves; once the page scrolls under it a
+   frosted tint appears behind it. Colour from Revolut's neutral nav: no brand
+   colour in the bar, white on dark surfaces and graphite on light ones, and
+   the button flips with them. The wordmark keeps its volt dot. */
+.topbar {
+  position: fixed;
+  z-index: var(--z-topbar);
+  inset: 0 0 auto 0;
+  pointer-events: none;
+  color: var(--ink);
+}
+.topbar[data-tone="dark"] {
+  --ink: #fff;
+  --ink-sub: rgba(255, 255, 255, 0.64);
+  --bar-fill: rgba(20, 20, 22, 0.72);
+  --bar-edge: rgba(255, 255, 255, 0.1);
+  --hover-fill: rgba(255, 255, 255, 0.1);
+  --btn-bg: #fff;
+  --btn-ink: var(--color-graphite);
+  --wm-ink: #fff;
+  --wm-setting: 0;
+  --focus-outline: #fff;
+  --focus-halo: none;
+}
+.topbar[data-tone="light"],
+.topbar[data-tone="volt"] {
+  --ink: var(--color-graphite);
+  --ink-sub: var(--color-text-grey);
+  --bar-fill: rgba(255, 255, 255, 0.78);
+  --bar-edge: rgba(29, 29, 31, 0.08);
+  --hover-fill: rgba(29, 29, 31, 0.06);
+  --btn-bg: var(--color-graphite);
+  --btn-ink: #fff;
+  --wm-ink: var(--color-graphite);
+  --wm-setting: 1;
+  --focus-outline: var(--color-graphite);
+  --focus-halo: none;
+}
+/* The tint: nothing at the top of the page, a frosted band once content
+   passes under the bar. It follows the tone of the section beneath. */
+.topbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--bar-fill);
+  box-shadow: inset 0 -1px 0 var(--bar-edge);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  opacity: 0;
+  transition:
+    opacity var(--dur-ui) var(--ease-speed-out),
+    background-color var(--dur-ui) var(--ease-speed-out);
+}
+.topbar.is-scrolled::before,
+.menu-open .topbar::before {
+  opacity: 1;
+}
+/* The row: wordmark, links, actions, on one line the width of the page. */
+.topbar__row {
+  --wm-w: 92px;
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: 20px;
+  width: var(--container);
+  height: 72px;
+  margin-inline: auto;
+  pointer-events: auto;
+  color: var(--ink);
+  transition:
+    color var(--dur-ui) var(--ease-speed-out),
+    opacity var(--dur-section) var(--ease-speed-out),
+    transform var(--dur-section) var(--ease-speed-out);
+}
+.topbar.is-loading .topbar__row {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+.topbar__brand {
+  justify-self: start;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  border-radius: 8px;
+  color: var(--ink);
+}
+.topbar__brand .wordmark {
+  width: var(--wm-w);
+}
+/* The links sit straight after the wordmark. One soft pill glides from link
+   to link under the pointer (Harvey's single moving marker, in our round
+   shape), and while a menu is open the other links step back. */
+.topbar__nav {
+  position: relative;
+  justify-self: start;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.nav-glow {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: var(--glow-w, 0);
+  height: 40px;
+  border-radius: var(--radius-pill);
+  background-color: var(--hover-fill);
+  opacity: 0;
+  transform: translate(var(--glow-x, 0), -50%);
+  pointer-events: none;
+  transition:
+    transform var(--dur-ui) var(--ease-speed-out),
+    width var(--dur-ui) var(--ease-speed-out),
+    opacity var(--dur-hover) var(--ease-speed-out),
+    background-color var(--dur-ui) var(--ease-speed-out);
+}
+.nav-glow.is-on {
+  opacity: 1;
+}
+.nav-glow.is-jump {
+  transition: opacity var(--dur-hover) var(--ease-speed-out);
+}
+.nav-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: color var(--dur-ui) var(--ease-speed-out);
+}
+.nav-item .icon {
+  width: 14px;
+  height: 14px;
+  opacity: 0.7;
+  transition: transform var(--dur-ui) var(--ease-speed-out);
+}
+.nav-item[aria-expanded="true"] .icon {
+  transform: rotate(180deg);
+}
+/* Without the gliding pill (no script, or touch), each link lights itself. */
+.topbar__nav:not(.has-glow) .nav-item:hover,
+.topbar__nav:not(.has-glow) .nav-item[aria-expanded="true"] {
+  background-color: var(--hover-fill);
+}
+.topbar__nav.has-open .nav-item:not([aria-expanded="true"]):not(:hover) {
+  color: var(--ink-sub);
+}
+.nav-item:active {
+  transform: scale(var(--press));
+}
+.topbar__actions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.topbar__login {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color var(--dur-hover) var(--ease-speed-out);
+}
+.topbar__login:hover {
+  background-color: var(--hover-fill);
+}
+.topbar__login:active {
+  transform: scale(var(--press));
+}
+.topbar .btn--compact {
+  height: 40px;
+  padding: 0 18px;
+  font-size: 0.875rem;
+}
+/* The phone menu button: the three strokes, which turn into a cross in place
+   while the menu is open. */
+.topbar__menu {
+  display: none;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: var(--ink);
+}
+.menu-strokes line {
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  transition:
+    transform var(--dur-ui) var(--ease-speed-out),
+    opacity var(--dur-ui) var(--ease-speed-out);
+  transform-box: view-box;
+  transform-origin: center;
+}
+.menu-strokes .ms-x {
+  opacity: 0;
+  transform: rotate(-32deg) scale(0.6);
+}
+.menu-open .topbar__menu .ms-s {
+  opacity: 0;
+  transform: rotate(32deg) scale(0.6);
+}
+.menu-open .topbar__menu .ms-x {
+  opacity: 1;
+  transform: none;
+}
+@media (max-width: 1199px) {
+  .nav-item {
+    padding: 0 11px;
+  }
+  .topbar__login {
+    padding: 0 10px;
+  }
+}
+/* Phones and tablets (as harvey.ai): the wordmark and the menu button only.
+   The links, Log in and the button live in the menu. */
+@media (max-width: 1023px) {
+  .topbar__row {
+    --wm-w: 72px;
+    height: 64px;
+  }
+  .topbar__nav,
+  .topbar__login,
+  .topbar .btn--compact,
+  .menu-shell {
+    display: none;
+  }
+  .topbar__menu {
+    display: grid;
+    margin-right: -10px;
+  }
+}
+
+/* ---------- Product, Use cases and Company menus ----------
+   One floating card under the bar, the width of the page grid. Its layout is
+   Harvey's: the links in columns on the left and one featured card with a
+   picture on the right, no footer. Moving between menus keeps the card open;
+   it resizes to the new menu while the contents crossfade. The rows keep
+   Evervault's square outlined tiles. Neutral like the bar: near-black on
+   dark pages, white on light ones. */
+.menu-shell {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: max(var(--margin), calc(50% - var(--container) / 2));
+  width: var(--container);
+  height: var(--shell-h, auto);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  color: var(--ink);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  opacity: 0;
+  transform: translateY(-8px) scale(0.99);
+  transform-origin: 50% 0;
+  visibility: hidden;
+  transition:
+    opacity 150ms var(--ease-speed-out),
+    transform 150ms var(--ease-speed-out),
+    visibility 0s linear 150ms,
+    height var(--dur-ui) var(--ease-speed-out),
+    background-color var(--dur-ui) var(--ease-speed-out);
+}
+.menu-shell.is-open {
+  pointer-events: auto;
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  transition:
+    opacity var(--dur-ui) var(--ease-speed-out),
+    transform var(--dur-ui) var(--ease-speed-out),
+    visibility 0s,
+    height var(--dur-ui) var(--ease-speed-out),
+    background-color var(--dur-ui) var(--ease-speed-out);
+}
+.menu-shell.is-fresh {
+  transition:
+    opacity var(--dur-ui) var(--ease-speed-out),
+    transform var(--dur-ui) var(--ease-speed-out),
+    visibility 0s;
+}
+.topbar[data-tone="dark"] .menu-shell {
+  --line: rgba(255, 255, 255, 0.08);
+  --tile-edge: rgba(255, 255, 255, 0.14);
+  --tile-ink: #fff;
+  --hover-fill: rgba(255, 255, 255, 0.06);
+  background-color: rgba(18, 18, 20, 0.94);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 24px 64px rgba(0, 0, 0, 0.4);
+}
+.topbar[data-tone="light"] .menu-shell,
+.topbar[data-tone="volt"] .menu-shell {
+  --line: rgba(29, 29, 31, 0.08);
+  --tile-edge: rgba(29, 29, 31, 0.12);
+  --tile-ink: var(--color-graphite);
+  --hover-fill: rgba(29, 29, 31, 0.04);
+  background-color: rgba(255, 255, 255, 0.96);
+  box-shadow: inset 0 0 0 1px rgba(29, 29, 31, 0.08), var(--shadow-lifted);
+}
+.menu-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 120ms var(--ease-speed-out),
+    visibility 0s linear 120ms;
+}
+.menu-panel.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity var(--dur-ui) var(--ease-speed-out) 60ms,
+    visibility 0s;
+}
+.menu-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 32px;
+}
+.menu-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: column;
+  gap: 0 8px;
+  align-content: start;
+}
+.menu-cols--5 {
+  grid-template-rows: repeat(5, auto);
+}
+.menu-cols--3 {
+  grid-template-rows: repeat(3, auto);
+}
+.menu-shell .menu-cols__phone {
+  display: none;
+}
+.menu-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 64px;
+  padding: 10px 12px;
+  border-radius: var(--radius-small);
+  color: var(--ink);
+  text-decoration: none;
+  transition: background-color var(--dur-hover) var(--ease-speed-out);
+}
+.menu-row:hover {
+  background-color: var(--hover-fill);
+}
+.menu-row:active {
+  transform: scale(var(--press));
+}
+/* Square outlined tile in place of the round disc, inside the menus only. */
+.menu-row .disc {
+  --disc: 44px;
+  border-radius: 12px;
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--tile-edge, var(--line));
+  color: var(--tile-ink, var(--ink));
+  transition:
+    transform var(--dur-hover) var(--ease-speed-out),
+    box-shadow var(--dur-hover) var(--ease-speed-out);
+}
+.menu-row:hover .disc {
+  transform: translateY(-1px);
+  box-shadow: inset 0 0 0 1px var(--ink-sub);
+}
+.menu-row__text {
+  flex: 1;
+  min-width: 0;
+}
+.menu-row__name {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.menu-row__line {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--ink-sub);
+}
+.menu-row__arrow {
+  opacity: 0;
+  transform: translateX(-4px);
+  transition:
+    opacity var(--dur-hover) var(--ease-speed-out),
+    transform var(--dur-hover) var(--ease-speed-out);
+}
+.menu-row:hover .menu-row__arrow,
+.menu-row:focus-visible .menu-row__arrow {
+  opacity: 1;
+  transform: none;
+}
+.menu-panel.is-open .menu-cols > li,
+.menu-panel.is-open .uc-group,
+.menu-panel.is-open .menu-feature {
+  animation: row-in var(--dur-ui) var(--ease-speed-out) both;
+}
+.menu-panel.is-open .menu-feature {
+  animation-delay: 40ms;
+}
+@keyframes row-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+/* The featured card (Harvey's picture card): a picture, a title with a small
+   tag, and one line. */
+.menu-feature {
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 12px 16px;
+  border-radius: var(--radius-small);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink);
+  text-decoration: none;
+  transition: background-color var(--dur-hover) var(--ease-speed-out);
+}
+.menu-feature:hover {
+  background-color: var(--hover-fill);
+}
+.menu-feature:active {
+  transform: scale(var(--press));
+}
+.menu-feature__pic {
+  position: relative;
+  display: block;
+  height: 188px;
+  margin-bottom: 6px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.menu-feature__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.menu-feature__line {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--ink-sub);
+}
+/* speed. AI: the chapter's own conversation, on volt. */
+.menu-feature__pic--ai {
+  display: grid;
+  place-items: center;
+  background: var(--color-volt);
+  color: var(--color-graphite);
+}
+.ai-chat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 248px;
+  font-size: 0.6875rem;
+  line-height: 1.35;
+}
+.ai-chat > span {
+  padding: 7px 10px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(93, 110, 20, 0.18);
+  transition: transform var(--dur-section) var(--ease-speed-out);
+}
+.ai-q {
+  align-self: flex-end;
+  max-width: 80%;
+  background: var(--color-graphite);
+  color: #fff;
+}
+.ai-a {
+  display: flex;
+  gap: 6px;
+  max-width: 92%;
+  background: #fff;
+}
+.ai-a .icon {
+  flex: none;
+  width: 14px;
+  height: 14px;
+}
+.ai-s {
+  max-width: 92%;
+  background: rgba(255, 255, 255, 0.72);
+}
+.ai-btns {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+.ai-btns span {
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+}
+.ai-yes {
+  background: var(--color-graphite);
+  color: var(--color-volt);
+}
+.ai-no {
+  box-shadow: inset 0 0 0 1px rgba(29, 29, 31, 0.16);
+}
+.menu-feature:hover .ai-q {
+  transform: translateY(-2px);
+}
+.menu-feature:hover .ai-s {
+  transform: translateY(2px);
+}
+/* Company: the three strokes in volt on graphite. */
+.menu-feature__pic--company {
+  display: grid;
+  place-items: center;
+  background: var(--color-graphite);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  color: var(--color-volt);
+}
+.menu-feature__pic--company svg {
+  width: 112px;
+  transition: transform var(--dur-section) var(--ease-speed-out);
+}
+.menu-feature:hover .menu-feature__pic--company svg {
+  transform: translate(4px, -3px);
+}
+/* Use cases: the six apps folding into one. */
+.uc-card__pic {
+  background: linear-gradient(160deg, #f5f5f7 0%, #e8e8ed 100%);
+}
+.topbar[data-tone="dark"] .uc-card__pic {
+  background: linear-gradient(160deg, #26262a 0%, #1a1a1d 100%);
+}
+.uc-card__pic .uc-stack {
+  position: absolute;
+  inset: 22px 34px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.uc-stack span {
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 6px 16px rgba(29, 29, 31, 0.06);
+  transition: transform var(--dur-section) var(--ease-speed-out);
+}
+.topbar[data-tone="dark"] .uc-stack span {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+.uc-stack span:nth-child(5),
+.topbar[data-tone="dark"] .uc-stack span:nth-child(5) {
+  background: var(--color-volt);
+}
+.menu-feature:hover .uc-stack span {
+  transform: scale(0.94);
+}
+.menu-feature:hover .uc-stack span:nth-child(5) {
+  transform: scale(1.08);
+}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 30%, transparent);
+}
+.tag--solid {
+  background: var(--color-graphite);
+  color: #fff;
+  box-shadow: none;
+}
+[data-tone="dark"] .tag--solid,
+.topbar[data-tone="dark"] .tag--solid {
+  background: #fff;
+  color: var(--color-graphite);
+}
+/* Harvey's small "New" badge, as one of our tags. */
+.tag--mini {
+  height: 20px;
+  padding: 0 8px;
+  font-size: 0.625rem;
+  color: var(--ink-sub);
+}
+.uc-groups {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 24px;
+  padding: 8px 12px;
+}
+.uc-group + .uc-group {
+  margin-top: 20px;
+}
+/* In the menu the value tags read as Evervault-style column labels. */
+.menu-panel .uc-group .tag {
+  height: 24px;
+  padding: 0 10px 0 0;
+  box-shadow: none;
+  font-size: 0.6875rem;
+  color: var(--ink-sub);
+}
+.menu-panel .uc-group .tag:hover {
+  color: var(--ink);
+}
+.uc-group ul {
+  margin-top: 4px;
+}
+.uc-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 34px;
+  padding: 4px 0;
+  line-height: 1.3;
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform var(--dur-hover) var(--ease-speed-out);
+}
+.uc-link .uc-num {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--ink-sub);
+}
+.uc-link:hover {
+  transform: translateX(4px);
+}
+.uc-link:hover .uc-num {
+  font-size: 0;
+}
+.uc-link:hover .uc-num::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.uc-all {
+  margin-top: 20px;
+  min-height: 32px;
+  font-size: 0.875rem;
+}
+@media (max-width: 1199px) {
+  .menu-grid {
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 20px;
+  }
+  .uc-groups {
+    gap: 0 16px;
+  }
+}
+
+/* ---------- Mobile menu (below 1024 px) ----------
+   Opens under the bar, as harvey.ai's does: the bar stays where it is, takes
+   its dark tint, and its menu button becomes the close button. */
+.mobile-menu {
+  --ink: #fff;
+  --ink-sub: rgba(255, 255, 255, 0.72);
+  --ink-label: rgba(255, 255, 255, 0.72);
+  --tile-edge: rgba(255, 255, 255, 0.14);
+  --tile-ink: #fff;
+  --btn-bg: #fff;
+  --btn-ink: var(--color-graphite);
+  --disc-bg: var(--glass-dark-fill);
+  --disc-edge: var(--glass-dark-edge);
+  --disc-ink: #fff;
+  --focus-outline: #fff;
+  --focus-halo: none;
+  --line: var(--line-dark);
+  position: fixed;
+  z-index: calc(var(--z-topbar) - 1);
+  inset: var(--topbar-h, 64px) 0 0 0;
+  display: flex;
+  flex-direction: column;
+  padding: 8px var(--margin) calc(24px + env(safe-area-inset-bottom));
+  background: rgba(20, 20, 22, 0.98);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  color: #fff;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 150ms var(--ease-speed-out),
+    visibility 0s linear 150ms;
+}
+.mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity var(--dur-ui) var(--ease-speed-out),
+    visibility 0s;
+}
+.mm-item {
+  border-bottom: 1px solid var(--line);
+}
+.mm-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 64px;
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #fff;
+  text-decoration: none;
+  text-align: left;
+}
+.mm-row .icon {
+  width: 24px;
+  height: 24px;
+  transition: transform var(--dur-ui) var(--ease-speed-out);
+}
+.mm-row[aria-expanded="true"] .icon {
+  transform: rotate(180deg);
+}
+.mm-sub {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur-ui) var(--ease-speed-out);
+}
+.mm-sub.is-open {
+  grid-template-rows: 1fr;
+}
+.mm-sub > div {
+  overflow: hidden;
+}
+.mm-sub .menu-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 8px 0;
+  color: #fff;
+  text-decoration: none;
+}
+.mm-sub .menu-row__name {
+  font-size: 1rem;
+}
+.mm-sub .menu-row__line {
+  color: rgba(255, 255, 255, 0.72);
+}
+.mm-sub .uc-group {
+  padding: 12px 0 4px;
+}
+.mm-sub .uc-link {
+  min-height: 48px;
+  font-size: 1rem;
+}
+.mm-sub .mm-foot {
+  padding: 8px 0 20px;
+}
+.mobile-menu .btn-block {
+  margin-top: 32px;
+  align-items: stretch;
+}
+.mobile-menu .btn-block .btn {
+  width: 100%;
+}
+.mobile-menu .btn-caption {
+  text-align: center;
+}
+.mobile-menu .mm-login {
+  align-self: center;
+  margin-top: 8px;
+}
+.mm-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-top: auto;
+  padding-top: 32px;
+  font-size: 0.875rem;
+}
+.mm-contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+}
+.mobile-menu.is-open .mm-item,
+.mobile-menu.is-open .btn-block {
+  animation: mm-in var(--dur-ui) var(--ease-speed-out) both;
+}
+.mobile-menu.is-open .mm-item:nth-child(2) {
+  animation-delay: 40ms;
+}
+.mobile-menu.is-open .mm-item:nth-child(3) {
+  animation-delay: 80ms;
+}
+.mobile-menu.is-open .mm-item:nth-child(4) {
+  animation-delay: 120ms;
+}
+.mobile-menu.is-open .btn-block {
+  animation-delay: 160ms;
+}
+@keyframes mm-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+html.menu-open {
+  overflow: hidden;
+}
+
+/* ---------- Entrances (only when scripts run and motion is allowed) ---------- */
+.js-motion [data-reveal] {
+  opacity: 0;
+  transform: translateY(var(--rise));
+  transition:
+    opacity var(--dur-section) var(--ease-speed-out) var(--delay, 0ms),
+    transform var(--dur-section) var(--ease-speed-out) var(--delay, 0ms);
+}
+.js-motion [data-reveal="pic"] {
+  transform: translateY(24px) scale(0.98);
+}
+.js-motion .is-in[data-reveal],
+.js-motion .is-in [data-reveal] {
+  opacity: 1;
+  transform: none;
+}
+.js-reduced [data-reveal] {
+  opacity: 0;
+  transition: opacity var(--dur-ui) linear;
+}
+.js-reduced .is-in[data-reveal],
+.js-reduced .is-in [data-reveal] {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}

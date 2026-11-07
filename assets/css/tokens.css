@@ -1,0 +1,255 @@
+/* speed. design tokens (Website copy v4.1, "Tokens for the builder").
+   Every page of the site reads from this one file. The product pages each get
+   their own look, but only by choosing among these values: if a page needs a
+   value that isn't here, it is added here first, never typed into a page. */
+
+/* Fonts: DM Sans (variable, upright + italic, 200 to 700) and DM Mono Medium,
+   self-hosted. The ₦ sign lives in the latin-ext files, so both subsets ship. */
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("../fonts/dm-sans-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("../fonts/dm-sans-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: italic;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("../fonts/dm-sans-italic-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: italic;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("../fonts/dm-sans-italic-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "DM Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/dm-mono-500-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "DM Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/dm-mono-500-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  /* Brand */
+  --color-graphite: #1d1d1f;
+  --color-volt: #d4f64f;
+  --color-ice: #c6f6fa;
+  --color-cyan: #0fa9ca;
+  --color-soft-grey: #f5f5f7;
+  --color-text-grey: #6e6e73;
+  --color-white: #ffffff;
+
+  /* The ten page colours, dark to light: the home page's journey */
+  --page-1: #0a0a0b; /* midnight */
+  --page-2: #1d1d1f; /* graphite */
+  --page-3: #062a33; /* deep sea */
+  --page-4: #0a4250; /* deep cyan */
+  --page-5: #0b6e83; /* lagoon */
+  --page-6: #0fa9ca; /* cyan */
+  --page-7: #7fd9e8; /* sky */
+  --page-8: #c6f6fa; /* ice */
+  --page-9: #d4f64f; /* volt */
+  --page-10: #ffffff; /* daylight */
+
+  /* Tints (flat, opaque) */
+  --tint-soft-ice: #eefcfe;
+  --tint-ice-50: #e2fafc;
+  --tint-pale-volt: #f2fcca;
+
+  /* Status */
+  --color-error: #e5484d;
+  --color-success: #0fa9ca;
+  --color-warning: #f5a524;
+
+  /* Lines */
+  --line-light: rgba(29, 29, 31, 0.1);
+  --line-dark: rgba(255, 255, 255, 0.1);
+  --line-dark-strong: rgba(255, 255, 255, 0.24);
+  --line-table: #e8e8ed;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+  --space-11: 160px;
+
+  /* Grid */
+  --margin: 60px;
+  --gutter: 24px;
+  --container: min(1320px, 100vw - 2 * var(--margin));
+  --section-pad: 160px;
+  --topbar-h: 64px;
+  --sticky-top: 96px;
+
+  /* Type (rem, so zoom works; lands on the brief's px at 390 and 1440) */
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --type-display: clamp(3rem, 2.071rem + 3.81vw, 5.5rem);
+  --type-h1: clamp(2.75rem, 2.1rem + 2.667vw, 4.5rem);
+  --type-h2: clamp(2rem, 1.629rem + 1.524vw, 3rem);
+  --type-h3: clamp(1.375rem, 1.236rem + 0.571vw, 1.75rem);
+  --type-h4: clamp(1.25rem, 1.204rem + 0.19vw, 1.375rem);
+  --type-body-l: clamp(1.125rem, 1.079rem + 0.19vw, 1.25rem);
+  --type-body: clamp(1rem, 0.954rem + 0.19vw, 1.125rem);
+  --type-small: 0.875rem;
+  --type-label: clamp(0.75rem, 0.727rem + 0.095vw, 0.8125rem);
+  --type-number: clamp(3.5rem, 2.571rem + 3.81vw, 6rem);
+
+  /* Corners */
+  --radius-panel: 40px;
+  --radius-picture: 32px;
+  --radius-card: 24px;
+  --radius-small: 16px;
+  --radius-pill: 999px;
+
+  /* Elevation */
+  --shadow-card: 0 1px 2px rgba(29, 29, 31, 0.06), 0 12px 32px rgba(29, 29, 31, 0.08);
+  --shadow-lifted: 0 24px 64px rgba(29, 29, 31, 0.14);
+  --shadow-glass-dark: 0 8px 32px rgba(0, 0, 0, 0.25);
+  --shadow-glass-light: 0 8px 32px rgba(29, 29, 31, 0.08);
+
+  /* Liquid glass */
+  --glass-blur: blur(24px) saturate(160%);
+  --glass-dark-fill: rgba(255, 255, 255, 0.1);
+  --glass-dark-edge: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  --glass-light-fill: rgba(255, 255, 255, 0.62);
+  --glass-light-edge: inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+  --glass-volt-fill: rgba(29, 29, 31, 0.88);
+  --glass-volt-edge: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+  /* Motion */
+  --ease-speed-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-hover: 150ms;
+  --dur-ui: 300ms;
+  --dur-section: 600ms;
+  --dur-hero: 1200ms;
+  --stagger: 80ms;
+  --rise: 16px;
+  --lift-button: 1px;
+  --lift-card: 4px;
+  --nudge: 4px;
+  --press: 0.98;
+
+  /* Buttons */
+  --btn-h: 48px;
+  --btn-h-compact: 40px;
+  --btn-pad-x: 24px;
+  --btn-pad-x-compact: 16px;
+  --caption-gap: 12px;
+
+  /* Layers */
+  --z-raised: 10;
+  --z-sticky: 100;
+  --z-topbar: 200;
+  --z-menu: 300;
+  --z-dialog: 400;
+  --z-toast: 500;
+  --z-skip: 600;
+}
+
+/* Tablet */
+@media (max-width: 1023px) {
+  :root {
+    --margin: 32px;
+    --container: calc(100vw - 2 * var(--margin));
+    --section-pad: 96px;
+  }
+}
+
+/* Phone */
+@media (max-width: 767px) {
+  :root {
+    --margin: 20px;
+    --gutter: 16px;
+    --section-pad: 72px;
+    --topbar-h: 56px;
+    --sticky-top: 80px;
+    --radius-panel: 32px;
+    --radius-picture: 24px;
+  }
+}
+
+/* Surface tones. Every section says what it sits on (data-tone), and the text,
+   icon discs, buttons and focus rings follow from that, so a component never
+   needs to know which page it is on. Per-colour tweaks for the second headline
+   tone (the colour table in the design system) are set where those colours live. */
+[data-tone="dark"] {
+  --ink: #ffffff;
+  --ink-2: rgba(255, 255, 255, 0.6);
+  --ink-sub: rgba(255, 255, 255, 0.72);
+  --ink-label: rgba(255, 255, 255, 0.72);
+  --disc-bg: var(--glass-dark-fill);
+  --disc-edge: var(--glass-dark-edge);
+  --disc-ink: #ffffff;
+  --btn-bg: var(--color-volt);
+  --btn-ink: var(--color-graphite);
+  --focus-outline: var(--color-volt);
+  --focus-halo: none;
+  --hover-fill: rgba(255, 255, 255, 0.1);
+  --line: var(--line-dark);
+  --stroke-ink: var(--color-volt);
+}
+[data-tone="light"] {
+  --ink: var(--color-graphite);
+  --ink-2: var(--color-text-grey);
+  --ink-sub: var(--color-text-grey);
+  --ink-label: var(--color-graphite);
+  --disc-bg: var(--color-volt);
+  --disc-edge: none;
+  --disc-ink: var(--color-graphite);
+  --btn-bg: var(--color-graphite);
+  --btn-ink: #ffffff;
+  --focus-outline: var(--color-graphite);
+  --focus-halo: 0 0 0 4px var(--surface, #fff), 0 0 0 6px var(--color-volt);
+  --hover-fill: rgba(29, 29, 31, 0.06);
+  --line: var(--line-light);
+  --stroke-ink: var(--color-graphite);
+}
+[data-tone="volt"] {
+  --ink: var(--color-graphite);
+  --ink-2: rgba(29, 29, 31, 0.64);
+  --ink-sub: rgba(29, 29, 31, 0.72);
+  --ink-label: var(--color-graphite);
+  --disc-bg: #ffffff;
+  --disc-edge: none;
+  --disc-ink: var(--color-graphite);
+  --btn-bg: var(--color-graphite);
+  --btn-ink: #ffffff;
+  --focus-outline: var(--color-graphite);
+  --focus-halo: none;
+  --hover-fill: rgba(29, 29, 31, 0.06);
+  --line: var(--line-light);
+  --stroke-ink: var(--color-graphite);
+}

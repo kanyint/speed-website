@@ -1,372 +1,962 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-NG">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Speed — Turbocharge your business</title>
-  <meta name="description" content="Speed is the all-in-one finance platform for ambitious businesses — invoicing, banking, inventory, production and reporting in one fast, beautiful workspace." />
-  <link rel="icon" type="image/svg+xml" href="assets/Logo-Pri.svg" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>speed. | One app for every part of your business</title>
+  <meta name="description" content="Sell more, control payments &amp; see exactly how you’re growing, with one app for every part of your business. Free for 2 months, no card needed." />
+  <meta name="theme-color" content="#05499c" />
+  <link rel="canonical" href="https://myspeedapp.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="speed." />
+  <meta property="og:locale" content="en_NG" />
+  <meta property="og:title" content="speed. | One app for every part of your business" />
+  <meta property="og:description" content="Sell more, control payments &amp; see exactly how you’re growing, with one app for every part of your business. Free for 2 months, no card needed." />
+  <meta property="og:url" content="https://myspeedapp.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" href="assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" as="image" href="assets/img/hero/hero-owner-1536.webp?v=2" media="(min-width: 1024px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/img/hero/hero-owner-phone-960.webp?v=2" media="(max-width: 1023px)" fetchpriority="high" />
+  <link rel="stylesheet" href="assets/css/tokens.css?v=20261021j" />
+  <link rel="stylesheet" href="assets/css/components.css?v=20261021j" />
+  <link rel="stylesheet" href="assets/css/home.css?v=20261021j" />
+  <link rel="stylesheet" href="assets/css/ending.css?v=20261021j" />
+  <script>
+    /* Motion classes go on before first paint, so nothing flashes. Content is
+       visible without scripts; only scripts hide things to reveal them. */
+    (function (d) {
+      var r = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      d.documentElement.classList.add(r ? "js-reduced" : "js-motion");
+      /* The opening (after fixaplan.com) plays once per visit, never when
+         motion is off. */
+      try {
+        if (!r && !sessionStorage.getItem("speed.intro")) d.documentElement.classList.add("intro-on", "intro-playing");
+      } catch (e) {}
+    })(document);
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "Speed Software Ltd",
+          "url": "https://myspeedapp.com/",
+          "email": "admin@myspeedapp.com"
+        },
+        { "@type": "WebSite", "name": "speed.", "url": "https://myspeedapp.com/" },
+        {
+          "@type": "SoftwareApplication",
+          "name": "speed.",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web, Android, iOS",
+          "offers": [
+            { "@type": "Offer", "name": "speed. Mini", "price": "2000", "priceCurrency": "NGN" },
+            { "@type": "Offer", "name": "speed. Standard", "price": "12500", "priceCurrency": "NGN" },
+            { "@type": "Offer", "name": "speed. Pro", "price": "17000", "priceCurrency": "NGN" },
+            { "@type": "Offer", "name": "speed. Unlimited", "price": "50000", "priceCurrency": "NGN" }
+          ]
+        }
+      ]
+    }
+  </script>
 </head>
 <body>
+<!--SPRITE:START-->
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><g id="wm-g"><path d="M78.60 46.40L79.40 67.80Q73.40 67.80 68.10 70.10Q62.80 72.40 58.90 76.50Q55.00 80.60 52.70 85.90Q50.40 91.20 50.40 97.20L50.40 97.20Q50.20 107.40 46.20 116.30Q42.20 125.20 35.30 131.90Q28.40 138.60 19.30 142.50Q10.20 146.40 0 146.40L0 146.40L0 125Q6 125 11.30 122.70Q16.60 120.40 20.50 116.50Q24.40 112.60 26.70 107.30Q29.00 102 29.00 96L29.00 96Q29.20 85.80 33.10 76.80Q37.00 67.800 43.70 61.00Q50.40 54.20 59.40 50.30Q68.40 46.40 78.60 46.40L78.60 46.40ZM136.40 146.60L136.40 146.60Q129.80 146.60 124.20 145.20L124.20 145.20L129.20 125Q132.40 126.20 136.40 126.20L136.40 126.20Q142.40 126.20 147.80 123.90Q153.20 121.60 157.20 117.60Q161.20 113.60 163.50 108.20Q165.80 102.80 165.80 96.60L165.80 96.60Q165.80 90.60 163.50 85.30Q161.20 80.00 157.20 76.00Q153.20 72.00 147.80 69.70Q142.40 67.40 136.40 67.40L136.40 67.40Q130.40 67.40 125 69.70Q119.60 72.00 115.60 76.00Q111.60 80.00 109.30 85.30Q107 90.60 107 96.60L107 96.60L107 97L107 193.20L86.60 172.60L86.60 97L86.60 96.60Q86.60 86.40 90.50 77.30Q94.40 68.20 101.10 61.40Q107.80 54.60 116.90 50.60Q126 46.60 136.40 46.60L136.40 46.60Q146.60 46.60 155.80 50.60Q165 54.60 171.80 61.40Q178.60 68.20 182.60 77.30Q186.60 86.40 186.60 96.60L186.60 96.60Q186.60 107 182.60 116.10Q178.60 125.20 171.80 132Q165 138.80 155.80 142.70Q146.60 146.60 136.40 146.60ZM243.20 125.80L243.20 125.80Q249.20 125.80 254.50 123.50Q259.80 121.20 263.80 117.30Q267.80 113.40 270.10 108.10Q272.40 102.80 272.40 96.60L272.40 96.60L293.20 96.60Q293.20 107 289.30 116.10Q285.40 125.20 278.60 132Q271.80 138.80 262.70 142.70Q253.60 146.60 243.20 146.60L243.20 146.60Q232.80 146.60 223.70 142.70Q214.60 138.80 207.80 132Q201 125.20 197.10 116.10Q193.20 107 193.20 96.60L193.20 96.60Q193.20 86.20 197.10 77.10Q201 68.00 207.80 61.20Q214.60 54.40 223.70 50.50Q232.80 46.60 243.20 46.60L243.20 46.60Q253.40 46.60 262.20 50.30Q271 54.00 277.80 60.40L277.80 60.40L278.20 60.80L291.80 74.80L269.40 97L241.80 97L263.20 75.00Q259.40 71.60 254.20 69.50Q249 67.40 243.20 67.40L243.20 67.40Q237.20 67.40 231.90 69.70Q226.60 72.00 222.60 76.00Q218.60 80.00 216.30 85.30Q214 90.60 214 96.60L214 96.60Q214 102.60 216.30 107.90Q218.60 113.20 222.60 117.20Q226.60 121.20 231.90 123.50Q237.20 125.80 243.20 125.80ZM352.60 125.80L352.60 125.80Q358.60 125.80 363.90 123.50Q369.20 121.20 373.20 117.30Q377.20 113.40 379.50 108.10Q381.80 102.80 381.80 96.60L381.80 96.60L402.60 96.60Q402.60 107 398.70 116.10Q394.80 125.20 388 132Q381.20 138.80 372.10 142.70Q363 146.60 352.60 146.60L352.60 146.60Q342.20 146.60 333.10 142.70Q324 138.80 317.20 132Q310.40 125.20 306.50 116.10Q302.60 107 302.60 96.60L302.60 96.60Q302.60 86.20 306.50 77.10Q310.40 68.00 317.20 61.20Q324 54.40 333.10 50.50Q342.20 46.60 352.60 46.60L352.60 46.60Q362.80 46.60 371.60 50.30Q380.40 54.00 387.20 60.40L387.20 60.40L387.60 60.80L401.20 74.80L378.80 97L351.20 97L372.60 75.00Q368.80 71.60 363.60 69.50Q358.40 67.40 352.60 67.40L352.60 67.40Q346.60 67.40 341.30 69.70Q336 72.00 332 76.00Q328 80.00 325.70 85.30Q323.40 90.60 323.40 96.60L323.40 96.60Q323.40 102.60 325.70 107.90Q328 113.20 332 117.20Q336 121.20 341.30 123.50Q346.60 125.80 352.60 125.80ZM509 20.40L509 96.60Q509 107 505.10 116.10Q501.20 125.20 494.40 132Q487.60 138.80 478.40 142.70Q469.20 146.60 458.80 146.60L458.80 146.60Q448.40 146.60 439.30 142.70Q430.20 138.80 423.40 132Q416.60 125.20 412.70 116.10Q408.80 107 408.80 96.60L408.80 96.60Q408.80 95 408.80 93.60Q408.80 92.20 409.20 90.60L409.20 90.60Q410.20 81.40 414.50 73.30Q418.80 65.20 425.50 59.20Q432.20 53.20 440.70 49.80Q449.20 46.40 458.80 46.40L458.80 46.40Q462 46.40 465.10 46.90Q468.20 47.40 471 47.80L471 47.80L466.20 68.00Q464.20 67.60 462.50 67.40Q460.80 67.20 458.80 67.20L458.80 67.20Q452.80 67.20 447.50 69.50Q442.20 71.80 438.200 75.80Q434.20 79.80 431.90 85.20Q429.60 90.60 429.60 96.60L429.60 96.60Q429.60 102.60 431.90 107.90Q434.20 113.20 438.20 117.20Q442.20 121.20 447.50 123.50Q452.80 125.80 458.80 125.80L458.80 125.80Q464.80 125.800 470.20 123.50Q475.60 121.20 479.60 117.20Q483.60 113.20 485.90 107.90Q488.20 102.60 488.20 96.60L488.20 96.60L488.20 0L509 20.40Z"/></g><g id="strokes-g" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"><line x1="29.01" y1="26.61" x2="66.33" y2="3.29"/><line x1="21.17" y1="48.02" x2="78.83" y2="11.98"/><line x1="33.67" y1="56.71" x2="67.60" y2="35.51"/></g><g id="strokes-g2" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"><line x1="29.01" y1="26.61" x2="66.33" y2="3.29"/><line x1="21.17" y1="48.02" x2="78.83" y2="11.98"/></g><g id="strokes-outline-g" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="21.17" y="10.45" width="53.00" height="9" rx="4.5" transform="rotate(-32 47.67 14.95)" vector-effect="non-scaling-stroke"/><rect x="11.50" y="25.50" width="77.00" height="9" rx="4.5" transform="rotate(-32 50.00 30.00)" vector-effect="non-scaling-stroke"/><rect x="26.13" y="41.61" width="49.00" height="9" rx="4.5" transform="rotate(-32 50.63 46.11)" vector-effect="non-scaling-stroke"/></g><symbol id="i-inbox" viewBox="0 0 24 24"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12" vector-effect="non-scaling-stroke"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-filter" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-chart-column" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16" vector-effect="non-scaling-stroke"/><path d="M18 17V9" vector-effect="non-scaling-stroke"/><path d="M13 17V5" vector-effect="non-scaling-stroke"/><path d="M8 17v-3" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-file-text" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" vector-effect="non-scaling-stroke"/><path d="M14 2v4a2 2 0 0 0 2 2h4" vector-effect="non-scaling-stroke"/><path d="M10 9H8" vector-effect="non-scaling-stroke"/><path d="M16 13H8" vector-effect="non-scaling-stroke"/><path d="M16 17H8" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-percent" viewBox="0 0 24 24"><line x1="19" x2="5" y1="5" y2="19" vector-effect="non-scaling-stroke"/><circle cx="6.5" cy="6.5" r="2.5" vector-effect="non-scaling-stroke"/><circle cx="17.5" cy="17.5" r="2.5" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" vector-effect="non-scaling-stroke"/><path d="M15 18H9" vector-effect="non-scaling-stroke"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" vector-effect="non-scaling-stroke"/><circle cx="17" cy="18" r="2" vector-effect="non-scaling-stroke"/><circle cx="7" cy="18" r="2" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" vector-effect="non-scaling-stroke"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" vector-effect="non-scaling-stroke"/><path d="m9 12 2 2 4-4" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-credit-card" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2" vector-effect="non-scaling-stroke"/><line x1="2" x2="22" y1="10" y2="10" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-shopping-cart" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1" vector-effect="non-scaling-stroke"/><circle cx="19" cy="21" r="1" vector-effect="non-scaling-stroke"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-stethoscope" viewBox="0 0 24 24"><path d="M11 2v2" vector-effect="non-scaling-stroke"/><path d="M5 2v2" vector-effect="non-scaling-stroke"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1" vector-effect="non-scaling-stroke"/><path d="M8 15a6 6 0 0 0 12 0v-3" vector-effect="non-scaling-stroke"/><circle cx="20" cy="10" r="2" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-ruler" viewBox="0 0 24 24"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z" vector-effect="non-scaling-stroke"/><path d="m14.5 12.5 2-2" vector-effect="non-scaling-stroke"/><path d="m11.5 9.5 2-2" vector-effect="non-scaling-stroke"/><path d="m8.5 6.5 2-2" vector-effect="non-scaling-stroke"/><path d="m17.5 15.5 2-2" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 7v14" vector-effect="non-scaling-stroke"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-check-check" viewBox="0 0 24 24"><path d="M18 6 7 17l-5-5" vector-effect="non-scaling-stroke"/><path d="m22 10-7.5 7.5L13 16" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-smartphone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2" vector-effect="non-scaling-stroke"/><path d="M12 18h.01" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4" vector-effect="non-scaling-stroke"/><path d="M3.34 19a10 10 0 1 1 17.32 0" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-calculator" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2" vector-effect="non-scaling-stroke"/><line x1="8" x2="16" y1="6" y2="6" vector-effect="non-scaling-stroke"/><line x1="16" x2="16" y1="14" y2="18" vector-effect="non-scaling-stroke"/><path d="M16 10h.01" vector-effect="non-scaling-stroke"/><path d="M12 10h.01" vector-effect="non-scaling-stroke"/><path d="M8 10h.01" vector-effect="non-scaling-stroke"/><path d="M12 14h.01" vector-effect="non-scaling-stroke"/><path d="M8 14h.01" vector-effect="non-scaling-stroke"/><path d="M12 18h.01" vector-effect="non-scaling-stroke"/><path d="M8 18h.01" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-file-check" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" vector-effect="non-scaling-stroke"/><path d="M14 2v4a2 2 0 0 0 2 2h4" vector-effect="non-scaling-stroke"/><path d="m9 15 2 2 4-4" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-messages-square" viewBox="0 0 24 24"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z" vector-effect="non-scaling-stroke"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-list-checks" viewBox="0 0 24 24"><path d="m3 17 2 2 4-4" vector-effect="non-scaling-stroke"/><path d="m3 7 2 2 4-4" vector-effect="non-scaling-stroke"/><path d="M13 6h8" vector-effect="non-scaling-stroke"/><path d="M13 12h8" vector-effect="non-scaling-stroke"/><path d="M13 18h8" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-notebook-pen" viewBox="0 0 24 24"><path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4" vector-effect="non-scaling-stroke"/><path d="M2 6h4" vector-effect="non-scaling-stroke"/><path d="M2 10h4" vector-effect="non-scaling-stroke"/><path d="M2 14h4" vector-effect="non-scaling-stroke"/><path d="M2 18h4" vector-effect="non-scaling-stroke"/><path d="M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" vector-effect="non-scaling-stroke"/><path d="M20 3v4" vector-effect="non-scaling-stroke"/><path d="M22 5h-4" vector-effect="non-scaling-stroke"/><path d="M4 17v2" vector-effect="non-scaling-stroke"/><path d="M5 18H3" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-reply" viewBox="0 0 24 24"><polyline points="9 17 4 12 9 7" vector-effect="non-scaling-stroke"/><path d="M20 18v-2a4 4 0 0 0-4-4H4" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-house" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" vector-effect="non-scaling-stroke"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-sliders-horizontal" viewBox="0 0 24 24"><line x1="21" x2="14" y1="4" y2="4" vector-effect="non-scaling-stroke"/><line x1="10" x2="3" y1="4" y2="4" vector-effect="non-scaling-stroke"/><line x1="21" x2="12" y1="12" y2="12" vector-effect="non-scaling-stroke"/><line x1="8" x2="3" y1="12" y2="12" vector-effect="non-scaling-stroke"/><line x1="21" x2="16" y1="20" y2="20" vector-effect="non-scaling-stroke"/><line x1="12" x2="3" y1="20" y2="20" vector-effect="non-scaling-stroke"/><line x1="14" x2="14" y1="2" y2="6" vector-effect="non-scaling-stroke"/><line x1="8" x2="8" y1="10" y2="14" vector-effect="non-scaling-stroke"/><line x1="16" x2="16" y1="18" y2="22" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-palette" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor" vector-effect="non-scaling-stroke"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor" vector-effect="non-scaling-stroke"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor" vector-effect="non-scaling-stroke"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor" vector-effect="non-scaling-stroke"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" vector-effect="non-scaling-stroke"/><path d="m12 5 7 7-7 7" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10" vector-effect="non-scaling-stroke"/><path d="M7 17 17 7" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" vector-effect="non-scaling-stroke"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" vector-effect="non-scaling-stroke"/><path d="M12 17.5v-11" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-hand-coins" viewBox="0 0 24 24"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17" vector-effect="non-scaling-stroke"/><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9" vector-effect="non-scaling-stroke"/><path d="m2 16 6 6" vector-effect="non-scaling-stroke"/><circle cx="16" cy="9" r="2.9" vector-effect="non-scaling-stroke"/><circle cx="6" cy="5" r="3" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-package" viewBox="0 0 24 24"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" vector-effect="non-scaling-stroke"/><path d="M12 22V12" vector-effect="non-scaling-stroke"/><path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7" vector-effect="non-scaling-stroke"/><path d="m7.5 4.27 9 5.15" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-chart-line" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16" vector-effect="non-scaling-stroke"/><path d="m19 9-5 5-4-4-3 3" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" vector-effect="non-scaling-stroke"/><circle cx="9" cy="7" r="4" vector-effect="non-scaling-stroke"/><path d="M22 21v-2a4 4 0 0 0-3-3.87" vector-effect="non-scaling-stroke"/><path d="M16 3.13a4 4 0 0 1 0 7.75" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2" vector-effect="non-scaling-stroke"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-message-circle" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18" vector-effect="non-scaling-stroke"/><path d="m6 6 12 12" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" vector-effect="non-scaling-stroke"/><path d="m21 21-4.3-4.3" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-ellipsis" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1" vector-effect="non-scaling-stroke"/><circle cx="19" cy="12" r="1" vector-effect="non-scaling-stroke"/><circle cx="5" cy="12" r="1" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-trending-up" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" vector-effect="non-scaling-stroke"/><polyline points="16 7 22 7 22 13" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-message-square-text" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" vector-effect="non-scaling-stroke"/><path d="M13 8H7" vector-effect="non-scaling-stroke"/><path d="M17 12H7" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" vector-effect="non-scaling-stroke"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" vector-effect="non-scaling-stroke"/><path d="M2 12h20" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-heart-handshake" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" vector-effect="non-scaling-stroke"/><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66" vector-effect="non-scaling-stroke"/><path d="m18 15-2-2" vector-effect="non-scaling-stroke"/><path d="m15 18-2-2" vector-effect="non-scaling-stroke"/></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" vector-effect="non-scaling-stroke"/><circle cx="12" cy="10" r="3" vector-effect="non-scaling-stroke"/></symbol><symbol id="g-instagram" viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></symbol><symbol id="g-facebook" viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></symbol><symbol id="g-whatsapp" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol><symbol id="g-messenger" viewBox="0 0 24 24"><path d="M.001 11.639C.001 4.949 5.241 0 12.001 0S24 4.95 24 11.639c0 6.689-5.24 11.638-12 11.638-1.21 0-2.38-.16-3.47-.46a.96.96 0 00-.64.05l-2.39 1.05a.96.96 0 01-1.35-.85l-.07-2.14a.97.97 0 00-.32-.68A11.39 11.389 0 01.002 11.64zm8.32-2.19l-3.52 5.6c-.35.53.32 1.139.82.75l3.79-2.87c.26-.2.6-.2.87 0l2.8 2.1c.84.63 2.04.4 2.6-.48l3.52-5.6c.35-.53-.32-1.13-.82-.75l-3.79 2.87c-.25.2-.6.2-.86 0l-2.8-2.1a1.8 1.8 0 00-2.61.48z"/></symbol><symbol id="g-telegram" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></symbol><symbol id="g-tiktok" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></symbol><symbol id="g-youtube" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol><symbol id="g-linkedin" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol><symbol id="g-apple" viewBox="0 0 24 24"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></symbol><symbol id="g-googleplay" viewBox="0 0 24 24"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></symbol></defs></svg>
+<!--SPRITE:END-->
 
-  <!-- Scroll progress bar -->
-  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+<!-- The opening (after fixaplan.com): words sharpen in on soft grey, a midnight
+     panel rises over them, and the hero arrives on that midnight. Decoration
+     only: the page underneath is complete without it. -->
+<div class="intro" id="intro" aria-hidden="true">
+  <p class="intro__line"><span style="--i:0">One</span> <span style="--i:1">app</span> <span style="--i:2">for</span> <span style="--i:3">every</span> <span style="--i:4">part</span> <span style="--i:5">of</span> <span style="--i:6">your</span> <span style="--i:7">business.</span></p>
+  <div class="intro__curtain"></div>
+</div>
 
-  <!-- ============ NAV ============ -->
-  <header class="nav" id="nav">
-    <div class="nav__inner">
-      <a class="nav__logo" href="#top" aria-label="Speed home">
-        <img src="assets/Logo-Pri.svg" alt="Speed" />
-      </a>
-      <nav class="nav__links" aria-label="Primary">
-        <a href="#product">Product</a>
-        <a href="#modules">Modules</a>
-        <a href="#numbers">Why Speed</a>
-        <a href="#pricing">Pricing</a>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ TOP BAR ============ -->
+<header class="topbar is-loading" data-tone="dark" id="topbar">
+  <div class="topbar__row">
+    <a class="topbar__brand" href="/" aria-label="speed. home">
+      <svg class="wordmark" viewBox="0 0 543 193.2" aria-hidden="true"><use class="wm-letters" href="#wm-g"/><rect class="wm-setting" x="515.96" y="119.56" width="33.28" height="33.28"/><rect class="wm-dot" x="522.2" y="125.8" width="20.8" height="20.8"/></svg>
+    </a>
+    <nav class="topbar__nav" aria-label="Main">
+      <span class="nav-glow" aria-hidden="true"></span>
+      <button class="nav-item" type="button" aria-expanded="false" aria-controls="menu-product" data-menu="product">Product<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
+      <button class="nav-item" type="button" aria-expanded="false" aria-controls="menu-usecases" data-menu="usecases">Use cases<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
+      <a class="nav-item" href="/plan">Plan</a>
+      <button class="nav-item" type="button" aria-expanded="false" aria-controls="menu-company" data-menu="company">Company<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
+    </nav>
+    <div class="topbar__actions">
+      <a class="topbar__login" href="https://app.myspeedapp.com/sign-in?from=home.topbar" data-event="login_click">Log in</a>
+      <a class="btn btn--compact" href="https://myspeedapp.com/sign-up?from=home.topbar" data-event="cta_app" data-section="topbar">Open your account</a>
+      <button class="topbar__menu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="menu-strokes" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><line class="ms-s" x1="5" y1="15" x2="15" y2="9"/><line class="ms-s" x1="4" y1="19" x2="20" y2="9.5"/><line class="ms-s" x1="9" y1="19" x2="19" y2="13"/><line class="ms-x" x1="6" y1="6" x2="18" y2="18"/><line class="ms-x" x1="18" y1="6" x2="6" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- The menus (after harvey.ai): one floating card under the bar that
+       resizes as you move between Product, Use cases and Company. Each holds
+       its links on the left and one featured card on the right. -->
+  <div class="menu-shell" id="menu-shell">
+    <!-- Product menu -->
+    <div class="menu-panel" id="menu-product" data-panel="product">
+      <nav class="menu-grid" aria-label="Product">
+        <ul class="menu-cols menu-cols--5">
+          <li><a class="menu-row" href="/product/customers"><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-inbox"/></svg></span><span class="menu-row__text"><span class="menu-row__name">Customer management &amp; intelligence</span><span class="menu-row__line">Turn more DMs into sales &amp; understand your market.</span></span><svg class="icon icon--16 menu-row__arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
+          <li><a class="menu-row" href="/product/sales"><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-receipt"/></svg></span><span class="menu-row__text"><span class="menu-row__name">Sales &amp; invoices</span><span class="menu-row__line">Invoice, get paid &amp; book delivery in one chat.</span></span><svg class="icon icon--16 menu-row__arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
+          <li><a class="menu-row" href="/product/finance"><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-hand-coins"/></svg></span><span class="menu-row__text"><span class="menu-row__name">Finance</span><span class="menu-row__line">Confirm payments &amp; approve spend from anywhere.</span></span><svg class="icon icon--16 menu-row__arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
+          <li><a class="menu-row" href="/product/pricing-inventory"><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-package"/></svg></span><span class="menu-row__text"><span class="menu-row__name">Pricing &amp; inventory</span><span class="menu-row__line">Price with confidence &amp; protect your profits.</span></span><svg class="icon icon--16 menu-row__arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
+          <li><a class="menu-row" href="/product/accounting"><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg></span><span class="menu-row__text"><span class="menu-row__name">Accounting</span><span class="menu-row__line">Books updated as you sell, close the month faster.</span></span><svg class="icon icon--16 menu-row__arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
+          <li><a class="menu-row" href="/product/insights"><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-chart-line"/></svg></span><span class="menu-row__text"><span class="menu-row__name">Business insights</span><span class="menu-row__line">Wake up to yesterday’s sales &amp; know what to improve next.</span></span><svg class="icon icon--16 menu-row__arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
+          <li><a class="menu-row" href="/product/tax"><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-file-check"/></svg></span><span class="menu-row__text"><span class="menu-row__name">Tax &amp; compliance</span><span class="menu-row__line">VAT worked out as you sell, filing in minutes.</span></span><svg class="icon icon--16 menu-row__arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
+          <li><a class="menu-row" href="/product/teaming"><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span><span class="menu-row__text"><span class="menu-row__name">Teaming</span><span class="menu-row__line">Your team talks, plans &amp; follows up in one app.</span></span><svg class="icon icon--16 menu-row__arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
+          <!-- speed. AI is the featured card on desktop; this row is for the phone menu. -->
+          <li class="menu-cols__phone"><a class="menu-row" href="/product/ai"><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-sparkles"/></svg></span><span class="menu-row__text"><span class="menu-row__name">speed. AI</span><span class="menu-row__line">Ask anything, get answers from your real numbers.</span></span><svg class="icon icon--16 menu-row__arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
+          <li><a class="menu-row" href="/product/set-up"><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-sliders-horizontal"/></svg></span><span class="menu-row__text"><span class="menu-row__name">Set-up</span><span class="menu-row__line">Move in within one session &amp; make it yours.</span></span><svg class="icon icon--16 menu-row__arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
+        </ul>
+        <a class="menu-feature" href="/product/ai">
+          <span class="menu-feature__pic menu-feature__pic--ai" aria-hidden="true">
+            <span class="ai-chat">
+              <span class="ai-q">What isn’t selling this week?</span>
+              <span class="ai-a"><svg class="icon icon--16" aria-hidden="true"><use href="#i-sparkles"/></svg><span>The linen set in size 8: 3 sold in 30 days. 14 still in stock.</span></span>
+              <span class="ai-s">Run a 15% promo for 7 days?<span class="ai-btns"><span class="ai-yes">Approve</span><span class="ai-no">Not now</span></span></span>
+            </span>
+          </span>
+          <span class="menu-feature__title">speed. AI<span class="tag tag--mini">From Pro</span></span>
+          <span class="menu-feature__line">Just ask. Get answers from your business, move fast.</span>
+        </a>
       </nav>
-      <div class="nav__actions">
-        <a class="btn btn--ghost" href="#">Sign in</a>
-        <a class="btn btn--primary" href="#cta">Get started<span class="btn__arrow">→</span></a>
+    </div>
+
+    <!-- Use cases menu -->
+    <div class="menu-panel" id="menu-usecases" data-panel="usecases">
+      <nav class="menu-grid" aria-label="Use cases">
+        <div class="uc-groups">
+          <div>
+            <div class="uc-group"><h3><a class="tag" href="/use-cases?tag=save-money">Save money</a></h3><ul>
+              <li><a class="uc-link" href="/use-cases/all-your-apps"><span class="uc-num">01</span>All your apps end here</a></li>
+              <li><a class="uc-link" href="/use-cases/products-losing-money"><span class="uc-num">07</span>Find the products losing you money</a></li>
+              <li><a class="uc-link" href="/use-cases/team-in-one-place"><span class="uc-num">12</span>Your team, on the same page</a></li>
+            </ul></div>
+            <div class="uc-group"><h3><a class="tag" href="/use-cases?tag=save-time">Save time</a></h3><ul>
+              <li><a class="uc-link" href="/use-cases/busy-trade-fairs"><span class="uc-num">03</span>Never lose track at busy trade fairs</a></li>
+              <li><a class="uc-link" href="/use-cases/market-run"><span class="uc-num">08</span>One market run, recorded once</a></li>
+              <li><a class="uc-link" href="/use-cases/month-end"><span class="uc-num">11</span>Close the month without the late nights</a></li>
+              <li><a class="uc-link" href="/use-cases/move-in"><span class="uc-num">13</span>Move in within one session</a></li>
+            </ul></div>
+          </div>
+          <div>
+            <div class="uc-group"><h3><a class="tag" href="/use-cases?tag=sell-more">Sell more</a></h3><ul>
+              <li><a class="uc-link" href="/use-cases/group-orders"><span class="uc-num">04</span>One link for every group order</a></li>
+              <li><a class="uc-link" href="/use-cases/dms-to-sales"><span class="uc-num">05</span>The DMs that never became sales</a></li>
+            </ul></div>
+            <div class="uc-group"><h3><a class="tag" href="/use-cases?tag=stop-leaks">Stop leaks</a></h3><ul>
+              <li><a class="uc-link" href="/use-cases/paid-in-the-chat"><span class="uc-num">02</span>Paid, seen in the chat</a></li>
+              <li><a class="uc-link" href="/use-cases/approved-spend"><span class="uc-num">09</span>Staff spend only what you approve</a></li>
+            </ul></div>
+          </div>
+          <div>
+            <div class="uc-group"><h3><a class="tag" href="/use-cases?tag=see-clearly">See clearly</a></h3><ul>
+              <li><a class="uc-link" href="/use-cases/campaign-check"><span class="uc-num">06</span>See what your last campaign really did</a></li>
+              <li><a class="uc-link" href="/use-cases/yesterdays-sales"><span class="uc-num">10</span>Wake up to yesterday’s sales</a></li>
+            </ul></div>
+            <a class="text-link uc-all" href="/use-cases"><span>See every use case</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+          </div>
+        </div>
+        <a class="menu-feature" href="/use-cases/all-your-apps">
+          <span class="menu-feature__pic uc-card__pic" aria-hidden="true"><span class="uc-stack"><span></span><span></span><span></span><span></span><span></span><span></span></span></span>
+          <span class="menu-feature__title">All your apps end here<span class="tag tag--mini">Save money</span></span>
+          <span class="menu-feature__line">6 separate apps for a team of 5 cost about ₦295k a month. The same team on speed. Standard pays ₦62,500.</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Company menu: the sections of the Company page -->
+    <div class="menu-panel" id="menu-company" data-panel="company">
+      <nav class="menu-grid" aria-label="Company">
+        <ul class="menu-cols menu-cols--3">
+          <li><a class="menu-row" href="/company#what-we-believe"><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-heart-handshake"/></svg></span><span class="menu-row__text"><span class="menu-row__name">What we believe</span><span class="menu-row__line">Five things your business deserves.</span></span><svg class="icon icon--16 menu-row__arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
+          <li><a class="menu-row" href="/company#how-we-work"><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-list-checks"/></svg></span><span class="menu-row__text"><span class="menu-row__name">How we work</span><span class="menu-row__line">What you can hold us to.</span></span><svg class="icon icon--16 menu-row__arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
+          <li><a class="menu-row" href="/company#where-we-are"><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg></span><span class="menu-row__text"><span class="menu-row__name">Where we are</span><span class="menu-row__line">Wherever you sell, speed. comes with you.</span></span><svg class="icon icon--16 menu-row__arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
+          <li><a class="menu-row" href="/company#how-money-moves"><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-shield-check"/></svg></span><span class="menu-row__text"><span class="menu-row__name">How money moves</span><span class="menu-row__line">Every payment, in plain sight.</span></span><svg class="icon icon--16 menu-row__arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
+          <li><a class="menu-row" href="/company#talk-to-us"><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-message-square-text"/></svg></span><span class="menu-row__text"><span class="menu-row__name">Talk to us</span><span class="menu-row__line">Tell us about your business.</span></span><svg class="icon icon--16 menu-row__arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
+        </ul>
+        <a class="menu-feature" href="/company">
+          <span class="menu-feature__pic menu-feature__pic--company" aria-hidden="true"><svg viewBox="16 -2 68 64"><use href="#strokes-g"/></svg></span>
+          <span class="menu-feature__title">About speed.</span>
+          <span class="menu-feature__line">Built for every business that wants to grow.</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MOBILE MENU ============
+     Opens under the bar (as harvey.ai): the bar stays put and its menu
+     button turns into the close button. -->
+<nav class="mobile-menu" id="mobile-menu" aria-label="Menu" data-tone="dark">
+  <ul class="mm-list">
+    <li class="mm-item">
+      <button class="mm-row" type="button" aria-expanded="false" aria-controls="mm-product">Product<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
+      <div class="mm-sub" id="mm-product"><div><ul data-clone="product-rows"></ul></div></div>
+    </li>
+    <li class="mm-item">
+      <button class="mm-row" type="button" aria-expanded="false" aria-controls="mm-usecases">Use cases<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
+      <div class="mm-sub" id="mm-usecases"><div data-clone="uc-groups"></div></div>
+    </li>
+    <li class="mm-item"><a class="mm-row" href="/plan">Plan</a></li>
+    <li class="mm-item">
+      <button class="mm-row" type="button" aria-expanded="false" aria-controls="mm-company">Company<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
+      <div class="mm-sub" id="mm-company"><div><ul data-clone="company-rows"></ul></div></div>
+    </li>
+  </ul>
+  <div class="btn-block">
+    <a class="btn" href="https://myspeedapp.com/sign-up?from=home.mobile-menu" aria-describedby="mm-cap" data-event="cta_app" data-section="mobile-menu">Open your account</a>
+    <p class="btn-caption" id="mm-cap">Free for 2 months. Your products and customers come with you.</p>
+    <a class="text-link mm-login" href="https://app.myspeedapp.com/sign-in?from=home.mobile-menu"><span>Log in</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+  </div>
+  <div class="mm-contact">
+    <a href="https://wa.me/2348000000000?text=Hi%20speed.%2C%20I%27m%20on%20your%20website%20and%20have%20a%20question." class="wa-only" target="_blank" rel="noopener"><svg class="icon icon--16" aria-hidden="true"><use href="#i-message-circle"/></svg>Message us on WhatsApp</a>
+    <a href="mailto:admin@myspeedapp.com"><svg class="icon icon--16" aria-hidden="true"><use href="#i-mail"/></svg>admin@myspeedapp.com</a>
+  </div>
+</nav>
+
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top" data-tone="dark" aria-labelledby="hero-h">
+    <div class="hero__stage">
+      <picture class="hero__photo">
+        <source media="(max-width: 1023px)" srcset="assets/img/hero/hero-owner-phone-960.webp?v=2" width="960" height="1024" />
+        <img src="assets/img/hero/hero-owner-1536.webp?v=2" width="1536" height="1024" fetchpriority="high" decoding="async" alt="A Nigerian business owner in a cream silk blouse smiles calmly against a clear blue morning sky." />
+      </picture>
+      <div class="hero__night" aria-hidden="true"></div>
+    </div>
+    <div class="container hero__inner">
+      <div class="hero__text">
+        <h1 class="t-display hero__title" id="hero-h" tabindex="-1">
+          <span class="hl-1" data-hero="0">Grow your</span>
+          <span class="hl-1" data-hero="1">business</span>
+          <span class="hl-2" data-hero="2">with <span class="hero__wm"><svg class="wordmark" viewBox="0 0 543 193.2" aria-hidden="true"><use class="wm-letters" href="#wm-g"/><rect class="wm-dot" x="522.2" y="125.8" width="20.8" height="20.8"/></svg><span class="visually-hidden">speed.</span></span></span>
+        </h1>
+        <p class="t-body-l hero__sub" data-hero="3">One app for every part of your business, so you can sell more, control payments, and see exactly how you’re growing.</p>
+        <div class="btn-block hero__cta">
+          <a class="btn btn--white" data-hero="4" href="https://myspeedapp.com/sign-up?from=home.hero" aria-describedby="hero-cap" data-event="cta_app" data-section="hero">Grow with speed.</a>
+          <p class="btn-caption" id="hero-cap" data-hero="5">Free for 2 months. No card needed.</p>
+        </div>
       </div>
     </div>
-  </header>
-
-  <main id="top">
-
-    <!-- ============ HERO ============ -->
-    <section class="hero">
-      <div class="hero__bg" aria-hidden="true">
-        <div class="hero__glow" data-parallax="0.18"></div>
-        <div class="hero__grid"></div>
-      </div>
-
-      <div class="container hero__content">
-        <p class="hero__eyebrow" data-hero="1">
-          <span class="pulse-dot"></span> The operating system for modern finance
-        </p>
-        <h1 class="hero__title">
-          <span class="line-mask"><span data-hero="2">Run your business</span></span>
-          <span class="line-mask"><span data-hero="3">at full <em class="accent">Speed.</em></span></span>
-        </h1>
-        <p class="hero__sub" data-hero="4">
-          Invoicing, banking, inventory, production and reporting — unified in one
-          fast, beautiful workspace built for businesses that refuse to slow down.
-        </p>
-        <div class="hero__cta" data-hero="5">
-          <a class="btn btn--primary btn--lg" href="#cta">Start free trial<span class="btn__arrow">→</span></a>
-          <a class="btn btn--outline btn--lg" href="#product">See how it works</a>
+    <div class="channels" aria-labelledby="channels-h">
+      <p class="channels__label" id="channels-h">Join millions of customers growing with speed.</p>
+      <div class="channels__viewport">
+        <div class="channels__track">
+          <ul class="channels__set" aria-label="Example businesses"><li class="lg lg--bold"><svg class="lg__mark" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><circle cx="12" cy="12" r="9"/><path d="M7 14l5-5 5 5" fill="none" stroke="#0a0a0b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Adaeze Home</span></li><li class="lg lg--caps"><svg class="lg__mark" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4" fill="#0a0a0b"/></svg><span>KOLA FOODS</span></li><li class="lg lg--light"><svg class="lg__mark" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M3 20V8l9-5 9 5v12z"/><rect x="10" y="13" width="4" height="7" fill="#0a0a0b"/></svg><span>Maitama Interiors</span></li><li class="lg lg--lower"><svg class="lg__mark" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><circle cx="8" cy="9" r="5"/><circle cx="16" cy="9" r="5"/><circle cx="12" cy="16" r="5"/></svg><span>lekki bloom</span></li><li class="lg lg--italic"><svg class="lg__mark" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><span>Zuri Fabrics</span></li><li class="lg lg--wide"><svg class="lg__mark" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2l10 10-10 10L2 12z"/></svg><span>NDANI</span></li><li class="lg lg--bold"><svg class="lg__mark" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M4 10h16a8 8 0 0 1-16 0z"/><path d="M9 6c0-2 2-2 2-4M14 6c0-2 2-2 2-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Ofe Kitchen</span></li><li class="lg lg--mono"><svg class="lg__mark" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><rect x="2" y="6" width="20" height="12" rx="6"/><circle cx="16" cy="12" r="3" fill="#0a0a0b"/></svg><span>Nok Electronics</span></li><li class="lg lg--light"><svg class="lg__mark" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 3a9 9 0 1 0 9 9h-9z"/></svg><span>Ìrìn Studio</span></li></ul>
+          <ul class="channels__set" aria-hidden="true"><li class="lg lg--bold"><svg class="lg__mark" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><circle cx="12" cy="12" r="9"/><path d="M7 14l5-5 5 5" fill="none" stroke="#0a0a0b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Adaeze Home</span></li><li class="lg lg--caps"><svg class="lg__mark" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4" fill="#0a0a0b"/></svg><span>KOLA FOODS</span></li><li class="lg lg--light"><svg class="lg__mark" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M3 20V8l9-5 9 5v12z"/><rect x="10" y="13" width="4" height="7" fill="#0a0a0b"/></svg><span>Maitama Interiors</span></li><li class="lg lg--lower"><svg class="lg__mark" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><circle cx="8" cy="9" r="5"/><circle cx="16" cy="9" r="5"/><circle cx="12" cy="16" r="5"/></svg><span>lekki bloom</span></li><li class="lg lg--italic"><svg class="lg__mark" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><span>Zuri Fabrics</span></li><li class="lg lg--wide"><svg class="lg__mark" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2l10 10-10 10L2 12z"/></svg><span>NDANI</span></li><li class="lg lg--bold"><svg class="lg__mark" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M4 10h16a8 8 0 0 1-16 0z"/><path d="M9 6c0-2 2-2 2-4M14 6c0-2 2-2 2-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Ofe Kitchen</span></li><li class="lg lg--mono"><svg class="lg__mark" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><rect x="2" y="6" width="20" height="12" rx="6"/><circle cx="16" cy="12" r="3" fill="#0a0a0b"/></svg><span>Nok Electronics</span></li><li class="lg lg--light"><svg class="lg__mark" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 3a9 9 0 1 0 9 9h-9z"/></svg><span>Ìrìn Studio</span></li></ul>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Floating dashboard mock -->
-      <div class="container hero__stage" data-hero="6">
-        <div class="dash" data-tilt>
-          <div class="dash__topbar">
-            <span class="dash__dot"></span><span class="dash__dot"></span><span class="dash__dot"></span>
-            <span class="dash__addr">app.speed.finance/dashboard</span>
+  <!-- ============ FEATURE HIGHLIGHTS ============
+       Structure from beside.com ("Built for how your business actually runs"):
+       a centred header, tab pills that stay in view, one block per area, the
+       block in view lit and the rest faded. Each block's points follow
+       calendly.com ("A better way to book your meetings"): one point open at a
+       time with a progress line, beside a soft-gradient picture card. -->
+  <section class="features" id="features" data-tone="light" aria-labelledby="features-h">
+    <div class="container">
+      <header class="features__head" data-reveal-group="fhead">
+        <h2 class="t-h2" id="features-h" data-reveal><span class="hl-1">Every part of your business,</span> <span class="hl-2">working together.</span></h2>
+        <p class="t-body-l" data-reveal>Your DMs, sales, payments, stock, books, numbers, tax and team share one set of records, so nothing is typed twice.</p>
+      </header>
+      <nav class="ftabs" aria-label="Features">
+        <ul><li><a href="#customers" data-ftab="0" aria-current="location"><svg class="icon icon--16" aria-hidden="true"><use href="#i-inbox"/></svg>Customers</a></li><li><a href="#sales" data-ftab="1"><svg class="icon icon--16" aria-hidden="true"><use href="#i-receipt"/></svg>Sales</a></li><li><a href="#finance" data-ftab="2"><svg class="icon icon--16" aria-hidden="true"><use href="#i-hand-coins"/></svg>Finance</a></li><li><a href="#pricing-inventory" data-ftab="3"><svg class="icon icon--16" aria-hidden="true"><use href="#i-package"/></svg>Pricing</a></li><li><a href="#accounting" data-ftab="4"><svg class="icon icon--16" aria-hidden="true"><use href="#i-book-open"/></svg>Accounting</a></li><li><a href="#insights" data-ftab="5"><svg class="icon icon--16" aria-hidden="true"><use href="#i-chart-line"/></svg>Insights</a></li><li><a href="#tax" data-ftab="6"><svg class="icon icon--16" aria-hidden="true"><use href="#i-file-check"/></svg>Tax</a></li><li><a href="#teaming" data-ftab="7"><svg class="icon icon--16" aria-hidden="true"><use href="#i-users"/></svg>Teaming</a></li></ul>
+      </nav>
+      <!-- The texts scroll in the left column; the pictures share one pinned
+           stage on the right (after beside.com). On phones the stage lets go and
+           the grid interleaves each picture under its text. -->
+      <div class="fgrid">
+      <div class="fcol">
+      <article class="fblock is-active" id="customers" data-name="01 · Customer management &amp; intelligence" aria-labelledby="customers-h">
+        <div class="fblock__text" data-reveal-group="fblock">
+          <p class="fblock__eyebrow" data-reveal><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-inbox"/></svg></span>Customer management &amp; intelligence</p>
+          <h3 class="fblock__h" id="customers-h" tabindex="-1" data-reveal><span class="hl-1">Turn more DMs</span> <span class="hl-2">into sales.</span></h3>
+          <p class="t-body fblock__sub" data-reveal>Reply from one inbox, see where buyers drop off, and understand your market.</p>
+          <ul class="facc" data-reveal>
+            <li class="facc__item is-open">
+              <h4><button type="button" class="facc__q" aria-expanded="true" aria-controls="customers-a0" id="customers-q0" data-step="0"><svg class="icon" aria-hidden="true"><use href="#i-inbox"/></svg><span>Stop losing sales in busy inboxes</span></button></h4>
+              <div class="facc__a" id="customers-a0" role="region" aria-labelledby="customers-q0"><div><p>You can finally reply to Instagram, Facebook, WhatsApp and more from one inbox, so no customer slips away.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+            <li class="facc__item">
+              <h4><button type="button" class="facc__q" aria-expanded="false" aria-controls="customers-a1" id="customers-q1" data-step="1"><svg class="icon" aria-hidden="true"><use href="#i-filter"/></svg><span>Turn lost buyers into sales</span></button></h4>
+              <div class="facc__a" id="customers-a1" role="region" aria-labelledby="customers-q1" hidden><div><p>See where your customers drop off, whether in your DMs or on your shop website, and fix it.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+            <li class="facc__item">
+              <h4><button type="button" class="facc__q" aria-expanded="false" aria-controls="customers-a2" id="customers-q2" data-step="2"><svg class="icon" aria-hidden="true"><use href="#i-chart-column"/></svg><span>Understand the market, not just your customers</span></button></h4>
+              <div class="facc__a" id="customers-a2" role="region" aria-labelledby="customers-q2" hidden><div><p>Know if the market saw &amp; took an action from your last campaign.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+          </ul>
+          <p class="fblock__more" data-reveal><a class="text-link" href="/product/customers" data-event="cta_product" data-section="features-customers"><span>See how DMs become sales</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
+        </div>
+      </article>
+      <article class="fblock" id="sales" data-name="02 · Sales &amp; invoices" aria-labelledby="sales-h">
+        <div class="fblock__text" data-reveal-group="fblock">
+          <p class="fblock__eyebrow" data-reveal><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-receipt"/></svg></span>Sales &amp; invoices</p>
+          <h3 class="fblock__h" id="sales-h" tabindex="-1" data-reveal><span class="hl-1">From DM to paid and delivered,</span> <span class="hl-2">in one chat.</span></h3>
+          <p class="t-body fblock__sub" data-reveal>Send invoice, get paid &amp; book delivery without leaving the chat.</p>
+          <ul class="facc" data-reveal>
+            <li class="facc__item is-open">
+              <h4><button type="button" class="facc__q" aria-expanded="true" aria-controls="sales-a0" id="sales-q0" data-step="0"><svg class="icon" aria-hidden="true"><use href="#i-file-text"/></svg><span>Invoice &amp; confirm payment in one chat</span></button></h4>
+              <div class="facc__a" id="sales-a0" role="region" aria-labelledby="sales-q0"><div><p>Send invoice &amp; confirm payment without leaving the chat or asking for proof.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+            <li class="facc__item">
+              <h4><button type="button" class="facc__q" aria-expanded="false" aria-controls="sales-a1" id="sales-q1" data-step="1"><svg class="icon" aria-hidden="true"><use href="#i-percent"/></svg><span>Run sales, easily</span></button></h4>
+              <div class="facc__a" id="sales-a1" role="region" aria-labelledby="sales-q1" hidden><div><p>% off, buy-2-get-1, first-order deals or VIP prices, set and applied automatically, with the impact on your profits clear to you before launch.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+            <li class="facc__item">
+              <h4><button type="button" class="facc__q" aria-expanded="false" aria-controls="sales-a2" id="sales-q2" data-step="2"><svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg><span>Get it delivered with less stress</span></button></h4>
+              <div class="facc__a" id="sales-a2" role="region" aria-labelledby="sales-q2" hidden><div><p>Compare delivery prices, book in the same chat, and track.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+          </ul>
+          <p class="fblock__more" data-reveal><a class="text-link" href="/product/sales" data-event="cta_product" data-section="features-sales"><span>See how a sale closes</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
+        </div>
+      </article>
+      <article class="fblock" id="finance" data-name="03 · Finance" aria-labelledby="finance-h">
+        <div class="fblock__text" data-reveal-group="fblock">
+          <p class="fblock__eyebrow" data-reveal><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-hand-coins"/></svg></span>Finance</p>
+          <h3 class="fblock__h" id="finance-h" tabindex="-1" data-reveal><span class="hl-1">Every payment,</span> <span class="hl-2">under your control.</span></h3>
+          <p class="t-body fblock__sub" data-reveal>Confirm every payment, approve spend from anywhere and set card limits.</p>
+          <ul class="facc" data-reveal>
+            <li class="facc__item is-open">
+              <h4><button type="button" class="facc__q" aria-expanded="true" aria-controls="finance-a0" id="finance-q0" data-step="0"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg><span>Create links &amp; confirm payments easily</span></button></h4>
+              <div class="facc__a" id="finance-a0" role="region" aria-labelledby="finance-q0"><div><p>Receive payments from your customers, confirm, &amp; get it recorded in your books automatically.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+            <li class="facc__item">
+              <h4><button type="button" class="facc__q" aria-expanded="false" aria-controls="finance-a1" id="finance-q1" data-step="1"><svg class="icon" aria-hidden="true"><use href="#i-shield-check"/></svg><span>Approve payments from anywhere, safely</span></button></h4>
+              <div class="facc__a" id="finance-a1" role="region" aria-labelledby="finance-q1" hidden><div><p>Grant access to the right people to approve securely, payouts recorded instantly, with no paperwork.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+            <li class="facc__item">
+              <h4><button type="button" class="facc__q" aria-expanded="false" aria-controls="finance-a2" id="finance-q2" data-step="2"><svg class="icon" aria-hidden="true"><use href="#i-credit-card"/></svg><span>Work cards with limits you set</span></button></h4>
+              <div class="facc__a" id="finance-a2" role="region" aria-labelledby="finance-q2" hidden><div><p>Set what each card is for and how much it can spend, and change or freeze it any time from your phone.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+          </ul>
+          <p class="t-small fblock__print">Payments and payouts run through our licensed partners.</p>
+          <p class="fblock__more" data-reveal><a class="text-link" href="/product/finance" data-event="cta_product" data-section="features-finance"><span>See how you stay in control</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
+        </div>
+      </article>
+      <article class="fblock" id="pricing-inventory" data-name="04 · Pricing &amp; inventory" aria-labelledby="pricing-inventory-h">
+        <div class="fblock__text" data-reveal-group="fblock">
+          <p class="fblock__eyebrow" data-reveal><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-package"/></svg></span>Pricing &amp; inventory</p>
+          <h3 class="fblock__h" id="pricing-inventory-h" tabindex="-1" data-reveal><span class="hl-1">Price with</span> <span class="hl-2">confidence.</span></h3>
+          <p class="t-body fblock__sub" data-reveal>Record costs the way your business operates, protect your profits.</p>
+          <ul class="facc" data-reveal>
+            <li class="facc__item is-open">
+              <h4><button type="button" class="facc__q" aria-expanded="true" aria-controls="pricing-inventory-a0" id="pricing-inventory-q0" data-step="0"><svg class="icon" aria-hidden="true"><use href="#i-shopping-cart"/></svg><span>Bulk record, costs updated</span></button></h4>
+              <div class="facc__a" id="pricing-inventory-a0" role="region" aria-labelledby="pricing-inventory-q0"><div><p>Record a market run in one go; your accounts and product costs update automatically, with shared costs included easily.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+            <li class="facc__item">
+              <h4><button type="button" class="facc__q" aria-expanded="false" aria-controls="pricing-inventory-a1" id="pricing-inventory-q1" data-step="1"><svg class="icon" aria-hidden="true"><use href="#i-stethoscope"/></svg><span>Find the products losing you money</span></button></h4>
+              <div class="facc__a" id="pricing-inventory-a1" role="region" aria-labelledby="pricing-inventory-q1" hidden><div><p>Counts costs people forget, packaging, thread, fuel, rent, ... showing you real margin per product.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+            <li class="facc__item">
+              <h4><button type="button" class="facc__q" aria-expanded="false" aria-controls="pricing-inventory-a2" id="pricing-inventory-q2" data-step="2"><svg class="icon" aria-hidden="true"><use href="#i-ruler"/></svg><span>Adapted to your unit of measurement</span></button></h4>
+              <div class="facc__a" id="pricing-inventory-a2" role="region" aria-labelledby="pricing-inventory-q2" hidden><div><p>Buy in bags, carton or basket, sell in cup, crate or pack; speed. converts it for you, so your stock &amp; costs add up.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+          </ul>
+          <p class="fblock__more" data-reveal><a class="text-link" href="/product/pricing-inventory" data-event="cta_product" data-section="features-pricing-inventory"><span>See how to price right</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
+        </div>
+      </article>
+      <article class="fblock" id="accounting" data-name="05 · Accounting" aria-labelledby="accounting-h">
+        <div class="fblock__text" data-reveal-group="fblock">
+          <p class="fblock__eyebrow" data-reveal><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg></span>Accounting</p>
+          <h3 class="fblock__h" id="accounting-h" tabindex="-1" data-reveal><span class="hl-1">Let your accountants</span> <span class="hl-2">breathe.</span></h3>
+          <p class="t-body fblock__sub" data-reveal>Every sale &amp; payment recorded as it happens, close the month faster.</p>
+          <ul class="facc" data-reveal>
+            <li class="facc__item is-open">
+              <h4><button type="button" class="facc__q" aria-expanded="true" aria-controls="accounting-a0" id="accounting-q0" data-step="0"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg><span>Books updated as you sell</span></button></h4>
+              <div class="facc__a" id="accounting-a0" role="region" aria-labelledby="accounting-q0"><div><p>Sales &amp; payments go into the right account automatically, no need for manual entries.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+            <li class="facc__item">
+              <h4><button type="button" class="facc__q" aria-expanded="false" aria-controls="accounting-a1" id="accounting-q1" data-step="1"><svg class="icon" aria-hidden="true"><use href="#i-check-check"/></svg><span>Automatic reconciliation</span></button></h4>
+              <div class="facc__a" id="accounting-a1" role="region" aria-labelledby="accounting-q1" hidden><div><p>Close the month quicker with automatic reconciliation and errors signalled in real time.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+            <li class="facc__item">
+              <h4><button type="button" class="facc__q" aria-expanded="false" aria-controls="accounting-a2" id="accounting-q2" data-step="2"><svg class="icon" aria-hidden="true"><use href="#i-chart-column"/></svg><span>Reporting made easy</span></button></h4>
+              <div class="facc__a" id="accounting-a2" role="region" aria-labelledby="accounting-q2" hidden><div><p>Curate custom reports with the data &amp; charts you need, say goodbye to Excel sheets.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+          </ul>
+          <p class="fblock__more" data-reveal><a class="text-link" href="/product/accounting" data-event="cta_product" data-section="features-accounting"><span>See how the books keep up</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
+        </div>
+      </article>
+      <article class="fblock" id="insights" data-name="06 · Business insights" aria-labelledby="insights-h">
+        <div class="fblock__text" data-reveal-group="fblock">
+          <p class="fblock__eyebrow" data-reveal><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-chart-line"/></svg></span>Business insights</p>
+          <h3 class="fblock__h" id="insights-h" tabindex="-1" data-reveal><span class="hl-1">Grow profitably</span> <span class="hl-2">with speed.</span></h3>
+          <p class="t-body fblock__sub" data-reveal>Wake up to yesterday’s sales &amp; know exactly what to improve next.</p>
+          <ul class="facc" data-reveal>
+            <li class="facc__item is-open">
+              <h4><button type="button" class="facc__q" aria-expanded="true" aria-controls="insights-a0" id="insights-q0" data-step="0"><svg class="icon" aria-hidden="true"><use href="#i-smartphone"/></svg><span>Your business, live on your phone</span></button></h4>
+              <div class="facc__a" id="insights-a0" role="region" aria-labelledby="insights-q0"><div><p>Get yesterday’s sales, today’s orders and cash in hand, on a widget that updates in real time.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+            <li class="facc__item">
+              <h4><button type="button" class="facc__q" aria-expanded="false" aria-controls="insights-a1" id="insights-q1" data-step="1"><svg class="icon" aria-hidden="true"><use href="#i-chart-column"/></svg><span>Reports that come to you</span></button></h4>
+              <div class="facc__a" id="insights-a1" role="region" aria-labelledby="insights-q1" hidden><div><p>Design the reports you need, automate your periodic submission, and tap any number to dive deeper.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+            <li class="facc__item">
+              <h4><button type="button" class="facc__q" aria-expanded="false" aria-controls="insights-a2" id="insights-q2" data-step="2"><svg class="icon" aria-hidden="true"><use href="#i-gauge"/></svg><span>Know where you stand, &amp; how to scale further</span></button></h4>
+              <div class="facc__a" id="insights-a2" role="region" aria-labelledby="insights-q2" hidden><div><p>See your business health in one number, then get a detailed assessment &amp; growth strategy on request.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+          </ul>
+          <p class="fblock__more" data-reveal><a class="text-link" href="/product/insights" data-event="cta_product" data-section="features-insights"><span>See what your numbers say</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
+        </div>
+      </article>
+      <article class="fblock" id="tax" data-name="07 · Tax &amp; compliance" aria-labelledby="tax-h">
+        <div class="fblock__text" data-reveal-group="fblock">
+          <p class="fblock__eyebrow" data-reveal><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-file-check"/></svg></span>Tax &amp; compliance</p>
+          <h3 class="fblock__h" id="tax-h" tabindex="-1" data-reveal><span class="hl-1">Stay compliant,</span> <span class="hl-2">stress-free.</span></h3>
+          <p class="t-body fblock__sub" data-reveal>Your tax position is always up to date, so filing takes minutes, not weeks.</p>
+          <ul class="facc" data-reveal>
+            <li class="facc__item is-open">
+              <h4><button type="button" class="facc__q" aria-expanded="true" aria-controls="tax-a0" id="tax-q0" data-step="0"><svg class="icon" aria-hidden="true"><use href="#i-calculator"/></svg><span>VAT worked out as you sell</span></button></h4>
+              <div class="facc__a" id="tax-a0" role="region" aria-labelledby="tax-q0"><div><p>VAT is calculated on every sale and purchase automatically, so you always know what is taxed.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+            <li class="facc__item">
+              <h4><button type="button" class="facc__q" aria-expanded="false" aria-controls="tax-a1" id="tax-q1" data-step="1"><svg class="icon" aria-hidden="true"><use href="#i-file-check"/></svg><span>E-invoicing, built in</span></button></h4>
+              <div class="facc__a" id="tax-a1" role="region" aria-labelledby="tax-q1" hidden><div><p>Send invoices the way FIRS requires, with nothing extra to set up.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+          </ul>
+          <p class="fblock__more" data-reveal><a class="text-link" href="/product/tax" data-event="cta_product" data-section="features-tax"><span>See how filing gets easy</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
+        </div>
+      </article>
+      <article class="fblock" id="teaming" data-name="08 · Teaming" aria-labelledby="teaming-h">
+        <div class="fblock__text" data-reveal-group="fblock">
+          <p class="fblock__eyebrow" data-reveal><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span>Teaming</p>
+          <h3 class="fblock__h" id="teaming-h" tabindex="-1" data-reveal><span class="hl-1">Work better,</span> <span class="hl-2">together.</span></h3>
+          <p class="t-body fblock__sub" data-reveal>Your team talks, plans and follows up in the same app they sell in.</p>
+          <ul class="facc" data-reveal>
+            <li class="facc__item is-open">
+              <h4><button type="button" class="facc__q" aria-expanded="true" aria-controls="teaming-a0" id="teaming-q0" data-step="0"><svg class="icon" aria-hidden="true"><use href="#i-messages-square"/></svg><span>One less subscription</span></button></h4>
+              <div class="facc__a" id="teaming-a0" role="region" aria-labelledby="teaming-q0"><div><p>Your team chats inside speed., sharing files, GIFs and company updates without needing another subscription.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+            <li class="facc__item">
+              <h4><button type="button" class="facc__q" aria-expanded="false" aria-controls="teaming-a1" id="teaming-q1" data-step="1"><svg class="icon" aria-hidden="true"><use href="#i-list-checks"/></svg><span>Big plans to daily tasks</span></button></h4>
+              <div class="facc__a" id="teaming-a1" role="region" aria-labelledby="teaming-q1" hidden><div><p>Set goals, delegate tasks and run your meetings, all in one place.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+            <li class="facc__item">
+              <h4><button type="button" class="facc__q" aria-expanded="false" aria-controls="teaming-a2" id="teaming-q2" data-step="2"><svg class="icon" aria-hidden="true"><use href="#i-notebook-pen"/></svg><span>Never lose a meeting’s notes</span></button></h4>
+              <div class="facc__a" id="teaming-a2" role="region" aria-labelledby="teaming-q2" hidden><div><p>Notes and action points are written for you, so nothing said gets forgotten.</p></div></div>
+              <span class="facc__bar" aria-hidden="true"><i></i></span>
+            </li>
+          </ul>
+          <p class="fblock__more" data-reveal><a class="text-link" href="/product/teaming" data-event="cta_product" data-section="features-teaming"><span>See your team in one place</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
+        </div>
+      </article>
+      </div>
+      <div class="fstage">
+        <figure class="fvis g-1 is-active" data-block="customers">
+          <span class="fvis__stripes fvis__stripes--l" aria-hidden="true"></span><span class="fvis__stripes fvis__stripes--r" aria-hidden="true"></span>
+          <div class="fmedia">
+            <video class="fmedia__video" muted loop playsinline preload="none" width="880" height="660" data-poster="assets/media/features/customers-poster.webp" aria-label="The speed. customer list switching between All customers, Owing you and By segment, with a winback suggestion for 26 at-risk customers.">
+              <source src="assets/media/features/customers.webm" type="video/webm" />
+              <source src="assets/media/features/customers.mp4" type="video/mp4" />
+            </video>
+            <img class="fmedia__still" src="assets/media/features/customers-poster.webp" data-gif="assets/media/features/customers.gif" width="880" height="660" loading="lazy" decoding="async" alt="The speed. customer list switching between All customers, Owing you and By segment, with a winback suggestion for 26 at-risk customers." />
           </div>
-          <div class="dash__body">
-            <aside class="dash__side">
-              <div class="dash__side-item is-active">Dashboard</div>
-              <div class="dash__side-item">Invoices</div>
-              <div class="dash__side-item">Banking</div>
-              <div class="dash__side-item">Inventory</div>
-              <div class="dash__side-item">Production</div>
-              <div class="dash__side-item">Reports</div>
-            </aside>
-            <div class="dash__main">
-              <div class="dash__head">
-                <div>
-                  <div class="dash__hi">Good morning, Kanyin</div>
-                  <div class="dash__date">Wednesday, July 2</div>
-                </div>
-                <span class="dash__chip">This month ▾</span>
+        </figure>
+        <figure class="fvis g-2" data-block="sales">
+          <span class="fvis__stripes fvis__stripes--l" aria-hidden="true"></span><span class="fvis__stripes fvis__stripes--r" aria-hidden="true"></span>
+          <div class="fmedia">
+            <video class="fmedia__video" muted loop playsinline preload="none" width="880" height="660" data-poster="assets/media/features/sales-poster.webp" aria-label="A speed. chat with Ifeoma Okafor where the order detected in the chat becomes an invoice for ₦753,000 in one click.">
+              <source src="assets/media/features/sales.webm" type="video/webm" />
+              <source src="assets/media/features/sales.mp4" type="video/mp4" />
+            </video>
+            <img class="fmedia__still" src="assets/media/features/sales-poster.webp" data-gif="assets/media/features/sales.gif" width="880" height="660" loading="lazy" decoding="async" alt="A speed. chat with Ifeoma Okafor where the order detected in the chat becomes an invoice for ₦753,000 in one click." />
+          </div>
+        </figure>
+        <figure class="fvis g-3" data-block="finance">
+          <span class="fvis__stripes fvis__stripes--l" aria-hidden="true"></span><span class="fvis__stripes fvis__stripes--r" aria-hidden="true"></span>
+          <div class="fmedia">
+            <video class="fmedia__video" muted loop playsinline preload="none" width="880" height="660" data-poster="assets/media/features/finance-poster.webp" aria-label="speed. Payments received, each payment matched to the invoice it settles, then filtered to unmatched payments.">
+              <source src="assets/media/features/finance.webm" type="video/webm" />
+              <source src="assets/media/features/finance.mp4" type="video/mp4" />
+            </video>
+            <img class="fmedia__still" src="assets/media/features/finance-poster.webp" data-gif="assets/media/features/finance.gif" width="880" height="660" loading="lazy" decoding="async" alt="speed. Payments received, each payment matched to the invoice it settles, then filtered to unmatched payments." />
+          </div>
+        </figure>
+        <figure class="fvis g-4" data-block="pricing-inventory">
+          <span class="fvis__stripes fvis__stripes--l" aria-hidden="true"></span><span class="fvis__stripes fvis__stripes--r" aria-hidden="true"></span>
+          <div class="fmedia">
+            <video class="fmedia__video" muted loop playsinline preload="none" width="880" height="660" data-poster="assets/media/features/pricing-inventory-poster.webp" aria-label="speed. Cost of sales showing the real gross margin of each product, then only the products selling below target.">
+              <source src="assets/media/features/pricing-inventory.webm" type="video/webm" />
+              <source src="assets/media/features/pricing-inventory.mp4" type="video/mp4" />
+            </video>
+            <img class="fmedia__still" src="assets/media/features/pricing-inventory-poster.webp" data-gif="assets/media/features/pricing-inventory.gif" width="880" height="660" loading="lazy" decoding="async" alt="speed. Cost of sales showing the real gross margin of each product, then only the products selling below target." />
+          </div>
+        </figure>
+        <figure class="fvis g-5" data-block="accounting">
+          <span class="fvis__stripes fvis__stripes--l" aria-hidden="true"></span><span class="fvis__stripes fvis__stripes--r" aria-hidden="true"></span>
+          <div class="fmedia">
+            <video class="fmedia__video" muted loop playsinline preload="none" width="880" height="660" data-poster="assets/media/features/accounting-poster.webp" aria-label="The speed. month-end checklist for June 2026, three of six checks done, ready to close and lock the period.">
+              <source src="assets/media/features/accounting.webm" type="video/webm" />
+              <source src="assets/media/features/accounting.mp4" type="video/mp4" />
+            </video>
+            <img class="fmedia__still" src="assets/media/features/accounting-poster.webp" data-gif="assets/media/features/accounting.gif" width="880" height="660" loading="lazy" decoding="async" alt="The speed. month-end checklist for June 2026, three of six checks done, ready to close and lock the period." />
+          </div>
+        </figure>
+        <figure class="fvis g-6" data-block="insights">
+          <span class="fvis__stripes fvis__stripes--l" aria-hidden="true"></span><span class="fvis__stripes fvis__stripes--r" aria-hidden="true"></span>
+          <div class="fmedia">
+            <video class="fmedia__video" muted loop playsinline preload="none" width="880" height="660" data-poster="assets/media/features/insights-poster.webp" aria-label="The speed. home screen with key insights on growth, sales, customers and unpaid invoices, then the cash flow chart.">
+              <source src="assets/media/features/insights.webm" type="video/webm" />
+              <source src="assets/media/features/insights.mp4" type="video/mp4" />
+            </video>
+            <img class="fmedia__still" src="assets/media/features/insights-poster.webp" data-gif="assets/media/features/insights.gif" width="880" height="660" loading="lazy" decoding="async" alt="The speed. home screen with key insights on growth, sales, customers and unpaid invoices, then the cash flow chart." />
+          </div>
+        </figure>
+        <figure class="fvis g-7" data-block="tax">
+          <span class="fvis__stripes fvis__stripes--l" aria-hidden="true"></span><span class="fvis__stripes fvis__stripes--r" aria-hidden="true"></span>
+          <div class="fmedia">
+            <video class="fmedia__video" muted loop playsinline preload="none" width="880" height="660" data-poster="assets/media/features/tax-poster.webp" aria-label="The speed. tax summary showing ₦307,463 net VAT payable to FIRS, with the reporting period picker open.">
+              <source src="assets/media/features/tax.webm" type="video/webm" />
+              <source src="assets/media/features/tax.mp4" type="video/mp4" />
+            </video>
+            <img class="fmedia__still" src="assets/media/features/tax-poster.webp" data-gif="assets/media/features/tax.gif" width="880" height="660" loading="lazy" decoding="async" alt="The speed. tax summary showing ₦307,463 net VAT payable to FIRS, with the reporting period picker open." />
+          </div>
+        </figure>
+        <figure class="fvis g-8" data-block="teaming">
+          <span class="fvis__stripes fvis__stripes--l" aria-hidden="true"></span><span class="fvis__stripes fvis__stripes--r" aria-hidden="true"></span>
+          <div class="fmedia">
+            <video class="fmedia__video" muted loop playsinline preload="none" width="880" height="660" data-poster="assets/media/features/teaming-poster.webp" aria-label="speed. Team &amp; roles: the members, each role&#x27;s permissions, and how new DMs are shared among staff.">
+              <source src="assets/media/features/teaming.webm" type="video/webm" />
+              <source src="assets/media/features/teaming.mp4" type="video/mp4" />
+            </video>
+            <img class="fmedia__still" src="assets/media/features/teaming-poster.webp" data-gif="assets/media/features/teaming.gif" width="880" height="660" loading="lazy" decoding="async" alt="speed. Team &amp; roles: the members, each role&#x27;s permissions, and how new DMs are shared among staff." />
+          </div>
+        </figure>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ speed. AI ============
+       Revolut's AIR section: one centred headline, a line and a white button,
+       with the product rising from the bottom edge under them; here it is a
+       desktop speed. AI window that plays three scenes in turn. As the section
+       arrives the page dims from daylight to a near-black mesh with grey glows,
+       and the type follows (--mesh, set by home.js). -->
+  <section class="ai-show" id="ai" data-tone="light" aria-labelledby="ai-h">
+    <div class="ai-mesh grain" aria-hidden="true"><span class="ai-mesh__blob ai-mesh__blob--1"></span><span class="ai-mesh__blob ai-mesh__blob--2"></span><span class="ai-mesh__blob ai-mesh__blob--3"></span></div>
+    <div class="container">
+      <div class="ai-head-run">
+      <header class="ai-head" data-reveal-group="aihead">
+        <h2 class="t-h2" id="ai-h" data-reveal><span class="hl-1 hl-inline">Ask anything.</span> <span class="hl-2 hl-inline">Stay in charge.</span></h2>
+        <p class="t-body-l" data-reveal><span class="wm-text">speed.</span> AI reads your sales, stock, payments &amp; customers, so you know who owes you before the supplier calls, reply while the buyer still wants it and approve every move yourself.</p>
+        <div class="btn-block" data-reveal>
+          <a class="btn" href="/product/ai" data-event="cta_product" data-section="ai">See what you can ask</a>
+        </div>
+      </header>
+        <div class="ai-head-run__space" aria-hidden="true"></div>
+      </div>
+      <div class="ai-demo" data-reveal-group="aistage">
+        <svg class="ai-arcs" viewBox="0 0 1600 800" preserveAspectRatio="none" aria-hidden="true"><path d="M-40 760C180 640 300 520 380 360S520 100 640 -20"/><path d="M-60 520C120 470 220 380 280 260S380 60 460 -20"/><path d="M1640 760C1420 640 1300 520 1220 360S1080 100 960 -20"/><path d="M1660 520C1480 470 1380 380 1320 260S1220 60 1140 -20"/><path d="M200 820C380 700 520 640 620 520S760 300 800 160"/><path d="M1400 820C1220 700 1080 640 980 520S840 300 800 160"/></svg>
+        <figure class="ai-stage">
+        <div class="aiw" id="aiw" data-state="empty" aria-hidden="true" data-reveal>
+          <div class="aiw__bar">
+            <span class="aiw__lights"><i></i><i></i><i></i></span>
+            <span class="aiw__title"><span class="aiw__avatar"></span><span><span class="wm-text">speed.</span> AI</span></span>
+            <span class="aiw__branch">All branches<svg class="icon icon--16"><use href="#i-chevron-down"/></svg></span>
+          </div>
+          <div class="aiw__body">
+            <div class="aiw__col">
+              <div class="aiw__intro">
+                <p class="aiw__h">Just ask.</p>
+                <p class="aiw__sub">Type it the way you’d ask your accountant or your store manager.</p>
               </div>
-              <div class="dash__cards">
-                <div class="dash__card">
-                  <span class="dash__label">Revenue</span>
-                  <span class="dash__value" data-count="128450" data-prefix="$">$0</span>
-                  <span class="dash__delta up">↑ 18.2%</span>
+              <div class="aiw__thread"></div>
+              <div class="aiw__composer">
+                <p class="aiw__input"><span class="aiw__typed"></span><span class="aiw__caret"></span><span class="aiw__ph">Ask about your business…</span></p>
+                <div class="aiw__tools">
+                  <span class="aiw__tool"><svg class="icon icon--16"><use href="#i-sparkles"/></svg>Answers from your real numbers</span>
+                  <span class="aiw__send"><svg class="icon icon--16"><use href="#i-arrow-right"/></svg></span>
                 </div>
-                <div class="dash__card">
-                  <span class="dash__label">Outstanding</span>
-                  <span class="dash__value" data-count="23900" data-prefix="$">$0</span>
-                  <span class="dash__delta">14 invoices</span>
-                </div>
-                <div class="dash__card">
-                  <span class="dash__label">Cash on hand</span>
-                  <span class="dash__value" data-count="402113" data-prefix="$">$0</span>
-                  <span class="dash__delta up">↑ 6.4%</span>
-                </div>
-              </div>
-              <div class="dash__chart" aria-hidden="true">
-                <div class="bar" style="--h:36%"></div><div class="bar" style="--h:52%"></div>
-                <div class="bar" style="--h:44%"></div><div class="bar" style="--h:68%"></div>
-                <div class="bar" style="--h:58%"></div><div class="bar" style="--h:80%"></div>
-                <div class="bar" style="--h:64%"></div><div class="bar" style="--h:90%"></div>
-                <div class="bar" style="--h:74%"></div><div class="bar" style="--h:98%"></div>
               </div>
             </div>
+            <svg class="aiw__cursor" width="22" height="24" viewBox="0 0 22 24"><path d="M3 2l15 10.5-6.6 1.3 3.9 7.4-3 1.5-3.9-7.5L3 20z"/></svg>
           </div>
         </div>
+        <figcaption class="visually-hidden">Example of speed. AI on a computer. Asked “Who owes us the most?”, it checks invoices and payments and answers that 3 customers owe ₦1,184,000, Bisi &amp; Sons the most at ₦480,000, with a reminder waiting for approval. Asked “What isn’t selling?”, it finds 52 cartons of malt drink unsold in 30 days and suggests 10% off for a week, which the owner approves. Asked to draft replies to tonight’s DMs, it writes a reply to Ifeoma in the owner’s voice, ready to send.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-        <!-- floating accent cards -->
-        <div class="float-card float-card--pay" data-parallax="-0.35">
-          <span class="float-card__icon">✓</span>
-          <div><strong>Payment received</strong><small>Acme Ltd · $4,200.00</small></div>
+  <!-- ============ THE ENDING (the same on every page) ============ -->
+  <div class="ending" id="ending">
+
+    <!-- 1. The one idea: one example month as a flow, from revenue to result.
+         After giga.ai's "Turn every conversation into a better agent": one
+         pinned stage that changes as you scroll, fine strands flowing into a
+         node, a big word per step and a pill to jump between steps. Each
+         strand is about ₦60,000 of the example month. -->
+    <section class="one-idea" id="one-idea" data-tone="light" aria-labelledby="idea-h">
+      <div class="container idea-head" data-reveal-group="idea">
+        <h2 class="t-h2" id="idea-h" data-reveal><span class="hl-1">Grow with speed.</span> <span class="hl-2 italic">Literally.</span></h2>
+        <p class="t-body-l" data-reveal>Every feature is judged by one question: does it help you sell more and keep more of what you make? Follow one example month for a team of 5 on <span class="wm-text">speed.</span> Standard, from revenue to result.</p>
+      </div>
+
+      <div class="flow" id="flow">
+        <div class="flow__stage">
+          <div class="flow__titles">
+            <div class="flow__title is-on" data-phase="0"><p class="flow__word">Sell more.</p><p class="flow__line">More DMs answered from one inbox, even after closing, quiet buyers followed up and whole group orders taken from one link.</p></div>
+            <div class="flow__title" data-phase="1"><p class="flow__word">Spend less.</p><p class="flow__line">Six apps become one subscription and leaks are caught early. Cost of goods rises with sales, and staff, rent &amp; delivery stay the same.</p></div>
+            <div class="flow__title" data-phase="2"><p class="flow__word">Keep more.</p><p class="flow__line">Profit almost doubles, and about three-quarters of the gain is money you stop losing, not new sales.</p></div>
+          </div>
+          <div class="flow__fig" aria-hidden="true">
+            <svg class="flow__svg"></svg>
+            <div class="flow__labels"></div>
+          </div>
+          <div class="flow__bar glass glass--light">
+            <div class="flow__tabs" role="group" aria-label="Steps of the example month">
+              <button class="flow__tab is-on" type="button" data-go="0" aria-pressed="true">Revenue</button>
+              <button class="flow__tab" type="button" data-go="1" aria-pressed="false">Costs</button>
+              <button class="flow__tab" type="button" data-go="2" aria-pressed="false">Result</button>
+            </div>
+            <a class="btn btn--compact" href="https://myspeedapp.com/sign-up?from=home.one-idea" data-event="cta_app" data-section="one-idea">Start growing today</a>
+          </div>
         </div>
-        <div class="float-card float-card--stock" data-parallax="-0.2">
-          <div><strong>Stock synced</strong><small>3 warehouses · just now</small></div>
+      </div>
+
+      <div class="container" data-reveal-group="idea-cta">
+        <div class="btn-block flow__cta" data-reveal>
+          <a class="btn" href="https://myspeedapp.com/sign-up?from=home.one-idea" data-event="cta_app" data-section="one-idea">Start growing today</a>
+        </div>
+        <div class="visually-hidden">
+              <table class="pl">
+                <caption class="visually-hidden">An example month for a business with a team of 5, before speed. and with speed.</caption>
+                <thead>
+                  <tr>
+                    <th scope="col" class="pl-h t-label">An example month · Team of 5</th>
+                    <th scope="col" class="pl-h t-label">Before <span class="wm-text">speed.</span></th>
+                    <th scope="col" class="pl-h t-label">With <span class="wm-text">speed.</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Sales</th><td class="num">₦4,800,000</td><td class="num">₦5,040,000</td></tr>
+                  <tr><th scope="row">Cost of goods sold</th><td class="num"><span class="visually-hidden">minus </span>(₦2,880,000)</td><td class="num"><span class="visually-hidden">minus </span>(₦3,024,000)</td></tr>
+                  <tr class="pl-sub"><th scope="row">Gross profit</th><td class="num">₦1,920,000</td><td class="num">₦2,016,000</td></tr>
+                  <tr><th scope="row">Apps &amp; subscriptions</th><td class="num"><span class="visually-hidden">minus </span>(₦295,000)</td><td class="num"><span class="visually-hidden">minus </span>(₦62,500)</td></tr>
+                  <tr><th scope="row">Waste &amp; leaks</th><td class="num"><span class="visually-hidden">minus </span>(₦120,000)</td><td class="num"><span class="visually-hidden">minus </span>(₦60,000)</td></tr>
+                  <tr><th scope="row">Staff, rent &amp; delivery</th><td class="num"><span class="visually-hidden">minus </span>(₦1,100,000)</td><td class="num"><span class="visually-hidden">minus </span>(₦1,100,000)</td></tr>
+                  <tr class="pl-total"><th scope="row">Profit</th><td class="num">₦405,000</td><td class="num"><span class="hilite"><svg viewBox="0 0 132 30" preserveAspectRatio="none" aria-hidden="true"><path d="M3 17 C 20 9, 50 12, 70 10 S 112 8, 129 13 L 127 24 C 100 22, 70 26, 40 24 S 10 26, 4 25 Z"/></svg>₦793,500</span></td></tr>
+                  <tr class="pl-extra"><th scope="row">Admin hours a week <span class="pl-nn">Not in naira</span></th><td class="num">30</td><td class="num">10</td></tr>
+                </tbody>
+              </table>
         </div>
       </div>
     </section>
 
-    <!-- ============ MARQUEE ============ -->
-    <section class="marquee-wrap reveal">
-      <p class="marquee-label">Trusted by finance teams at fast-moving companies</p>
-      <div class="marquee">
-        <div class="marquee__track">
-          <span>NORTHWIND</span><span>ACME&nbsp;CO</span><span>HELIX</span><span>LUMEN</span>
-          <span>FORGE</span><span>ATLAS</span><span>KITE</span><span>EMBER</span>
-          <span>NORTHWIND</span><span>ACME&nbsp;CO</span><span>HELIX</span><span>LUMEN</span>
-          <span>FORGE</span><span>ATLAS</span><span>KITE</span><span>EMBER</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ PRODUCT HIGHLIGHTS ============ -->
-    <section class="section" id="product">
+    <!-- 1b. Switching to speed. After deel.com's "One modern experience": a
+         dark band, the headline, three cards side by side (the one shown is
+         raised, and the band moves on to the next by itself), and under them
+         one wide photograph with the product floating on it: the Move-in card,
+         your own rules and roles, or your brand and alerts, whichever card is
+         on. Each card has its own
+         photograph, and they cross-fade with the scenes. -->
+    <section class="switch" id="switch" data-tone="dark" aria-labelledby="switch-h">
       <div class="container">
-        <div class="section__head reveal">
-          <p class="kicker">Everything, in one place</p>
-          <h2>From first invoice<br />to month-end close.</h2>
+        <div class="switch__head" data-reveal-group="switch-head">
+          <h2 class="t-h2" id="switch-h" data-reveal><span class="hl-1">Switch easily,</span> <span class="hl-2">make it yours.</span></h2>
         </div>
 
-        <!-- Highlight 1 -->
-        <div class="highlight">
-          <div class="highlight__copy reveal">
-            <span class="highlight__num">01</span>
-            <h3>Get paid without the chase</h3>
-            <p>Send polished invoices in seconds, take payments online, and let
-            automatic reminders and recurring billing do the follow-up for you.
-            Quotes convert to invoices in one click.</p>
-            <ul class="ticks">
-              <li>Invoices, quotes &amp; credit notes</li>
-              <li>Recurring billing on autopilot</li>
-              <li>Multi-currency payments</li>
-            </ul>
-          </div>
-          <div class="highlight__visual reveal reveal--right">
-            <div class="mock mock--invoice">
-              <div class="mock__row mock__row--head"><span>Invoice</span><span>Status</span><span>Amount</span></div>
-              <div class="mock__row"><span>INV-1042 · Acme Ltd</span><span class="pill pill--paid">Paid</span><span>$4,200</span></div>
-              <div class="mock__row"><span>INV-1041 · Helix Group</span><span class="pill pill--sent">Sent</span><span>$1,850</span></div>
-              <div class="mock__row"><span>INV-1040 · Lumen Studio</span><span class="pill pill--paid">Paid</span><span>$9,600</span></div>
-              <div class="mock__row"><span>INV-1039 · Kite &amp; Co</span><span class="pill pill--due">Overdue</span><span>$720</span></div>
-              <div class="mock__row"><span>INV-1038 · Atlas Corp</span><span class="pill pill--paid">Paid</span><span>$12,400</span></div>
+        <ul class="switch__cards" id="switch-cards" data-reveal-group="switch-cards">
+          <li class="switch__card is-on" data-scene="0" data-reveal>
+            <p class="switch__copy"><strong>Switching made easy.</strong> Bring your products, customers and balances across in one session, so you start selling straight away.</p>
+            <a class="text-link" href="/product/set-up" data-event="cta_product" data-section="switch"><span>See how fast you can switch</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+            <span class="switch__time" aria-hidden="true"><i></i></span>
+          </li>
+          <li class="switch__card" data-scene="1" data-reveal>
+            <p class="switch__copy"><strong>You decide what’s what.</strong> Say who’s a loyal customer and what counts as low stock, and give each person a role with only what they need.</p>
+            <a class="text-link" href="/product/teaming" data-event="cta_product" data-section="switch"><span>Learn more about roles</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+            <span class="switch__time" aria-hidden="true"><i></i></span>
+          </li>
+          <li class="switch__card" data-scene="2" data-reveal>
+            <p class="switch__copy"><strong>Personal down to every detail.</strong> Your colours, logo, columns and home screen, right down to the notifications you get.</p>
+            <a class="text-link" href="/product/set-up" data-event="cta_product" data-section="switch"><span>See what you can change</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+            <span class="switch__time" aria-hidden="true"><i></i></span>
+          </li>
+        </ul>
+
+        <figure class="switch__pic" data-reveal-group="switch-pic">
+          <div class="switch__frame" data-reveal>
+            <div class="switch__photo" aria-hidden="true">
+              <img class="sw-photo is-on" data-scene="0" src="assets/img/switch/switch-move-in.webp" alt="" width="1448" height="1086" loading="lazy" decoding="async" style="--pos: 64% 30%" />
+              <img class="sw-photo" data-scene="1" src="assets/img/switch/switch-roles.webp" alt="" width="1448" height="1086" loading="lazy" decoding="async" style="--pos: 62% 34%" />
+              <img class="sw-photo" data-scene="2" src="assets/img/switch/switch-brand.webp" alt="" width="1448" height="1086" loading="lazy" decoding="async" style="--pos: 66% 28%" />
             </div>
-          </div>
-        </div>
 
-        <!-- Highlight 2 -->
-        <div class="highlight highlight--flip">
-          <div class="highlight__copy reveal">
-            <span class="highlight__num">02</span>
-            <h3>Your money, in real time</h3>
-            <p>Connect bank accounts and wallets, reconcile transactions in a
-            keystroke, and watch cash flow update live. Month-end close goes
-            from weeks to hours.</p>
-            <ul class="ticks">
-              <li>Bank feeds &amp; smart reconciliation</li>
-              <li>Multi-wallet treasury</li>
-              <li>Guided month-end close</li>
-            </ul>
-          </div>
-          <div class="highlight__visual reveal reveal--left">
-            <div class="mock mock--bank">
-              <div class="mock__balance">
-                <small>Total balance</small>
-                <strong data-count="402113" data-prefix="$">$0</strong>
+            <div class="switch__scenes" aria-hidden="true">
+              <!-- Switching made easy: Move-in Day. -->
+              <div class="sw-scene is-on" data-scene="0">
+                <div class="movein" id="movein">
+                  <div class="movein__head">
+                    <span class="movein__avatar"></span>
+                    <div><p class="movein__title">Move-in Day</p><p class="movein__sub">From your template, in one session</p></div>
+                    <span class="movein__pct"><span class="movein__pct-n">0</span>%</span>
+                  </div>
+                  <ul class="movein__rows">
+                    <li class="movein__row" data-to="248"><span class="disc"><svg class="icon icon--16"><use href="#i-package"/></svg></span><span class="movein__name">Products</span><span class="movein__n">0</span><span class="movein__bar"><i></i></span><svg class="icon icon--16 movein__ok"><use href="#i-check"/></svg></li>
+                    <li class="movein__row" data-to="1204"><span class="disc"><svg class="icon icon--16"><use href="#i-users"/></svg></span><span class="movein__name">Customers</span><span class="movein__n">0</span><span class="movein__bar"><i></i></span><svg class="icon icon--16 movein__ok"><use href="#i-check"/></svg></li>
+                    <li class="movein__row" data-to="3140000" data-naira><span class="disc"><svg class="icon icon--16"><use href="#i-hand-coins"/></svg></span><span class="movein__name">Opening balances</span><span class="movein__n">₦0</span><span class="movein__bar"><i></i></span><svg class="icon icon--16 movein__ok"><use href="#i-check"/></svg></li>
+                    <li class="movein__row" data-to="5"><span class="disc"><svg class="icon icon--16"><use href="#i-sliders-horizontal"/></svg></span><span class="movein__name">Team &amp; roles</span><span class="movein__n">0</span><span class="movein__bar"><i></i></span><svg class="icon icon--16 movein__ok"><use href="#i-check"/></svg></li>
+                  </ul>
+                  <div class="movein__done"><svg class="icon icon--16"><use href="#i-check-check"/></svg>You’re in. Start selling today.</div>
+                </div>
               </div>
-              <div class="spark" aria-hidden="true">
-                <svg viewBox="0 0 300 80" preserveAspectRatio="none">
-                  <path class="spark__line" d="M0,64 C30,58 45,66 70,52 C95,38 110,50 135,42 C160,34 175,44 200,30 C225,16 245,26 270,14 L300,8" />
-                  <path class="spark__fill" d="M0,64 C30,58 45,66 70,52 C95,38 110,50 135,42 C160,34 175,44 200,30 C225,16 245,26 270,14 L300,8 L300,80 L0,80 Z" />
-                </svg>
+
+              <!-- You decide what's what: a rule and a role. -->
+              <div class="sw-scene" data-scene="1">
+                <div class="sw-card sw-card--a sw-card--wide">
+                  <p class="sw-card__head sw-card__head--ice">Loyal customer</p>
+                  <p class="sw-card__body sw-rule">If <span class="sw-chip"><svg class="icon icon--16"><use href="#i-users"/></svg>Orders this year</span> is <span class="sw-chip">5 or more</span></p>
+                </div>
+                <div class="sw-card sw-card--b">
+                  <p class="sw-card__head sw-card__head--volt">Cashier can</p>
+                  <ul class="sw-card__body sw-list">
+                    <li><span class="sw-ico"><svg class="icon icon--16"><use href="#i-hand-coins"/></svg></span>Take payments<span class="sw-toggle is-on"></span></li>
+                    <li><span class="sw-ico"><svg class="icon icon--16"><use href="#i-package"/></svg></span>Count stock<span class="sw-toggle sw-toggle--flip"></span></li>
+                    <li><span class="sw-ico"><svg class="icon icon--16"><use href="#i-sliders-horizontal"/></svg></span>Give refunds<span class="sw-toggle"></span></li>
+                  </ul>
+                </div>
               </div>
-              <div class="mock__row"><span>⬤ Operating · GTB</span><span></span><span>$214,020</span></div>
-              <div class="mock__row"><span>⬤ Payroll · Access</span><span></span><span>$96,300</span></div>
-              <div class="mock__row"><span>⬤ USD Wallet</span><span></span><span>$91,793</span></div>
+
+              <!-- Personal down to every detail: your brand and your alerts. -->
+              <div class="sw-scene" data-scene="2">
+                <div class="sw-card sw-card--a">
+                  <p class="sw-card__head sw-card__head--ice">Your brand</p>
+                  <div class="sw-card__body sw-brand">
+                    <span class="sw-brand__logo"><svg viewBox="16 -2 68 64"><use href="#strokes-outline-g"/></svg></span>
+                    <span class="sw-swatches"><i style="--sw:#1d1d1f"></i><i class="sw-swatch--pick" style="--sw:#d4f64f"></i><i style="--sw:#0fa9ca"></i><i style="--sw:#f08a6c"></i></span>
+                  </div>
+                </div>
+                <div class="sw-card sw-card--b sw-card--wide">
+                  <p class="sw-card__head sw-card__head--volt">Tell me when</p>
+                  <ul class="sw-card__body sw-list">
+                    <li><span class="sw-ico"><svg class="icon icon--16"><use href="#i-package"/></svg></span>Stock runs low<span class="sw-toggle is-on"></span></li>
+                    <li><span class="sw-ico"><svg class="icon icon--16"><use href="#i-hand-coins"/></svg></span>A big order lands<span class="sw-toggle sw-toggle--flip"></span></li>
+                    <li><span class="sw-ico"><svg class="icon icon--16"><use href="#i-users"/></svg></span>A new customer joins<span class="sw-toggle"></span></li>
+                  </ul>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <!-- Highlight 3 -->
-        <div class="highlight">
-          <div class="highlight__copy reveal">
-            <span class="highlight__num">03</span>
-            <h3>Know your stock, run your floor</h3>
-            <p>Track inventory across warehouses, manage production runs and cost
-            of sales, and never oversell again. Speed keeps operations and
-            accounting in perfect sync.</p>
-            <ul class="ticks">
-              <li>Multi-warehouse stock levels</li>
-              <li>Production &amp; bill of materials</li>
-              <li>Purchase orders &amp; vendors</li>
-            </ul>
           </div>
-          <div class="highlight__visual reveal reveal--right">
-            <div class="mock mock--stock">
-              <div class="mock__row mock__row--head"><span>Product</span><span>Warehouse</span><span>On hand</span></div>
-              <div class="mock__row"><span>Café Blend 1kg</span><span>Lagos HQ</span><span class="stock-ok">1,240</span></div>
-              <div class="mock__row"><span>Filter Papers</span><span>Abuja</span><span class="stock-ok">860</span></div>
-              <div class="mock__row"><span>Cold Brew Bottles</span><span>Lagos HQ</span><span class="stock-low">32 low</span></div>
-              <div class="mock__row"><span>Gift Boxes</span><span>PH Depot</span><span class="stock-ok">410</span></div>
-              <div class="mock__meter"><span style="--w:78%"></span></div>
-              <small class="mock__note">Production run #86 — 78% complete</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ MODULES GRID ============ -->
-    <section class="section section--tint" id="modules">
-      <div class="container">
-        <div class="section__head reveal">
-          <p class="kicker">One platform, every workflow</p>
-          <h2>Built like a suite.<br />Feels like one product.</h2>
-        </div>
-        <div class="grid stagger">
-          <div class="cell"><span class="cell__icon">◫</span><h4>Invoicing</h4><p>Invoices, quotes, credit notes and recurring billing that get you paid faster.</p></div>
-          <div class="cell"><span class="cell__icon">⬒</span><h4>Banking</h4><p>Live bank feeds, wallets and one-click reconciliation across every account.</p></div>
-          <div class="cell"><span class="cell__icon">▤</span><h4>Inventory</h4><p>Stock levels, transfers and adjustments across unlimited warehouses.</p></div>
-          <div class="cell"><span class="cell__icon">⚙</span><h4>Production</h4><p>Plan runs, track cost of sales and keep the floor and the books aligned.</p></div>
-          <div class="cell"><span class="cell__icon">✉</span><h4>Purchasing</h4><p>Purchase orders, bills, vendors and expenses — approvals included.</p></div>
-          <div class="cell"><span class="cell__icon">◔</span><h4>Reports</h4><p>P&amp;L, balance sheet and a Report Studio for the questions in between.</p></div>
-          <div class="cell"><span class="cell__icon">◎</span><h4>Budgets</h4><p>Set targets, track variance and catch overspend before it happens.</p></div>
-          <div class="cell"><span class="cell__icon">✦</span><h4>Campaigns</h4><p>Reach customers where they are and tie revenue back to every send.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ NUMBERS ============ -->
-    <section class="section section--dark" id="numbers">
-      <div class="container">
-        <div class="section__head reveal">
-          <p class="kicker kicker--light">Why teams switch</p>
-          <h2>Speed pays for itself.</h2>
-        </div>
-        <div class="stats stagger">
-          <div class="stat">
-            <strong><span data-count="12">0</span>×</strong>
-            <p>faster month-end close, from weeks to hours</p>
-          </div>
-          <div class="stat">
-            <strong><span data-count="98">0</span>%</strong>
-            <p>of invoices reconciled automatically</p>
-          </div>
-          <div class="stat">
-            <strong>$<span data-count="4" >0</span>B+</strong>
-            <p>processed through the platform every year</p>
-          </div>
-          <div class="stat">
-            <strong><span data-count="140">0</span>+</strong>
-            <p>countries with multi-currency support</p>
-          </div>
-        </div>
-
-        <figure class="quote reveal">
-          <blockquote>“We replaced four tools with Speed. Our close went from three
-          weeks to two days, and for the first time the ops team and the finance
-          team are looking at the same numbers.”</blockquote>
-          <figcaption><strong>Adaeze O.</strong> — CFO, Northwind Trading</figcaption>
+          <figcaption class="visually-hidden">Business owners at work in their studios, with examples of speed. over them: a Move-in Day where 248 products, 1,204 customers, ₦3,140,000 in opening balances and a team of 5 come across in one session; a rule for loyal customers and what a cashier can do; and your brand colours and the alerts you choose.</figcaption>
         </figure>
       </div>
     </section>
 
-    <!-- ============ PRICING ============ -->
-    <section class="section" id="pricing">
-      <div class="container">
-        <div class="section__head reveal">
-          <p class="kicker">Pricing</p>
-          <h2>Start free.<br />Scale when you do.</h2>
+    <!-- 2. Choose your plan. Hidden for now: remove `hidden` to bring it back. -->
+    <section class="plan-band" id="plan-summary" data-tone="dark" aria-labelledby="plan-h" hidden>
+      <svg class="plan-watermark" viewBox="16 -2 68 64" aria-hidden="true"><use href="#strokes-outline-g"/></svg>
+      <div class="container" data-reveal-group="plans">
+        <div class="plan-head">
+          <h2 class="t-h2" id="plan-h" data-reveal><span class="hl-1">One subscription.</span> <span class="hl-2">Every part of your business.</span></h2>
+          <p class="t-body-l" data-reveal>Start with the plan built for growing teams, and change plans as your business changes.</p>
         </div>
-        <div class="plans stagger">
-          <div class="plan">
-            <h4>Starter</h4>
-            <div class="plan__price">₦0<span>/mo</span></div>
-            <p>For new businesses finding their feet.</p>
-            <ul class="ticks">
-              <li>Unlimited invoices &amp; quotes</li>
-              <li>1 bank connection</li>
-              <li>Basic reports</li>
-            </ul>
-            <a class="btn btn--outline btn--block" href="#cta">Get started</a>
+        <section class="pro-panel" data-tone="volt" aria-label="speed. Pro, recommended for growing teams" data-reveal="pro">
+          <span class="pro-tag">Recommended for growing teams</span>
+          <span class="pro-glow" aria-hidden="true"></span>
+          <div class="pro-left">
+            <p class="t-label pro-seat">For teams selling across many channels</p>
+            <h3 class="pro-name"><svg class="wordmark wordmark--inline" viewBox="0 0 543 193.2" aria-hidden="true"><use class="wm-letters" href="#wm-g"/><rect class="wm-setting" x="515.96" y="119.56" width="33.28" height="33.28" style="opacity:1"/><rect class="wm-dot" x="522.2" y="125.8" width="20.8" height="20.8"/></svg><span class="visually-hidden">speed.</span> Pro</h3>
+            <p class="pro-story">Every growing business reaches the same moment: you’re selling across many channels, the DMs outgrow one phone, a second branch opens and the spreadsheet stops adding up. That’s the moment Pro earns its keep.</p>
+            <p class="pro-price num"><b>₦17,000 a person a month</b>, about ₦559 a day. A team of 20 pays ₦340,000 a month, and the plan page shows the total for your team.</p>
           </div>
-          <div class="plan plan--featured">
-            <span class="plan__badge">Most popular</span>
-            <h4>Growth</h4>
-            <div class="plan__price">₦45,000<span>/mo</span></div>
-            <p>For teams ready to move fast.</p>
-            <ul class="ticks">
-              <li>Everything in Starter</li>
-              <li>Inventory &amp; production</li>
-              <li>Unlimited banks &amp; wallets</li>
-              <li>Budgets &amp; Report Studio</li>
+          <div class="pro-right">
+            <ul class="pro-list">
+              <li><span class="dot" aria-hidden="true"></span>Saved replies, and AI replies in your voice, pay as you use, so no DM waits for the one person who knows the answer.</li>
+              <li><span class="dot" aria-hidden="true"></span>Month-end closed in one pass, with every sale already matched to your statements.</li>
+              <li><span class="dot" aria-hidden="true"></span>Every branch and warehouse in one view, with the workflows &amp; roles a bigger team needs.</li>
             </ul>
-            <a class="btn btn--primary btn--block" href="#cta">Start free trial<span class="btn__arrow">→</span></a>
+            <div class="btn-block">
+              <a class="btn" href="https://myspeedapp.com/sign-up?from=home.plan-summary" aria-describedby="pro-cap" data-event="cta_app" data-section="plan-summary">Start my team on Pro</a>
+              <p class="btn-caption" id="pro-cap">Your first 2 months are free. No card needed.</p>
+            </div>
           </div>
-          <div class="plan">
-            <h4>Scale</h4>
-            <div class="plan__price">Custom</div>
-            <p>For multi-entity, multi-country operations.</p>
-            <ul class="ticks">
-              <li>Everything in Growth</li>
-              <li>Multi-entity consolidation</li>
-              <li>Dedicated success manager</li>
-            </ul>
-            <a class="btn btn--outline btn--block" href="#cta">Talk to sales</a>
+        </section>
+        <p class="t-label plan-pick" data-reveal>Or pick by team size</p>
+        <ul class="plan-cards">
+          <li data-reveal><a class="plan-card glass glass--dark" href="/plan#mini"><span class="t-label plan-card__seat">Up to 3 people</span><span class="plan-card__name"><svg class="wordmark wordmark--inline" viewBox="0 0 543 193.2" aria-hidden="true"><use class="wm-letters" href="#wm-g"/><rect class="wm-dot" x="522.2" y="125.8" width="20.8" height="20.8"/></svg><span class="visually-hidden">speed.</span> Mini</span><span class="plan-card__line">One-person businesses getting organised, up to 3 people: invoices, payments, customers &amp; stock in one place.</span><svg class="icon plan-card__chev" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></li>
+          <li data-reveal><a class="plan-card glass glass--dark" href="/plan#standard"><span class="t-label plan-card__seat">Teams of 4–10</span><span class="plan-card__name"><svg class="wordmark wordmark--inline" viewBox="0 0 543 193.2" aria-hidden="true"><use class="wm-letters" href="#wm-g"/><rect class="wm-dot" x="522.2" y="125.8" width="20.8" height="20.8"/></svg><span class="visually-hidden">speed.</span> Standard</span><span class="plan-card__line">Teams of 4–10: one inbox for every DM, plus sales, stock and books that update as you sell.</span><svg class="icon plan-card__chev" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></li>
+          <li data-reveal><a class="plan-card glass glass--dark" href="/plan#pro"><span class="t-label plan-card__seat"><span class="dot" style="--d:6px" aria-hidden="true"></span>Teams of 10–50</span><span class="plan-card__name"><svg class="wordmark wordmark--inline" viewBox="0 0 543 193.2" aria-hidden="true"><use class="wm-letters" href="#wm-g"/><rect class="wm-dot" x="522.2" y="125.8" width="20.8" height="20.8"/></svg><span class="visually-hidden">speed.</span> Pro</span><span class="plan-card__line">Growing teams selling across many channels: everything in Standard, plus Move-in Day, AI replies (pay as you use), month-end in one pass and every branch in one view.</span><svg class="icon plan-card__chev" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></li>
+          <li data-reveal><a class="plan-card glass glass--dark" href="/plan#unlimited"><span class="t-label plan-card__seat">50+ people</span><span class="plan-card__name"><svg class="wordmark wordmark--inline" viewBox="0 0 543 193.2" aria-hidden="true"><use class="wm-letters" href="#wm-g"/><rect class="wm-dot" x="522.2" y="125.8" width="20.8" height="20.8"/></svg><span class="visually-hidden">speed.</span> Unlimited</span><span class="plan-card__line">50+ people, with no limit: our team does Move-in Day with you, plus speed. AI as your business expert and a detailed assessment &amp; growth strategy.</span><svg class="icon plan-card__chev" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></li>
+        </ul>
+        <p class="plan-more" data-reveal><a class="text-link" href="/plan"><span>Compare all plans</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
+      </div>
+      <div class="plan-horizon" aria-hidden="true"></div>
+    </section>
+
+    <!-- 3. Questions -->
+    <section class="questions" id="questions" data-tone="light" aria-labelledby="q-h">
+      <div class="container questions__grid" data-reveal-group="questions">
+        <div class="questions__side">
+          <h2 class="t-h2" id="q-h" data-reveal><span class="hl-1">You’ve probably got</span> <span class="hl-2">a few questions.</span></h2>
+          <p class="t-label questions__group" data-reveal>Getting started</p>
+        </div>
+        <div class="faq" data-faq>
+          <div class="faq-item is-open" data-reveal>
+            <h3><button type="button" class="faq-q" aria-expanded="true" aria-controls="faq-a1" id="faq-q1"><span>What is speed.?</span><span class="faq-disc"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span></button></h3>
+            <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1"><div><p>One app that runs every part of your business: your DMs, sales and invoices, payments, stock, accounts, insights, tax, team and AI, all working together.</p></div></div>
+          </div>
+          <div class="faq-item" data-reveal>
+            <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a2" id="faq-q2"><span>Who is speed. for?</span><span class="faq-disc"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span></button></h3>
+            <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2" hidden><div><p>Every business, of any size and in any industry. If you have customers, speed. helps you run it and grow it.</p></div></div>
+          </div>
+          <div class="faq-item" data-reveal>
+            <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a3" id="faq-q3"><span>How long does it take to set up?</span><span class="faq-disc"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span></button></h3>
+            <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3" hidden><div><p>Not long, and nobody needs a training day. On Mini and Standard you bring your records in yourself; from Pro, Move-in Day brings them across at once. Learn mode shows you around on every plan, and after that your books keep up as you sell.</p></div></div>
+          </div>
+          <div class="faq-item" data-reveal>
+            <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a4" id="faq-q4"><span>Do I need any technical skills?</span><span class="faq-disc"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span></button></h3>
+            <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4" hidden><div><p>No. Learn mode explains each screen the first time you open it, so if you can send a DM, you can use speed. And if you get stuck, you can talk to a real person.</p></div></div>
+          </div>
+          <div class="faq-item" data-reveal>
+            <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a5" id="faq-q5"><span>How do I move my records across?</span><span class="faq-disc"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span></button></h3>
+            <div class="faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5" hidden><div><p>On Mini and Standard, add your products, customers and balances or import them yourself, from spreadsheets, notebooks or another app. From Pro, fill in our template and Move-in Day brings them all across at once. On Unlimited, our team does Move-in Day with you. On every plan, Learn mode explains each screen the first time you open it.</p></div></div>
+          </div>
+          <div class="faq-item" data-reveal>
+            <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a6" id="faq-q6"><span>Is there a free trial?</span><span class="faq-disc"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span></button></h3>
+            <div class="faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6" hidden><div><p>Yes. Mini, Standard and Pro are free for 2 months, with no card needed.</p></div></div>
+          </div>
+          <div class="faq-item" data-reveal>
+            <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a7" id="faq-q7"><span>How does pricing work?</span><span class="faq-disc"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span></button></h3>
+            <div class="faq-a" id="faq-a7" role="region" aria-labelledby="faq-q7" hidden><div><p>You pay per person on your team, each month. speed. AI, from Pro, and market &amp; customer research, from Standard, are pay as you use. The <a href="/plan">plan page</a> shows every price.</p></div></div>
+          </div>
+          <div class="faq-item" data-reveal>
+            <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a8" id="faq-q8"><span>Can I change plans later?</span><span class="faq-disc"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span></button></h3>
+            <div class="faq-a" id="faq-a8" role="region" aria-labelledby="faq-q8" hidden><div><p>Yes. Move to a bigger plan whenever your team or your business grows.</p></div></div>
+          </div>
+          <div class="faq-item" data-reveal>
+            <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a9" id="faq-q9"><span>Can I cancel anytime?</span><span class="faq-disc"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span></button></h3>
+            <div class="faq-a" id="faq-a9" role="region" aria-labelledby="faq-q9" hidden><div><p>Yes. Your plan ends at the end of the month you’ve already paid for, and we remind you before your free months end.</p></div></div>
+          </div>
+          <div class="faq-item" data-reveal>
+            <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a10" id="faq-q10"><span>Can my staff use speed. without seeing everything?</span><span class="faq-disc"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span></button></h3>
+            <div class="faq-a" id="faq-a10" role="region" aria-labelledby="faq-q10" hidden><div><p>Yes. You create the roles your business needs and choose exactly what each person can see and do.</p></div></div>
+          </div>
+          <div class="faq-item" data-reveal>
+            <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a11" id="faq-q11"><span>How do I get help?</span><span class="faq-disc"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span></button></h3>
+            <div class="faq-a" id="faq-a11" role="region" aria-labelledby="faq-q11" hidden><div><p><span class="wa-only">Talk to a real person: message us on <a href="https://wa.me/2348000000000?text=Hi%20speed.%2C%20I%27d%20like%20some%20help." target="_blank" rel="noopener">WhatsApp<span class="visually-hidden"> (opens in a new tab)</span></a> or email <a href="mailto:admin@myspeedapp.com">admin@myspeedapp.com</a>.</span><span class="wa-fallback">Talk to a real person: email <a href="mailto:admin@myspeedapp.com">admin@myspeedapp.com</a>.</span></p></div></div>
           </div>
         </div>
       </div>
     </section>
+  </div>
+</main>
 
-    <!-- ============ CTA ============ -->
-    <section class="cta section--dark" id="cta">
-      <div class="cta__glow" aria-hidden="true"></div>
-      <div class="container reveal">
-        <h2>Ready to move<br /><em class="accent">at full Speed?</em></h2>
-        <p>Set up takes minutes. Your first invoice can go out today.</p>
-        <div class="hero__cta">
-          <a class="btn btn--primary btn--lg" href="#">Create free account<span class="btn__arrow">→</span></a>
-          <a class="btn btn--outline-light btn--lg" href="#">Book a demo</a>
-        </div>
+<!-- ============ FOOTER ============ -->
+<footer class="footer" id="footer" data-tone="dark">
+  <div class="container" data-reveal-group="footer">
+    <nav class="footer__nav" aria-label="Footer">
+      <div class="footer__col" data-reveal>
+        <h2 class="footer__label"><button type="button" class="footer__acc" aria-expanded="false">Product<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><span class="footer__label-text">Product</span></h2>
+        <ul>
+          <li><a href="/product/customers">Customer management &amp; intelligence</a></li>
+          <li><a href="/product/sales">Sales &amp; invoices</a></li>
+          <li><a href="/product/finance">Finance</a></li>
+          <li><a href="/product/pricing-inventory">Pricing &amp; inventory</a></li>
+          <li><a href="/product/accounting">Accounting</a></li>
+          <li><a href="/product/insights">Business insights</a></li>
+          <li><a href="/product/tax">Tax &amp; compliance</a></li>
+          <li><a href="/product/teaming">Teaming</a></li>
+          <li><a href="/product/ai">speed. AI</a></li>
+          <li><a href="/product/set-up">Set-up</a></li>
+          <li class="footer__gap"><a href="/plan">Plan</a></li>
+        </ul>
       </div>
-    </section>
-  </main>
-
-  <!-- ============ FOOTER ============ -->
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__brand">
-        <img src="assets/Logo-Pri.svg" alt="Speed" />
-        <p>Turbocharging businesses globally.</p>
+      <div class="footer__col" data-reveal>
+        <h2 class="footer__label"><button type="button" class="footer__acc" aria-expanded="false">Use cases<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><span class="footer__label-text">Use cases</span></h2>
+        <ul>
+          <li><a href="/use-cases">All use cases</a></li>
+          <li><a href="/use-cases/all-your-apps">All your apps end here</a></li>
+          <li><a href="/use-cases/paid-in-the-chat">Paid, seen in the chat</a></li>
+          <li><a href="/use-cases/dms-to-sales">The DMs that never became sales</a></li>
+          <li><a href="/use-cases/yesterdays-sales">Wake up to yesterday’s sales</a></li>
+          <li><a href="/use-cases/move-in">Move in within one session</a></li>
+        </ul>
       </div>
-      <div class="footer__cols">
-        <div><h5>Product</h5><a href="#product">Highlights</a><a href="#modules">Modules</a><a href="#pricing">Pricing</a></div>
-        <div><h5>Company</h5><a href="#">About</a><a href="#">Careers</a><a href="#">Blog</a></div>
-        <div><h5>Support</h5><a href="#">Help center</a><a href="#">Contact</a><a href="#">Status</a></div>
+      <div class="footer__col" data-reveal>
+        <h2 class="footer__label"><button type="button" class="footer__acc" aria-expanded="false">Company<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><span class="footer__label-text">Company</span></h2>
+        <ul>
+          <li><a href="/" aria-label="speed. home page">speed.</a></li>
+          <li><a href="/company">Company</a></li>
+          <li><a href="https://app.myspeedapp.com/sign-in?from=home.footer">Log in</a></li>
+          <li><a href="https://myspeedapp.com/sign-up?from=home.footer">Open your account</a></li>
+        </ul>
       </div>
+      <div class="footer__col" data-reveal>
+        <h2 class="footer__label"><button type="button" class="footer__acc" aria-expanded="false">Talk to us<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><span class="footer__label-text">Talk to us</span></h2>
+        <ul>
+          <li><a href="mailto:admin@myspeedapp.com"><svg class="icon icon--16" aria-hidden="true"><use href="#i-mail"/></svg>admin@myspeedapp.com</a></li>
+          <li class="wa-only"><a href="https://wa.me/2348000000000?text=Hi%20speed.%2C%20I%27m%20on%20your%20website%20and%20have%20a%20question." target="_blank" rel="noopener"><svg class="icon icon--16" aria-hidden="true"><use href="#i-message-circle"/></svg>WhatsApp<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+          <li class="wa-only"><a href="tel:+2348000000000" class="num"><svg class="icon icon--16" aria-hidden="true"><use href="#i-phone"/></svg>+234 800 000 0000</a></li>
+        </ul>
+        <ul class="footer__social">
+          <li><a href="#" aria-label="speed. on Instagram (opens in a new tab)" target="_blank" rel="noopener"><svg class="glyph" aria-hidden="true"><use href="#g-instagram"/></svg></a></li>
+          <li><a href="#" aria-label="speed. on TikTok (opens in a new tab)" target="_blank" rel="noopener"><svg class="glyph" aria-hidden="true"><use href="#g-tiktok"/></svg></a></li>
+          <li><a href="#" aria-label="speed. on LinkedIn (opens in a new tab)" target="_blank" rel="noopener"><svg class="glyph" aria-hidden="true"><use href="#g-linkedin"/></svg></a></li>
+          <li><a href="#" aria-label="speed. on YouTube (opens in a new tab)" target="_blank" rel="noopener"><svg class="glyph" aria-hidden="true"><use href="#g-youtube"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="footer__stores" data-reveal>
+        <a class="store-pill glass glass--dark" href="#" target="_blank" rel="noopener" aria-label="Download speed. on the App Store"><svg class="glyph" aria-hidden="true"><use href="#g-apple"/></svg><span><small>Download on the</small>App Store</span></a>
+        <a class="store-pill glass glass--dark" href="#" target="_blank" rel="noopener" aria-label="Get speed. on Google Play"><svg class="glyph" aria-hidden="true"><use href="#g-googleplay"/></svg><span><small>Get it on</small>Google Play</span></a>
+      </div>
+    </nav>
+    <div class="footer__base">
+      <p class="footer__print">Speed Software Ltd · RC 9761074 · Lagos, Nigeria. speed. is business software, not a bank. Payments and payouts are provided by our licensed partners.</p>
+      <ul class="footer__legal">
+        <li><a href="/legal/privacy">Privacy</a></li>
+        <li><a href="/legal/terms">Terms</a></li>
+        <li><a href="/legal/cookies">Cookies</a></li>
+        <li><button type="button" aria-haspopup="dialog">Cookie settings</button></li>
+      </ul>
     </div>
-    <div class="container footer__base">
-      <span>© 2026 Speed Technologies</span>
-      <span>Privacy · Terms</span>
-    </div>
-  </footer>
+  </div>
+  <div class="footer__mark container" aria-hidden="true">
+    <svg class="giant-wordmark" viewBox="0 0 543 193.2"><defs><radialGradient id="gw-glow"><stop offset="0" stop-color="#D4F64F" stop-opacity="0.45"/><stop offset="1" stop-color="#D4F64F" stop-opacity="0"/></radialGradient></defs><use class="wm-letters" href="#wm-g"/><circle class="gw-halo" cx="532.6" cy="136.2" r="27" fill="url(#gw-glow)"/><rect class="gw-dot" x="522.2" y="125.8" width="20.8" height="20.8"/></svg>
+  </div>
+</footer>
 
-  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
-  <script src="main.js"></script>
+<script src="assets/js/site.js?v=20261021j" defer></script>
+<script src="assets/js/home.js?v=20261021j" defer></script>
 </body>
 </html>

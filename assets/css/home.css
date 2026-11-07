@@ -1,0 +1,1522 @@
+/* Home: the opening, the hero, the logo strip and the feature highlights.
+   Everything here is built from tokens.css and the shared components; the
+   references only shape structure and motion (see the copy deck's FORMAT notes). */
+
+/* ---------- Hero ----------
+   The photo stays still while the words scroll over it and darkens to
+   midnight as they leave (the giga.ai transition); the channel strip runs on
+   that midnight, and chapter 1 starts in the same dark. */
+.hero {
+  --ink: #fff;
+  --ink-2: rgba(255, 255, 255, 0.72);
+  --ink-sub: #fff;
+  --focus-outline: #fff;
+  --hero-h: clamp(760px, 100svh, 1000px);
+  position: relative;
+  z-index: 3;
+  overflow: clip;
+  background: #0a0a0b;
+  color: #fff;
+}
+.hero__stage {
+  position: sticky;
+  top: 0;
+  height: var(--hero-h);
+  overflow: hidden;
+  /* The photo's own sky, so nothing shows while it loads. */
+  background: linear-gradient(180deg, #05499c 0%, #1558a8 45%, #3a80d2 100%);
+}
+.hero__photo,
+.hero__photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.hero__photo img {
+  object-fit: cover;
+  object-position: 70% 30%;
+  transform-origin: 70% 40%;
+}
+/* A soft scrim from the left keeps the sky behind the words at #2A5DB0 or
+   darker, so white text passes at every line (copy deck, hero COLOUR). */
+.hero__stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(16, 48, 120, 0.5) 0%, rgba(16, 48, 120, 0.2) 35%, rgba(16, 48, 120, 0) 55%);
+  pointer-events: none;
+}
+/* Night falls with the scroll: 0 at the top, midnight when the photo lets go. */
+.hero__night {
+  position: absolute;
+  inset: 0;
+  z-index: 2; /* over the photo, under the words: the button never looks disabled */
+  background: #0a0a0b;
+  opacity: var(--night, 0);
+  pointer-events: none;
+  will-change: opacity;
+}
+.hero__inner {
+  position: relative;
+  z-index: 2;
+  height: var(--hero-h);
+  margin-top: calc(-1 * var(--hero-h));
+  padding-top: clamp(128px, 22vh, 200px);
+}
+.hero__text {
+  width: min(536px, 100%);
+}
+.hero__title {
+  color: #fff;
+}
+.hero__title .hl-2 {
+  color: rgba(255, 255, 255, 0.72);
+}
+/* "with speed.": our name as the logo, its letters the size of the words
+   around it and sitting on their baseline (the logo's baseline is 146.6 of
+   its 193.2 height). */
+.hero__wm {
+  display: inline-block;
+  margin-left: 0.04em;
+}
+.hero__wm .wordmark {
+  --wm-ink: #fff;
+  display: inline-block;
+  height: 1em;
+  width: auto;
+  vertical-align: -0.241em;
+}
+.hero__sub {
+  max-width: 480px;
+  margin-top: 24px;
+  color: #fff;
+}
+.hero__cta {
+  margin-top: 40px;
+}
+.hero .btn-caption {
+  color: #fff;
+}
+/* Hero entrance (choreography table): the photo settles, then lines, sub, button, caption. */
+.js-motion .hero__photo img {
+  transform: scale(1.04);
+  opacity: 0;
+  transition:
+    transform var(--dur-hero) var(--ease-speed-out),
+    opacity var(--dur-hero) var(--ease-speed-out);
+}
+.js-motion .hero.is-ready .hero__photo img {
+  transform: none;
+  opacity: 1;
+}
+.js-motion .hero [data-hero] {
+  opacity: 0;
+  transform: translateY(var(--rise));
+  transition:
+    opacity var(--dur-section) var(--ease-speed-out),
+    transform var(--dur-section) var(--ease-speed-out);
+}
+.js-motion .hero.is-ready [data-hero] {
+  opacity: 1;
+  transform: none;
+}
+.hero [data-hero="0"] { transition-delay: 100ms !important; }
+.hero [data-hero="1"] { transition-delay: 180ms !important; }
+.hero [data-hero="2"] { transition-delay: 260ms !important; }
+.hero [data-hero="3"] { transition-delay: 340ms !important; }
+.hero [data-hero="4"] { transition-delay: 420ms !important; }
+.hero [data-hero="5"] { transition-delay: 500ms !important; }
+
+/* Phones and tablets get their own crop: her face and shoulders low on the
+   right, with clean sky above for the words. */
+@media (max-width: 1023px) {
+  .hero__text {
+    width: min(522px, 100%);
+  }
+  .hero__photo {
+    inset: auto 0 0 auto;
+    width: min(100vw, 600px);
+    height: auto;
+    aspect-ratio: 960 / 1024;
+  }
+  .hero__photo img {
+    object-position: 50% 0;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 22%), linear-gradient(90deg, transparent 0, #000 18%);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(180deg, transparent 0, #000 22%), linear-gradient(90deg, transparent 0, #000 18%);
+    mask-composite: intersect;
+  }
+  .hero__stage {
+    background: linear-gradient(180deg, #05499c 0%, #1558a8 55%, #2e70c0 100%);
+  }
+  .hero__stage::before {
+    background: linear-gradient(180deg, rgba(16, 48, 120, 0.35) 0%, rgba(16, 48, 120, 0) 60%);
+  }
+}
+@media (max-width: 767px) {
+  .hero__inner {
+    padding-top: 104px;
+  }
+  .hero {
+    --hero-h: 100svh;
+  }
+  .hero__photo {
+    width: 100vw;
+  }
+}
+
+/* The logo strip: one constant, slow loop. It pauses on hover and focus, and
+   stands still when the visitor has turned motion off. The businesses are
+   made-up placeholders until real customers agree to be shown. */
+.channels {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+  min-height: 60svh;
+  padding: 24px 0 96px;
+}
+.channels__label {
+  padding: 0 var(--margin);
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
+}
+.channels__viewport {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+}
+.channels__track {
+  display: flex;
+  width: max-content;
+  animation: channels-loop 40s linear infinite;
+}
+@keyframes channels-loop {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+.channels:hover .channels__track,
+.channels:focus-within .channels__track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .channels__track {
+    animation: none;
+  }
+}
+.channels__set {
+  display: flex;
+  align-items: center;
+  gap: 72px;
+  padding-right: 72px;
+}
+.channels__set li {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 1.375rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+.lg__mark {
+  width: 26px;
+  height: 26px;
+  flex: none;
+}
+.lg--bold { font-weight: 700; letter-spacing: -0.03em; }
+.lg--caps { font-weight: 700; font-size: 1.125rem !important; letter-spacing: 0.12em; }
+.lg--light { font-weight: 300; letter-spacing: -0.01em; }
+.lg--lower { font-weight: 600; letter-spacing: -0.04em; }
+.lg--italic { font-weight: 500; font-style: italic; }
+.lg--wide { font-weight: 500; font-size: 1.0625rem !important; letter-spacing: 0.32em; }
+.lg--mono { font-family: var(--font-mono); font-weight: 500; font-size: 1.0625rem !important; letter-spacing: -0.02em; }
+@media (max-width: 767px) {
+  .channels {
+    gap: 24px;
+    min-height: 50svh;
+    padding: 8px 0 80px;
+  }
+  .channels__set {
+    gap: 44px;
+    padding-right: 44px;
+  }
+  .channels__set li {
+    font-size: 1.125rem;
+  }
+  .lg__mark {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* ---------- The opening (after fixaplan.com) ---------- */
+.intro {
+  display: none;
+}
+.intro-on .intro {
+  position: fixed;
+  z-index: 700;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 0 24px;
+  background: var(--color-soft-grey);
+  cursor: pointer;
+  transition: opacity var(--dur-ui) var(--ease-speed-out);
+}
+.intro.is-done {
+  opacity: 0;
+  pointer-events: none;
+}
+.intro-playing {
+  overflow: hidden;
+}
+.intro__line {
+  max-width: 900px;
+  text-align: center;
+  font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-graphite);
+}
+/* Each word sharpens out of a blur, one after another. */
+.intro__line span {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(12px);
+  animation: intro-word 700ms var(--ease-speed-out) forwards;
+  animation-delay: calc(250ms + var(--i) * 140ms);
+}
+@keyframes intro-word {
+  60% {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+/* Then a midnight panel rises over them. */
+.intro__curtain {
+  position: absolute;
+  inset: 0;
+  background: #0a0a0b;
+  transform: translateY(100%);
+  animation: intro-curtain 800ms cubic-bezier(0.76, 0, 0.24, 1) 2350ms forwards;
+}
+@keyframes intro-curtain {
+  to {
+    transform: none;
+  }
+}
+/* The hero arrives on that midnight: the lines rise out of their masks, then
+   the photo fades in behind them. */
+.intro-on .hero__stage {
+  background: #0a0a0b;
+}
+.intro-on .hero__title [data-hero] {
+  opacity: 1;
+  transform: translateY(100%);
+  clip-path: inset(0 0 100% 0);
+  transition:
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    clip-path 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.intro-on .hero.is-ready .hero__title [data-hero] {
+  transform: none;
+  clip-path: inset(0 0 -10% 0);
+}
+.intro-on .hero__photo img {
+  transition:
+    transform 1600ms var(--ease-speed-out) 700ms,
+    opacity 1400ms var(--ease-speed-out) 700ms;
+}
+
+/* ---------- Feature highlights ----------
+   Beside's structure (centred header, tab pills that stay in view, one lit
+   block at a time) with Calendly's points (one open, a progress line filling
+   under it) and its soft-gradient picture card. Built from our tokens. */
+.features {
+  --surface: #fff;
+  position: relative;
+  z-index: 3;
+  margin-top: -40px;
+  padding: 120px 0 var(--section-pad);
+  border-radius: var(--radius-panel) var(--radius-panel) 0 0;
+  background: #fff;
+  color: var(--color-graphite);
+}
+.features__head {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+.features__head .t-body-l {
+  max-width: 600px;
+  margin: 24px auto 0;
+}
+/* Tab pills: one light pill holding the eight areas; it stays under the top bar. */
+.ftabs {
+  position: sticky;
+  z-index: var(--z-sticky);
+  top: calc(var(--topbar-h, 72px) + 12px);
+  display: flex;
+  justify-content: center;
+  margin: 48px 0 0;
+  pointer-events: none;
+}
+.ftabs ul {
+  display: flex;
+  gap: 2px;
+  max-width: 100%;
+  padding: 4px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: inset 0 0 0 1px var(--line-light), 0 8px 24px rgba(29, 29, 31, 0.06);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  overflow-x: auto;
+  scrollbar-width: none;
+  pointer-events: auto;
+}
+.ftabs ul::-webkit-scrollbar {
+  display: none;
+}
+.ftabs a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
+  color: var(--color-text-grey);
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  text-decoration: none;
+  transition:
+    background-color var(--dur-ui) var(--ease-speed-out),
+    color var(--dur-ui) var(--ease-speed-out);
+}
+.ftabs a:hover {
+  color: var(--color-graphite);
+  background: rgba(29, 29, 31, 0.04);
+}
+.ftabs a[aria-current] {
+  color: var(--color-graphite);
+  background: var(--color-soft-grey);
+  box-shadow: inset 0 0 0 1px var(--line-light);
+}
+.ftabs a:active {
+  transform: scale(var(--press));
+}
+
+/* Blocks (after beside.com): the eight texts stack in the left column and
+   scroll; the picture card on the right is one pinned stage that stays put
+   while its contents crossfade to the block in view. The lit block's text is
+   full strength; the rest fade. Phones and tablets: see the end of the file. */
+.fgrid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  align-items: start;
+  margin-top: 64px;
+}
+.fcol {
+  grid-column: 1 / span 5;
+}
+.fblock {
+  padding: 64px 0;
+  scroll-margin-top: calc(var(--topbar-h, 72px) + 70px);
+}
+.fblock:first-child {
+  padding-top: 24px;
+}
+.fblock__text {
+  transition: opacity 500ms var(--ease-speed-out);
+}
+.js-motion .fblock:not(.is-active) .fblock__text {
+  opacity: 0.32;
+}
+.fblock__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-graphite);
+}
+.fblock__eyebrow .disc {
+  --disc: 32px;
+}
+.fblock__eyebrow .icon {
+  width: 16px;
+  height: 16px;
+}
+.fblock__h {
+  margin-top: 20px;
+  font-size: var(--type-h2);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  --ink-2: var(--color-text-grey);
+}
+.fblock__sub {
+  max-width: 480px;
+  margin-top: 16px;
+  color: var(--color-text-grey);
+}
+/* Calendly's list: one point open, a thin line filling under it. */
+.facc {
+  margin-top: 32px;
+  border-top: 1px solid var(--line-table);
+  /* min-height is set by home.js to the tallest open state, so nothing below moves. */
+  box-sizing: border-box;
+}
+.facc__item {
+  position: relative;
+  border-bottom: 1px solid var(--line-table);
+}
+.facc__q {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 60px;
+  padding: 16px 0;
+  text-align: left;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--color-text-grey);
+  transition: color var(--dur-ui) var(--ease-speed-out);
+}
+.facc__q .icon {
+  flex: none;
+}
+.facc__item.is-open .facc__q,
+.facc__q:hover {
+  color: var(--color-graphite);
+}
+.facc__a {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur-ui) var(--ease-speed-out);
+}
+.facc__a[hidden] {
+  display: grid;
+}
+.facc__item.is-open .facc__a {
+  grid-template-rows: 1fr;
+}
+.facc__a > div {
+  overflow: hidden;
+}
+.facc__a p {
+  max-width: 460px;
+  padding: 0 0 20px 32px;
+  margin-top: -6px;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-text-grey);
+}
+.facc__bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  overflow: hidden;
+}
+.facc__bar i {
+  display: block;
+  height: 100%;
+  background: var(--color-graphite);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+.facc__item.is-open .facc__bar i {
+  transform: scaleX(1);
+}
+/* While a block is lit and playing, the open point's line fills over 6 s, then
+   the next point opens (one pass). Hover or focus holds it. */
+.fblock.is-playing .facc__item.is-open .facc__bar i {
+  transform: scaleX(0);
+  animation: facc-fill 6s linear forwards;
+}
+.fblock.is-playing .facc:hover .facc__bar i,
+.fblock.is-playing .facc:focus-within .facc__bar i {
+  animation-play-state: paused;
+}
+@keyframes facc-fill {
+  to {
+    transform: scaleX(1);
+  }
+}
+.fblock__print {
+  margin-top: 16px;
+  color: var(--color-text-grey);
+}
+.fblock__more {
+  margin-top: 20px;
+}
+.fblock__more .text-link {
+  --ink: var(--color-graphite);
+}
+
+/* The stage: one box in the right column, pinned a little above the middle of
+   the window (never under the tab pills), that holds all eight pictures on top
+   of each other. Only the lit one shows; a swap is a short crossfade with a
+   touch of scale, and nothing in the layout moves. */
+.fstage {
+  --fv-h: min(560px, 68vh);
+  position: sticky;
+  top: max(calc(var(--topbar-h, 72px) + 72px), calc(50vh - var(--fv-h) / 2));
+  grid-column: 7 / -1;
+  height: var(--fv-h);
+  min-height: 420px;
+}
+/* Each picture card: a soft vertical gradient in our palette, thin stripes at
+   its sides, and the product loop in a fixed 4:3 frame. */
+.fvis {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: var(--radius-picture);
+  isolation: isolate;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.985);
+  transition:
+    opacity 450ms var(--ease-speed-out),
+    transform 450ms var(--ease-speed-out),
+    visibility 0s linear 450ms;
+}
+.fvis.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition-delay: 0s, 0s, 0s;
+}
+.js-reduced .fvis {
+  transition: none;
+}
+.g-1 { background: linear-gradient(180deg, #c6f6fa 0%, #eefcfe 40%, #7fd9e8 78%, #0b6e83 100%); }
+.g-2 { background: linear-gradient(180deg, #f2fcca 0%, #fbfef0 40%, #c6f6fa 75%, #0fa9ca 100%); }
+.g-3 { background: linear-gradient(180deg, #c6f6fa 0%, #eefcfe 35%, #0fa9ca 72%, #062a33 100%); }
+.g-4 { background: linear-gradient(180deg, #eefcfe 0%, #ffffff 35%, #7fd9e8 75%, #0a4250 100%); }
+.g-5 { background: linear-gradient(180deg, #e2fafc 0%, #f7fefe 38%, #7fd9e8 72%, #0b6e83 100%); }
+.g-6 { background: linear-gradient(180deg, #c6f6fa 0%, #eefcfe 38%, #f2fcca 70%, #0fa9ca 100%); }
+.g-7 { background: linear-gradient(180deg, #ffffff 0%, #eefcfe 40%, #7fd9e8 76%, #0fa9ca 100%); }
+.g-8 { background: linear-gradient(180deg, #f2fcca 0%, #ffffff 40%, #c6f6fa 72%, #0a4250 100%); }
+.fvis::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(60% 40% at 85% 8%, rgba(212, 246, 79, 0.35), rgba(212, 246, 79, 0) 70%);
+}
+.fvis__stripes {
+  position: absolute;
+  top: 34%;
+  bottom: 30%;
+  width: 18%;
+  background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.75) 0 2px, transparent 2px 14px);
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 25%, #000 75%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 25%, #000 75%, transparent);
+  opacity: 0.8;
+}
+.fvis__stripes--l { left: 3%; }
+.fvis__stripes--r { right: 3%; }
+/* The product loop: real speed. screens, recorded. The frame keeps its 4:3
+   box from the start, so nothing moves when the media arrives; only the media
+   inside plays. The still shows by default (no script, or motion turned off);
+   the script swaps in the video only when motion is allowed. */
+/* Static in layout: the 4:3 box exists before any media loads, never lifts or
+   scales on hover, and the video, still and GIF all fill it exactly. */
+.fmedia {
+  position: relative;
+  z-index: 1;
+  width: min(88%, calc((var(--fv-h) - 64px) * 4 / 3));
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-small);
+  background: #fbfaf9;
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.45), var(--shadow-lifted);
+}
+.fmedia__video,
+.fmedia__still {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.fmedia__video {
+  display: none;
+}
+.media-motion .fmedia__video {
+  display: block;
+}
+.media-motion .fmedia__still {
+  display: none;
+}
+/* When a browser won't play the video (Safari in Low Power Mode, a server
+   without range requests), the animated GIF takes its place. */
+.media-motion .fmedia.is-gif .fmedia__video {
+  display: none;
+}
+.media-motion .fmedia.is-gif .fmedia__still {
+  display: block;
+}
+/* The note sits under the stage and travels with it. */
+/* Phones and tablets (as beside.com does): the stage lets go. The two columns
+   dissolve into one grid, and `order` puts each picture under its own text:
+   text 1, picture 1, text 2, picture 2 and so on. Every picture shows. */
+@media (max-width: 1023px) {
+  .ftabs {
+    top: calc(var(--topbar-h, 64px) + 8px);
+    justify-content: flex-start;
+  }
+  .ftabs ul {
+    width: 100%;
+  }
+  .fgrid {
+    grid-template-columns: 1fr;
+    margin-top: 40px;
+  }
+  .fcol,
+  .fstage {
+    display: contents;
+  }
+  .fblock {
+    padding: 48px 0 24px;
+  }
+  .fblock:first-child {
+    padding-top: 8px;
+  }
+  .js-motion .fblock:not(.is-active) .fblock__text {
+    opacity: 1;
+  }
+  .fvis {
+    --fv-h: 420px;
+    position: relative;
+    height: var(--fv-h);
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: none;
+  }
+  .fblock:nth-child(1) { order: 1; }
+  .fblock:nth-child(2) { order: 3; }
+  .fblock:nth-child(3) { order: 5; }
+  .fblock:nth-child(4) { order: 7; }
+  .fblock:nth-child(5) { order: 9; }
+  .fblock:nth-child(6) { order: 11; }
+  .fblock:nth-child(7) { order: 13; }
+  .fblock:nth-child(8) { order: 15; }
+  .fvis:nth-child(1) { order: 2; }
+  .fvis:nth-child(2) { order: 4; }
+  .fvis:nth-child(3) { order: 6; }
+  .fvis:nth-child(4) { order: 8; }
+  .fvis:nth-child(5) { order: 10; }
+  .fvis:nth-child(6) { order: 12; }
+  .fvis:nth-child(7) { order: 14; }
+  .fvis:nth-child(8) { order: 16; }
+}
+@media (max-width: 767px) {
+  .features {
+    padding-top: 72px;
+    border-radius: 32px 32px 0 0;
+  }
+  .fvis {
+    --fv-h: 320px;
+  }
+}
+
+/* ---------- speed. AI ----------
+   Revolut's AIR section: one centred headline on one line, a short line, a
+   white round button, and under them the product rising from the bottom
+   edge, cut off by it. Here the product is a desktop speed. AI window in a
+   dark theme, laid out like Ramp's ask screen. As the section arrives the
+   page dims from daylight to a near-black mesh with soft grey glows, and the
+   type, the button and the top bar follow (--mesh, 0 to 1, set by home.js).
+   The dimming is the hero's: the backdrop stays pinned while night falls
+   over it through a short lead-in, so the headline arrives on the dark the
+   way the logo strip does; the white ending then slides up over it with
+   rounded corners, as the features do over the hero. */
+/* The type switches from graphite to white once night is half down, as the
+   top bar does, so it never fades into the grey in between. */
+.ai-show {
+  --m: var(--mesh, 1);
+  --ink: var(--color-graphite);
+  --ink-2: var(--color-text-grey);
+  --ink-sub: #515156;
+  --btn-bg: var(--color-graphite);
+  --btn-ink: #fff;
+  --arc: rgba(29, 29, 31, 0.14);
+  position: relative;
+  z-index: 3;
+  overflow: clip;
+  background: #fff;
+  color: var(--ink);
+  isolation: isolate;
+}
+.ai-show[data-tone="dark"] {
+  --ink: #fff;
+  --ink-2: rgba(255, 255, 255, 0.6);
+  --ink-sub: rgba(255, 255, 255, 0.72);
+  --btn-bg: #fff;
+  --btn-ink: var(--color-graphite);
+  --arc: rgba(255, 255, 255, 0.22);
+  --surface: var(--page-1);
+  --focus-outline: #fff;
+  --focus-halo: none;
+}
+.ai-head .t-h2,
+.ai-head .t-body-l,
+.ai-show .ai-head .btn {
+  transition:
+    color var(--dur-section) var(--ease-speed-out),
+    background-color var(--dur-section) var(--ease-speed-out),
+    transform var(--dur-hover) var(--ease-speed-out),
+    filter var(--dur-hover) var(--ease-speed-out);
+}
+/* The pinned backdrop: one screen tall, it holds still while the section
+   scrolls over it (as the hero's photo does). */
+.ai-mesh {
+  position: sticky;
+  top: 0;
+  z-index: -1;
+  display: block;
+  height: 100svh;
+  overflow: hidden;
+  opacity: var(--m);
+  background:
+    radial-gradient(60% 45% at 0% 100%, rgba(112, 124, 134, 0.55) 0%, rgba(112, 124, 134, 0) 100%),
+    radial-gradient(55% 45% at 100% 100%, rgba(150, 156, 160, 0.45) 0%, rgba(150, 156, 160, 0) 100%),
+    radial-gradient(40% 30% at 50% 100%, rgba(80, 86, 92, 0.4) 0%, rgba(80, 86, 92, 0) 100%),
+    var(--page-1);
+}
+.ai-mesh__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  will-change: transform;
+}
+.ai-mesh__blob--1 {
+  bottom: -18%;
+  left: -10%;
+  width: 46vw;
+  height: 36vw;
+  background: #4d5860;
+  opacity: 0.55;
+  animation: mesh-drift-a 26s ease-in-out infinite alternate;
+}
+.ai-mesh__blob--2 {
+  right: -12%;
+  bottom: -14%;
+  width: 42vw;
+  height: 34vw;
+  background: #6e7275;
+  opacity: 0.45;
+  animation: mesh-drift-b 30s ease-in-out infinite alternate;
+}
+.ai-mesh__blob--3 {
+  top: 40%;
+  left: 30%;
+  width: 40vw;
+  height: 26vw;
+  background: #2a2d31;
+  opacity: 0.6;
+  animation: mesh-drift-b 34s ease-in-out infinite alternate-reverse;
+}
+@keyframes mesh-drift-a {
+  to { transform: translate(6vw, -5vh) scale(1.08); }
+}
+@keyframes mesh-drift-b {
+  to { transform: translate(-6vw, -4vh) scale(0.94); }
+}
+.js-reduced .ai-mesh__blob {
+  animation: none;
+}
+
+.ai-show > .container {
+  position: relative;
+  margin-top: -100svh;
+  padding-top: 26svh;
+}
+/* The headline, line and button hold still while night falls under them
+   (one 55svh run), then scroll on with the window rising after them. */
+.ai-head-run__space {
+  height: 55svh;
+}
+.ai-head {
+  position: sticky;
+  top: 26svh;
+}
+/* The ending slides up over the dark with rounded corners. */
+.ai-show + .ending {
+  z-index: 4;
+  margin-top: calc(-1 * var(--radius-panel));
+  border-radius: var(--radius-panel) var(--radius-panel) 0 0;
+}
+
+/* The header: everything centred, the headline on one line. */
+.ai-head {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+}
+.ai-head .t-h2 {
+  color: var(--ink);
+  font-size: clamp(2.25rem, 1.5rem + 2.8vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.ai-head .hl-2 {
+  color: var(--ink-2);
+}
+.ai-head .t-body-l {
+  max-width: 640px;
+  margin: 28px auto 0;
+  color: var(--ink-sub);
+}
+.ai-head .btn-block {
+  align-items: center;
+  margin-top: 40px;
+}
+
+/* The window rises from the bottom edge, which cuts off its foot. */
+.ai-demo {
+  max-width: 1120px;
+  margin: 72px auto 0;
+}
+
+.aiw {
+  --w-ink: #fff;
+  --w-sub: rgba(255, 255, 255, 0.64);
+  --w-line: rgba(255, 255, 255, 0.08);
+  --w-fill: #1c1c1e;
+  --w-fill-2: #2c2c2e;
+  position: relative;
+  border-radius: var(--radius-picture);
+  overflow: hidden;
+  background: #0b0b0c;
+  color: var(--w-ink);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 -20px 80px rgba(150, 160, 170, 0.12),
+    0 40px 120px rgba(0, 0, 0, 0.6);
+}
+.aiw__bar {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: 52px;
+  padding: 0 20px;
+  box-shadow: inset 0 -1px 0 var(--w-line);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+.aiw__lights {
+  display: flex;
+  gap: 8px;
+}
+.aiw__lights i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #3a3a3d;
+}
+.aiw__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.aiw__avatar,
+.m-card__avatar {
+  position: relative;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--color-graphite);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+.aiw__avatar::after,
+.m-card__avatar::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  background: var(--color-volt);
+}
+.aiw__branch {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 30px;
+  padding: 0 10px 0 12px;
+  border-radius: var(--radius-pill);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--w-sub);
+}
+.aiw__branch .icon {
+  width: 14px;
+  height: 14px;
+}
+.aiw__body {
+  position: relative;
+  height: clamp(460px, calc(100svh - var(--topbar-h, 72px) - 120px), 620px);
+  overflow: hidden;
+  background:
+    radial-gradient(50% 55% at 50% 0%, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 100%),
+    radial-gradient(45% 50% at 8% 100%, rgba(112, 124, 134, 0.22) 0%, rgba(112, 124, 134, 0) 100%),
+    radial-gradient(45% 50% at 96% 100%, rgba(150, 156, 160, 0.18) 0%, rgba(150, 156, 160, 0) 100%),
+    #0b0b0c;
+}
+/* The dashed lines run in the background behind the window, out to the
+   edges of the screen. */
+.ai-demo {
+  position: relative;
+}
+.ai-arcs {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  z-index: 0;
+  width: 100vw;
+  height: calc(100% + 160px);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.ai-arcs path {
+  fill: none;
+  stroke: var(--arc);
+  transition: stroke var(--dur-section) var(--ease-speed-out);
+  stroke-width: 1.25;
+  stroke-dasharray: 4 7;
+  vector-effect: non-scaling-stroke;
+}
+.js-motion .ai-arcs path {
+  animation: arc-run 30s linear infinite;
+}
+@keyframes arc-run {
+  to { stroke-dashoffset: -400; }
+}
+.ai-stage {
+  position: relative;
+  z-index: 1;
+}
+.aiw__col {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min(720px, calc(100% - 48px));
+  height: 100%;
+  margin: 0 auto;
+  padding: 20px 0 64px;
+}
+.aiw__intro {
+  margin-bottom: 28px;
+  text-align: center;
+}
+.aiw__h {
+  font-size: clamp(2.25rem, 1.8rem + 1.6vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.aiw__sub {
+  max-width: 440px;
+  margin: 12px auto 0;
+  font-size: 1.0625rem;
+  line-height: 1.45;
+  color: var(--w-sub);
+}
+.aiw__thread {
+  display: none;
+  flex: 1;
+  min-height: 0;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-bottom: 16px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 40px);
+  mask-image: linear-gradient(180deg, transparent 0, #000 40px);
+  transition: opacity var(--dur-ui) var(--ease-speed-out);
+}
+.aiw__thread.is-fading {
+  opacity: 0;
+}
+.aiw[data-state="thread"] .aiw__intro {
+  display: none;
+}
+.aiw[data-state="thread"] .aiw__thread {
+  display: flex;
+}
+.aiw__thread > * {
+  flex: none;
+}
+.aiw__composer {
+  flex: none;
+  padding: 18px 18px 12px;
+  border-radius: var(--radius-small);
+  background: var(--w-fill);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+/* Once the conversation starts, the composer is one line with its send
+   button beside the words. */
+.aiw[data-state="thread"] .aiw__composer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 10px 10px 18px;
+}
+.aiw[data-state="thread"] .aiw__input {
+  flex: 1;
+  min-height: 26px;
+}
+.aiw[data-state="thread"] .aiw__tools {
+  margin: 0;
+}
+.aiw[data-state="thread"] .aiw__tool {
+  display: none;
+}
+.aiw__input {
+  position: relative;
+  min-height: 64px;
+  font-size: 1.0625rem;
+  line-height: 1.45;
+}
+.aiw__ph {
+  position: absolute;
+  inset: 0 auto auto 0;
+  color: rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+.aiw.has-text .aiw__ph {
+  display: none;
+}
+.aiw__caret {
+  display: inline-block;
+  width: 1.5px;
+  height: 1.15em;
+  margin-left: 1px;
+  vertical-align: -0.2em;
+  background: var(--color-volt);
+  animation: caret 1s steps(1) infinite;
+}
+.aiw:not(.has-text) .aiw__caret {
+  position: absolute;
+  top: 0.15em;
+  left: 0;
+}
+@keyframes caret {
+  50% { opacity: 0; }
+}
+.aiw__tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+.aiw__tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  color: var(--w-sub);
+}
+.aiw__send {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  transition:
+    background-color var(--dur-ui) var(--ease-speed-out),
+    color var(--dur-ui) var(--ease-speed-out),
+    transform var(--dur-hover) var(--ease-speed-out);
+}
+.aiw.has-text .aiw__send {
+  background: var(--color-volt);
+  color: var(--color-graphite);
+}
+.aiw__send.is-pressed {
+  transform: scale(0.9);
+}
+.aiw__cursor {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  transition:
+    transform 900ms var(--ease-speed-out),
+    opacity var(--dur-ui) var(--ease-speed-out);
+}
+.aiw__cursor path {
+  fill: #fff;
+  stroke: var(--color-graphite);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+.aiw__cursor.is-on {
+  opacity: 1;
+}
+.aiw__cursor.is-click path {
+  animation: cursor-click 300ms var(--ease-speed-out);
+  transform-origin: 3px 2px;
+}
+@keyframes cursor-click {
+  50% { transform: scale(0.82); }
+}
+
+/* The conversation, in a dark theme (Revolut's AIR bubbles). */
+.m-in {
+  animation: m-in 420ms var(--ease-speed-out) both;
+}
+@keyframes m-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+.m-user {
+  align-self: flex-end;
+  max-width: 70%;
+  padding: 10px 14px 8px;
+  border-radius: 18px 18px 6px 18px;
+  background: var(--w-fill-2);
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+.m-user__meta {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+  font-size: 0.6875rem;
+  color: var(--w-sub);
+}
+.m-user__meta .icon {
+  width: 14px;
+  height: 14px;
+  color: var(--page-7);
+}
+.m-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--w-sub);
+}
+.m-loader {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-graphite);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+.m-loader::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-volt);
+  animation: m-pulse 900ms ease-in-out infinite;
+}
+.m-status.is-done .m-loader::after {
+  animation: none;
+}
+@keyframes m-pulse {
+  50% { transform: scale(0.55); opacity: 0.6; }
+}
+.m-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--w-ink);
+  animation: chip-in 300ms var(--ease-speed-out) both;
+}
+.m-chip .icon {
+  width: 14px;
+  height: 14px;
+}
+.m-chip:nth-of-type(2) { animation-delay: 120ms; }
+.m-chip:nth-of-type(3) { animation-delay: 240ms; }
+@keyframes chip-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+.m-card,
+.m-sugg {
+  border-radius: 20px;
+  background: var(--w-fill);
+  box-shadow: inset 0 0 0 1px var(--w-line);
+}
+.m-card {
+  padding: 14px 16px;
+}
+.m-card__head {
+  display: flex;
+  gap: 10px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+.m-rows {
+  margin-top: 10px;
+}
+.m-row {
+  display: grid;
+  grid-template-columns: 32px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 0;
+  box-shadow: inset 0 1px 0 var(--w-line);
+  animation: m-in 420ms var(--ease-speed-out) both;
+}
+.m-row:nth-child(2) { animation-delay: 100ms; }
+.m-row:nth-child(3) { animation-delay: 200ms; }
+.m-ini {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+.m-ini__badge {
+  position: absolute;
+  right: -3px;
+  bottom: -3px;
+  width: 16px;
+  height: 16px;
+  padding: 2px;
+  border-radius: 50%;
+  background: var(--w-fill);
+  color: #fff;
+  box-shadow: 0 0 0 1px var(--w-line);
+}
+.m-row__name {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.m-row__detail {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--w-sub);
+}
+.m-row__amt {
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.m-sugg {
+  position: relative;
+  overflow: hidden;
+  padding: 12px 16px 14px;
+}
+.m-sugg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(212, 246, 79, 0.12);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform var(--dur-ui) var(--ease-speed-out);
+}
+.m-sugg.is-approved::before {
+  transform: none;
+}
+.m-sugg > * {
+  position: relative;
+}
+.m-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--page-7);
+}
+.m-sugg.is-approved .m-label {
+  color: var(--color-volt);
+}
+.m-label .icon {
+  width: 13px;
+  height: 13px;
+}
+.m-sugg__line {
+  margin-top: 6px;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+.m-btns {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+.m-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  transition: transform var(--dur-hover) var(--ease-speed-out);
+}
+.m-btn--yes {
+  background: var(--color-volt);
+  color: var(--color-graphite);
+}
+.m-btn.is-pressed {
+  transform: scale(0.94);
+}
+.m-done {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  animation: m-in 300ms var(--ease-speed-out) both;
+}
+.m-done .icon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-volt);
+}
+.m-dm {
+  display: flex;
+  gap: 10px;
+}
+.m-dm__msg {
+  margin-top: 4px;
+  padding: 8px 12px;
+  border-radius: 6px 16px 16px 16px;
+  background: var(--w-fill-2);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+.m-draft {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  box-shadow: inset 0 0 0 1px var(--w-line);
+}
+
+@media (max-width: 1023px) {
+  .aiw__body {
+    height: 540px;
+  }
+}
+@media (max-width: 767px) {
+  .ai-head .t-h2 .hl-inline {
+    display: block;
+  }
+  .ai-head .btn-block {
+    align-items: stretch;
+  }
+  .ai-demo {
+    margin-top: 48px;
+  }
+  .ai-stage {
+    margin-inline: calc(-1 * var(--margin) + 8px);
+  }
+  .aiw {
+    border-radius: var(--radius-card);
+  }
+  .aiw__bar {
+    height: 44px;
+    padding: 0 14px;
+  }
+  .aiw__branch {
+    display: none;
+  }
+  .aiw__body {
+    height: 540px;
+  }
+  .aiw__col {
+    width: calc(100% - 24px);
+  }
+  .aiw__sub {
+    font-size: 0.9375rem;
+  }
+  .aiw__input {
+    min-height: 56px;
+    font-size: 1rem;
+  }
+  .aiw__tool {
+    font-size: 0.75rem;
+  }
+  .m-user {
+    max-width: 86%;
+  }
+  .m-card,
+  .m-sugg {
+    padding: 12px 14px;
+  }
+}
